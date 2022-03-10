@@ -1,0 +1,81 @@
+// moderation-courses
+.moderation-courses
+	margin: 50px 0
+	+openAnimation
+
+	&-section
+		margin-bottom: 50px
+
+		&__title
+			margin-bottom: 35px
+			font-size: 36px
+
+		&-block
+			position: relative
+			padding: 15px
+
+			background-color: $backgroundGray
+
+			display: flex
+			justify-content: space-between
+			align-items: flex-start
+
+			overflow: hidden
+
+			margin-bottom: 25px
+
+			+openAnimation
+			+borderRadiusBlock
+			+transition
+
+			&.edit:hover
+				transform: scale(0.99)
+
+			&-content
+				display: flex
+
+				&-cover
+					min-width: 200px
+					height: 250px
+
+					+backgroundSetting
+					+borderRadiusBlock
+
+				&-text
+					max-width: 70%
+					display: flex
+					flex-direction: column
+					justify-content: space-between
+
+					margin-left: 35px
+
+					&__title
+						font-size: 32px
+
+					&__category
+						font-size: 21px
+
+						& span
+							color: $gray
+
+			&__status
+				display: block
+				font-size: 16px
+				padding: 5px 10px
+				border-radius: 100px
+				color: $white
+
+				& span
+					text-decoration: underline
+
+				&.moderation
+					background-color: $mainColor
+
+				&.reject
+					background-color: $red
+
+		&__notfound
+			margin: 100px 0
+			text-align: center
+			font-size: 32px
+			color: $gray

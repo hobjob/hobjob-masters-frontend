@@ -1,0 +1,123 @@
+// add-potencial-courses
+.add-potencial-courses
+	margin: 50px 0
+	+openAnimation
+
+	&-error-message
+		padding: 35px
+		background-color: $backgroundGray
+
+		margin-bottom: 50px
+
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+
+		+borderRadiusBlock
+
+		&-title
+			width: 25%
+
+			&__title
+				font-size: 32px
+
+		&-text
+			width: 70%
+
+			&__message
+				font-size: 24px
+				border-bottom: 1px solid $borderGray
+				padding-bottom: 25px
+				margin-bottom: 25px
+
+			&__info
+				font-size: 18px
+
+				& a
+					color: $mainColor
+
+	&-block-wrapper
+		margin-top: 25px
+
+	&-block
+		margin: 0 0 50px 0
+		padding-bottom: 15px
+		border-bottom: 1px solid $borderGray
+
+		display: flex
+		justify-content: space-between
+
+		&:last-child
+			border: none
+			padding-bottom: 0
+
+		&-text
+			width: 38%
+
+			&__title
+				font-size: 42px
+
+		&-form
+			width: 60%
+
+			&-input
+				width: 100%
+				margin-bottom: 50px
+
+				&:last-child
+					margin-bottom: 0
+
+			&-block
+				padding: 35px
+				margin-bottom: 35px
+
+				+openAnimation
+				+boxShadow
+				+borderRadiusBlock
+
+				&-input
+					width: 100%
+					margin-bottom: 50px
+
+					&:last-child
+						margin-bottom: 0
+
+				&-subblock
+					margin-bottom: 50px
+					padding-bottom: 50px
+
+					border-bottom: 1px solid $borderGray
+
+					&:last-child
+						margin-bottom: 0
+						padding-bottom: 0
+						border: none
+
+					&__title
+						font-size: 36px
+						margin-bottom: 25px
+
+				&-top
+					display: flex
+					justify-content: space-between
+					align-items: center
+					margin-bottom: 50px
+
+					&__title
+						font-size: 28px
+
+					&-close
+						display: flex
+						align-items: center
+						cursor: pointer
+
+				&-subblock-subblock
+					padding: 35px
+					background-color: $backgroundGray
+					margin-bottom: 25px
+
+					+openAnimation
+					+borderRadiusBlock
+
+			&__btn
+				width: 100%

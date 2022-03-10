@@ -1,0 +1,103 @@
+// course-regulations
+.course-regulations
+	margin: 50px 0
+	+openAnimation
+
+	&-wrapper
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+
+	&-menu-wrapper
+		position: sticky
+		top: 50px
+
+		width: 30%
+
+		display: inline-block
+		overflow: hidden
+
+		padding: 25px 15px 25px 25px
+		background-color: $backgroundGray
+
+		+borderRadiusBlock
+
+	&-menu
+		width: 100%
+		max-height: 500px
+
+		overflow-y: auto
+		overflow-x: hidden
+
+		&::-webkit-scrollbar
+			width: 4px
+			height: 7px
+			background-color: #F0F0F0
+
+		&::-webkit-scrollbar-thumb
+			background-color: #E2E2E2
+			border-radius: 3px
+
+		&::-webkit-scrollbar-thumb:hover
+			background-color: #E2E2E2
+
+		&::-ms-scrollbar
+			width: 4px
+			height: 8px
+			background-color: #F0F0F0
+
+		&::-ms-scrollbar-thumb
+			background-color: #E2E2E2
+			border-radius: 3px
+
+		&::-ms-scrollbar-thumb:hover
+			background-color: #E2E2E2
+
+		&-item
+			margin-bottom: 30px
+
+			&:last-child
+				margin-bottom: 0
+
+			&__title
+				cursor: pointer
+				font-size: 21px
+
+				width: 95%
+
+				overflow: hidden
+				white-space: nowrap
+				text-overflow: ellipsis
+
+			&-list
+				padding-left: 15px
+
+				overflow: hidden
+
+				+transition
+
+				&__title
+					display: block
+					font-size: 17px
+
+					margin-bottom: 15px
+
+					width: 95%
+
+					overflow: hidden
+					white-space: nowrap
+					text-overflow: ellipsis
+
+					+transition
+
+					&:hover
+						color: $gray
+
+					&:first-child
+						margin-top: 15px
+
+					&:last-child
+						margin-bottom: 0
+
+	&-test
+		width: 65%
