@@ -23,6 +23,9 @@ export { default as AddPotencialCourses } from "./AddPotencialCourses"
 // EditPotencialCourses
 export { default as EditPotencialCourses } from "./EditPotencialCourses"
 
+// Statistics
+export { default as Statistics } from "./Statistics"
+
 // Policy
 export { default as Policy } from "./Policy"
 

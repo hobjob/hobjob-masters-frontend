@@ -3,6 +3,45 @@
 	margin: 50px 0
 	+openAnimation
 
+	&-info-message
+		padding: 35px
+		background-color: $backgroundGray
+
+		margin-bottom: 50px
+
+		display: flex
+		justify-content: space-between
+
+		+borderRadiusBlock
+
+		&-text
+			width: 60%
+			
+			&__title
+				font-size: 32px
+				margin-bottom: 25px
+
+			&__description
+				font-size: 24px
+
+				border-bottom: 1px solid $borderGray
+				padding-bottom: 25px
+				margin-bottom: 25px
+
+			&__info
+				font-size: 18px
+
+		&-image
+			width: 40%
+			display: flex
+			justify-content: center
+			
+			&__image
+				width: 350px
+				
+				user-select: none
+				pointer-events: none
+
 	&-error-message
 		padding: 35px
 		background-color: $backgroundGray

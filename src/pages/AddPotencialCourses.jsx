@@ -2,7 +2,11 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 
-import {AddPotencialCoursesForm, Loader} from "../components/";
+import {
+    AddPotencialCoursesInfoMessage,
+    AddPotencialCoursesForm,
+    Loader,
+} from "../components/";
 
 import {sendAddPotencialCourse} from "../redux/actions/potencial_courses";
 
@@ -66,6 +70,8 @@ const AddPotencialCourses = () => {
                         <section className="add-potencial-courses">
                             <div className="container">
                                 <div className="add-potencial-courses-wrapper">
+                                    <AddPotencialCoursesInfoMessage />
+
                                     <AddPotencialCoursesForm
                                         onSubmit={onSubmit}
                                     />

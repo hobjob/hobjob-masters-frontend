@@ -1,7 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const ModerationCoursesBlockEdit = ({_id, image, number, title, category}) => {
+const ModerationCoursesBlockEdit = ({ _id, image, number, title, category, days }) => {
+	console.log(days);
     return (
         <Link
             to={`/go/courses/edit/${_id}`}
@@ -30,7 +31,10 @@ const ModerationCoursesBlockEdit = ({_id, image, number, title, category}) => {
             </div>
 
             <p className="moderation-courses-section-block__status reject">
-                Отклонен, <span>подробнее</span>
+                Отклонен,{" "}
+                {days.num === 0 ? "курс будет удален сегодня" : `курс будет удален через ${days.title}`}
+                {", "}
+                <span>подробнее</span>
             </p>
         </Link>
     );

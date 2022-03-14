@@ -163,7 +163,7 @@ const Footer = () => {
                                 className="footer-block-nav__link"
                                 activeClassName="footer-block-nav__link active"
                             >
-                                Рекомендации для создания курса
+                                Рекомендации по созданию курса
                             </NavLink>
                         </nav>
                     </div>

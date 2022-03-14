@@ -3,6 +3,31 @@
 	margin: 50px 0
 	+openAnimation
 
+	&-null
+		margin: 50px 0
+		
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+		&-text
+			width: 55%
+
+			&__title
+				font-size: 48px
+				margin-bottom: 25px
+
+			&-btn
+				display: flex
+				justify-content: space-between
+
+			&__btn
+				width: 49%
+
+		&__img
+			width: 450px
+			user-select: none
+
 	&-section
 		margin-bottom: 50px
 
@@ -73,9 +98,3 @@
 
 				&.reject
 					background-color: $red
-
-		&__notfound
-			margin: 100px 0
-			text-align: center
-			font-size: 32px
-			color: $gray

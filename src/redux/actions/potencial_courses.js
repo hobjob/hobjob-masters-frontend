@@ -32,7 +32,7 @@ export const sendUpdatePotencialCourse = (id, data) => (dispatch) => {
 	})
 
 	return $api.put(`/potencial-courses/${id}`, data).then(({ data }) => {
-		// window.location.href = "/go/moderation-courses"
+		window.location.href = "/go/moderation-courses"
 	}).catch(({ response }) => {
 		dispatch({
 			type: "SET_IS_SEND_POTENCIAL_COURSE",

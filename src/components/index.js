@@ -40,6 +40,7 @@ export { default as CabinetMasterPassword } from "./Cabinet/CabinetMasterPasswor
 export { default as CabinetMessage } from "./Cabinet/CabinetMessage"
 
 // AddPotencialCourses
+export { default as AddPotencialCoursesInfoMessage } from "./AddPotencialCourses/AddPotencialCoursesInfoMessage"
 export { default as AddPotencialCoursesForm } from "./AddPotencialCourses/AddPotencialCoursesForm"
 export { default as AddPotencialCoursesInfoForm } from "./AddPotencialCourses/AddPotencialCoursesInfoForm"
 export { default as AddPotencialCoursesLessonsForm } from "./AddPotencialCourses/AddPotencialCoursesLessonsForm"
@@ -59,12 +60,12 @@ export { default as EditPotencialCoursesLessonsFormItemsTimecodes } from "./Edit
 // ModerationCourses
 export { default as ModerationCoursesBlock } from "./ModerationCourses/ModerationCoursesBlock"
 export { default as ModerationCoursesBlockEdit } from "./ModerationCourses/ModerationCoursesBlockEdit"
-export { default as ModerationCoursesNotFound } from "./ModerationCourses/ModerationCoursesNotFound"
+export { default as ModerationCoursesNull } from "./ModerationCourses/ModerationCoursesNull"
 
 // Policy
 export { default as PolicyBlock } from "./Policy/PolicyBlock"
 
-// Policy
+// CourseRegulations
 export { default as CourseRegulationsMenu } from "./CourseRegulations/CourseRegulationsMenu"
 export { default as CourseRegulationsMenuItem } from "./CourseRegulations/CourseRegulationsMenuItem"
 

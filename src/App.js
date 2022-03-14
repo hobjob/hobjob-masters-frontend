@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import { Header, Footer } from './components/';
 
-import { Home, Login, Register, PasswordRecoveryEmail, PasswordRecoveryNewPassword, Cabinet, ModerationCourses, AddPotencialCourses, EditPotencialCourses, Policy, PublicOffer, Regulations, EngineeringWorks, CourseRegulations } from './pages/';
+import { Home, Login, Register, PasswordRecoveryEmail, PasswordRecoveryNewPassword, Cabinet, ModerationCourses, AddPotencialCourses, EditPotencialCourses, Statistics, Policy, PublicOffer, Regulations, EngineeringWorks, CourseRegulations } from './pages/';
 
 dotenv.config()
 
@@ -39,6 +39,8 @@ const App = () => {
 						<Route path="/go/moderation-courses" render={() => <ModerationCourses />} exact />
 						<Route path="/go/courses/add" render={() => <AddPotencialCourses />} exact />
 						<Route path="/go/courses/edit/:id" render={(props) => <EditPotencialCourses {...props} />} exact />
+
+						<Route path="/go/statistics" render={() => <Statistics />} exact />
 
 						<Route render={() => window.location.href = "/"} exact />
 					</Switch>

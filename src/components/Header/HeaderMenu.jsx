@@ -23,7 +23,7 @@ const HeaderMenu = React.memo(() => {
                 className="header-nav__link"
                 activeClassName="header-nav__link active"
             >
-                Рекомендации для создания курса
+                Рекомендации по созданию курса
             </NavLink>
         </nav>
     );

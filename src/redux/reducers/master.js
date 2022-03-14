@@ -1,5 +1,6 @@
 const initialState = {
 	masterInfo: {},
+	
 	potencialCoursesModeration: [],
 	potencialCoursesReject: [],
 
