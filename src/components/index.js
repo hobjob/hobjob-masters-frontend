@@ -36,6 +36,7 @@ export { default as HeaderModalMenu } from "./Header/HeaderModalMenu"
 // Cabinet
 export { default as CabinetCardMasterInfo } from "./Cabinet/CabinetCardMasterInfo"
 export { default as CabinetMasterInfoForm } from "./Cabinet/CabinetMasterInfoForm"
+export { default as CabinetMasterPayment } from "./Cabinet/CabinetMasterPayment"
 export { default as CabinetMasterPassword } from "./Cabinet/CabinetMasterPassword"
 export { default as CabinetMessage } from "./Cabinet/CabinetMessage"
 
@@ -46,7 +47,6 @@ export { default as AddPotencialCoursesInfoForm } from "./AddPotencialCourses/Ad
 export { default as AddPotencialCoursesLessonsForm } from "./AddPotencialCourses/AddPotencialCoursesLessonsForm"
 export { default as AddPotencialCoursesLessonsFormItems } from "./AddPotencialCourses/AddPotencialCoursesLessonsFormItems"
 export { default as AddPotencialCoursesLessonsFormItemsMaterials } from "./AddPotencialCourses/AddPotencialCoursesLessonsFormItemsMaterials"
-export { default as AddPotencialCoursesLessonsFormItemsTimecodes } from "./AddPotencialCourses/AddPotencialCoursesLessonsFormItemsTimecodes"
 
 // EditPotencialCourses
 export { default as EditPotencialCoursesErrorMessage } from "./EditPotencialCourses/EditPotencialCoursesErrorMessage"
@@ -55,12 +55,22 @@ export { default as EditPotencialCoursesInfoForm } from "./EditPotencialCourses/
 export { default as EditPotencialCoursesLessonsForm } from "./EditPotencialCourses/EditPotencialCoursesLessonsForm"
 export { default as EditPotencialCoursesLessonsFormItems } from "./EditPotencialCourses/EditPotencialCoursesLessonsFormItems"
 export { default as EditPotencialCoursesLessonsFormItemsMaterials } from "./EditPotencialCourses/EditPotencialCoursesLessonsFormItemsMaterials"
-export { default as EditPotencialCoursesLessonsFormItemsTimecodes } from "./EditPotencialCourses/EditPotencialCoursesLessonsFormItemsTimecodes"
 
 // ModerationCourses
 export { default as ModerationCoursesBlock } from "./ModerationCourses/ModerationCoursesBlock"
 export { default as ModerationCoursesBlockEdit } from "./ModerationCourses/ModerationCoursesBlockEdit"
 export { default as ModerationCoursesNull } from "./ModerationCourses/ModerationCoursesNull"
+
+// Statistics
+// StatisticsTopInfo
+export { default as StatisticsTopInfo } from "./Statistics/StatisticsTopInfo/StatisticsTopInfo"
+export { default as StatisticsTopInfoBlockBalance } from "./Statistics/StatisticsTopInfo/StatisticsTopInfoBlockBalance"
+export { default as StatisticsTopInfoBlockCourses } from "./Statistics/StatisticsTopInfo/StatisticsTopInfoBlockCourses"
+export { default as StatisticsTopInfoBlockStudents } from "./Statistics/StatisticsTopInfo/StatisticsTopInfoBlockStudents"
+export { default as StatisticsTopInfoBlockCountViews } from "./Statistics/StatisticsTopInfo/StatisticsTopInfoBlockCountViews"
+// StatisticsCourses
+export { default as StatisticsCourses } from "./Statistics/StatisticsCourses/StatisticsCourses"
+export { default as StatisticsCoursesBlock } from "./Statistics/StatisticsCourses/StatisticsCoursesBlock"
 
 // Policy
 export { default as PolicyBlock } from "./Policy/PolicyBlock"
@@ -68,6 +78,8 @@ export { default as PolicyBlock } from "./Policy/PolicyBlock"
 // CourseRegulations
 export { default as CourseRegulationsMenu } from "./CourseRegulations/CourseRegulationsMenu"
 export { default as CourseRegulationsMenuItem } from "./CourseRegulations/CourseRegulationsMenuItem"
+// CourseRegulationsContent
+export { default as CourseRegulationsContentItem } from "./CourseRegulations/CourseRegulationsContentItem"
 
 // Footer
 export { default as Footer } from "./Footer/Footer"

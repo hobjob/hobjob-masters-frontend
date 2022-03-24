@@ -6,12 +6,14 @@ import {
     Loader,
     CabinetCardMasterInfo,
     CabinetMasterInfoForm,
+    CabinetMasterPayment,
     CabinetMasterPassword,
     CabinetMessage,
 } from "../components/";
 
 import {
     fetchUpdateMaster,
+    fetchUpdateMasterPayment,
     fetchUpdateMasterPassword,
 } from "../redux/actions/master";
 
@@ -32,7 +34,7 @@ const Cabinet = () => {
     React.useEffect(() => {
         if (isLoadedMasterInfo) {
             if (hash !== "") {
-                const id = hash.replace("#", "");
+				const id = hash.replace("#", "");
 
                 const element = document.getElementById(id);
 
@@ -48,6 +50,10 @@ const Cabinet = () => {
 
     const onSubmitCabinetMasterInfoForm = (data) => {
         dispatch(fetchUpdateMaster(data));
+    };
+
+    const onSubmitCabinetMasterPayment = (data) => {
+        dispatch(fetchUpdateMasterPayment(data));
     };
 
     const onSubmitCabinetMasterPassword = (data) => {
@@ -81,7 +87,7 @@ const Cabinet = () => {
                                         masterInfo.edit ? null : (
                                             <CabinetMessage
                                                 message={
-                                                    "Вы не можете поменять свои личные данные, так как являетесь мастером HobJob. Если вы хотите изменить данные напишите на почту поддержки"
+                                                    "Вы не можете поменять свои личные данные, так как являетесь подтвержденным мастером HobJob. Если вы хотите изменить данные напишите на почту поддержки"
                                                 }
                                                 closeFunc={
                                                     closeMasterInfoMessage
@@ -101,6 +107,21 @@ const Cabinet = () => {
                                                     onSubmitCabinetMasterInfoForm
                                                 }
                                                 {...masterInfo}
+                                            />
+                                        </div>
+
+                                        <div className="cabinet-block">
+                                            <div className="cabinet-block-text">
+                                                <h3 className="cabinet-block-text__title">
+                                                    Платежная информация
+                                                </h3>
+                                            </div>
+
+                                            <CabinetMasterPayment
+                                                onSubmit={
+                                                    onSubmitCabinetMasterPayment
+                                                }
+                                                {...masterInfo.paymentInfo}
                                             />
                                         </div>
 

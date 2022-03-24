@@ -10,14 +10,14 @@ const RenderImageInput = ({
     const [imageAvatar, setImageAvatar] = React.useState("");
 
     const adaptFileEventToValue = (delegate) => (e) => {
-        delegate(e.target.files[0]);
-
         if (e.target.files[0]) {
+			delegate(e.target.files[0]);
+			
             const type = e.target.files[0].type;
             const size = e.target.files[0].size;
 
             if (type === "image/jpeg" || type === "image/png") {
-                if (size < 2000000) {
+                if (size < 2500000) {
                     let reader = new FileReader();
 
                     reader.onload = function (e) {
@@ -36,7 +36,7 @@ const RenderImageInput = ({
 
     return (
         <>
-            <span className="subtitle__mb">{label}</span>
+            <span className="input-file-block__subtitle">{label}</span>
 
             {touched && error && error !== "Поле не может быть пустым" && (
                 <span className="input-file-block__error">{error}</span>

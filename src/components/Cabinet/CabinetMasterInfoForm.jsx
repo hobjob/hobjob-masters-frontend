@@ -11,44 +11,39 @@ let CabinetMasterInfoForm = ({
     initialize,
     name,
     surname,
-    instagram,
     masterDescription,
-	edit
+    edit,
+    invalid,
 }) => {
+    const valid = !invalid;
+
     const {isSendUpdateMasterInfo} = useSelector(({master}) => master);
 
     const selector = formValueSelector("cabinet-master-info-form");
 
-    const {
-        nameValue,
-        surnameValue,
-        instagramValue,
-        masterDescriptionValue,
-    } = useSelector((state) => {
-        const {name, surname, instagram, masterDescription,} =
-            selector(
+    const {nameValue, surnameValue, masterDescriptionValue} = useSelector(
+        (state) => {
+            const {name, surname, masterDescription} = selector(
                 state,
                 "name",
                 "surname",
-                "instagram",
                 "masterDescription"
             );
-        return {
-            nameValue: name,
-            surnameValue: surname,
-            instagramValue: instagram,
-            masterDescriptionValue: masterDescription,
-        };
-    });
+            return {
+                nameValue: name,
+                surnameValue: surname,
+                masterDescriptionValue: masterDescription,
+            };
+        }
+    );
 
     React.useEffect(() => {
         initialize({
             name,
             surname,
-            instagram,
             masterDescription,
         });
-    }, [name, surname, instagram, masterDescription]);
+    }, [name, surname, masterDescription]);
 
     return (
         <form className="cabinet-block-form" onSubmit={handleSubmit}>
@@ -74,16 +69,6 @@ let CabinetMasterInfoForm = ({
 
             <div className="cabinet-block-form-input">
                 <Field
-                    component={RenderInput}
-                    type="text"
-                    name="instagram"
-                    label="Instagram"
-                    disabled={!edit}
-                />
-            </div>
-
-            <div className="cabinet-block-form-input">
-                <Field
                     component={RenderInputAutoSize}
                     type="text"
                     name="masterDescription"
@@ -102,10 +87,10 @@ let CabinetMasterInfoForm = ({
             ) : (
                 <button
                     className={`btn ${
-                        nameValue !== name ||
-                        surnameValue !== surname ||
-                        instagramValue !== instagram ||
-                        masterDescriptionValue !== masterDescription
+                        (nameValue !== name ||
+                            surnameValue !== surname ||
+                            masterDescriptionValue !== masterDescription) &&
+                        valid
                             ? ""
                             : "disabled"
                     } cabinet-block-form-btn`}

@@ -32,7 +32,6 @@
 		border-bottom: 1px solid $borderGray
 
 		&-avatar
-			cursor: pointer
 			position: relative
 			overflow: hidden
 
@@ -48,6 +47,7 @@
 				transform: translate(-50%, -50%) scale3d(1, 1, 1)
 
 			&-placeholder
+				cursor: pointer
 				position: absolute
 				width: 100%
 				height: 100%
@@ -72,6 +72,15 @@
 		&-text
 			margin-left: 50px
 
+			&__subtitle
+				display: inline-block
+				margin-bottom: 15px
+				font-size: 16px
+				padding: 5px 10px
+				border-radius: 100px
+				background-color: $mainColor
+				color: $white
+
 			&__name
 				font-size: 42px
 				margin-bottom: 15px
@@ -94,6 +103,7 @@
 		&:last-child
 			border: none
 			padding-bottom: 0
+			margin: 50px 0 0 0
 
 		&-text
 			width: 35%
@@ -110,39 +120,3 @@
 
 			&-btn
 				width: 100%
-
-		&-subscribe
-			&-info
-				&-item
-					display: flex
-					justify-content: space-between
-					align-items: center
-
-					padding-bottom: 35px
-					margin-bottom: 35px
-					border-bottom: 1px solid $borderGray
-
-					&:last-child
-						border: none
-						margin-bottom: 0
-						padding-bottom: 0
-
-					&__title
-						font-size: 21px
-
-					&__description
-						font-size: 18px
-
-						& span
-							cursor: pointer
-							color: $gray
-
-				&-item-select
-					padding: 20px 25px
-					background-color: $backgroundGray
-					margin-bottom: 50px
-
-					+borderRadiusBlock
-
-			&__btn
-				width: 75%

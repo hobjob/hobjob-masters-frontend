@@ -23,7 +23,7 @@ const validate = (values) => {
 	if (values.image && typeof values.image !== "string") {
 		if (values.image.type !== "image/jpeg" && values.image.type !== "image/png") {
 			errors.image = 'Ваше изображение неверного расширения. Доступные расширения: .jpg, .jpeg, .png';
-		} else if (values.image.size > 2000000) {
+		} else if (values.image.size > 2500000) {
 			errors.image = `Ваше изображение слишком большое. Максимальный вес 2мб`;
 		}
 	}
@@ -67,7 +67,7 @@ const validate = (values) => {
 					lessonErrors.image = 'Ваше изображение неверного расширения. Доступные расширения: .jpg, .jpeg, .png';
 					lessonsArrayErrors[index] = lessonErrors
 
-				} else if (lesson.image.size > 2000000) {
+				} else if (lesson.image.size > 2500000) {
 					lessonErrors.image = `Ваше изображение слишком большое. Максимальный вес 2мб`;
 					lessonsArrayErrors[index] = lessonErrors
 
@@ -110,44 +110,6 @@ const validate = (values) => {
 
 			}
 
-			if (lesson.timecodes) {
-				const timecodesArrayErrors = []
-
-				lesson.timecodes.forEach((timecode, timecodeIndex) => {
-					const timecodesErrors = {}
-
-					if (!timecode.title) {
-						timecodesErrors.title = 'Поле не может быть пустым';
-						timecodesArrayErrors[timecodeIndex] = timecodesErrors
-
-					} else if (timecode.length > defaultMax) {
-						timecodesErrors.title = `Не более ${defaultMax} символов`;
-						timecodesArrayErrors[timecodeIndex] = timecodesErrors
-
-					} else if (timecode.length < defaultMin) {
-						timecodesErrors.title = `Не менее ${defaultMin} символов`;
-						timecodesArrayErrors[timecodeIndex] = timecodesErrors
-
-					}
-
-					if (!timecode.timecode) {
-						timecodesErrors.timecode = 'Поле не может быть пустым';
-						timecodesArrayErrors[timecodeIndex] = timecodesErrors
-
-					} else if (!/^[0-5]{1}[0-9]{1}[:]{1}[0-5]{1}[0-9]{1}[:]{1}[0-5]{1}[0-9]{1}$/.test(timecode.timecode)) {
-						timecodesErrors.timecode = `Неверный таймкод`;
-						timecodesArrayErrors[timecodeIndex] = timecodesErrors
-
-					}
-				})
-
-				if (timecodesArrayErrors.length) {
-					lessonErrors.timecodes = timecodesArrayErrors
-					lessonsArrayErrors[index] = lessonErrors
-				}
-
-			}
-
 			if (lesson.video && !lesson.video.indexFile) {
 				if (!lesson.video) {
 					lessonErrors.video = 'Поле не может быть пустым';
@@ -163,8 +125,8 @@ const validate = (values) => {
 					lessonErrors.video = 'Ваше видео неверного расширения. Доступные расширения: .mp4, .avi, .mov, .mpeg, .webm';
 					lessonsArrayErrors[index] = lessonErrors
 
-				} else if (lesson.video.size > 10000000000) {
-					lessonErrors.video = `Ваше видео слишком большое. Максимальный вес 10гб`;
+				} else if (lesson.video.size > 2500000000) {
+					lessonErrors.video = `Ваше видео слишком большое. Максимальный вес 2гб`;
 					lessonsArrayErrors[index] = lessonErrors
 
 				}

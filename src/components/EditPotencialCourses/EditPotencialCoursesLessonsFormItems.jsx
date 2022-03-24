@@ -8,7 +8,6 @@ import {
     RenderImageInput,
     RenderVideoInput,
     EditPotencialCoursesLessonsFormItemsMaterials,
-    EditPotencialCoursesLessonsFormItemsTimecodes,
 } from "../";
 
 const AddPotencialCoursesLessonsFormItems = ({fields}) => {
@@ -100,25 +99,6 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
                                 materialsValue={
                                     potencialCourseById.lessons[index] &&
                                     potencialCourseById.lessons[index].materials
-                                }
-                            />
-                        </div>
-                    </div>
-
-                    <div className="add-potencial-courses-block-form-block-subblock">
-                        <h3 className="add-potencial-courses-block-form-block-subblock__title">
-                            Таймкоды
-                        </h3>
-
-                        <div className="add-potencial-courses-block-form-block-input">
-                            <FieldArray
-                                component={
-                                    EditPotencialCoursesLessonsFormItemsTimecodes
-                                }
-                                name={`${lesson}.timecodes`}
-                                timecodesValue={
-                                    potencialCourseById.lessons[index] &&
-                                    potencialCourseById.lessons[index].timecodes
                                 }
                             />
                         </div>

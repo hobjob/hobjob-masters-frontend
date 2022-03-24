@@ -14,6 +14,12 @@ export const fetchMasterPotencialCourses = () => (dispatch) => {
 	})
 }
 
+export const fetchMasterStatistics = () => (dispatch) => {
+	$api.get("/masters/my/statistics").then(({ data }) => {
+		dispatch(setMasterStatistics(data))
+	})
+}
+
 export const fetchUpdateMaster = (data) => (dispatch) => {
 	dispatch({
 		type: "SET_SEND_UPDATE_MASTER_INFO",
@@ -23,6 +29,22 @@ export const fetchUpdateMaster = (data) => (dispatch) => {
 	$api.put("/masters/my/info", data).then(({ data }) => {
 		dispatch({
 			type: "SET_SEND_UPDATE_MASTER_INFO",
+			payload: false
+		})
+
+		dispatch(setMasterInfo(data))
+	})
+}
+
+export const fetchUpdateMasterPayment = (data) => (dispatch) => {
+	dispatch({
+		type: "SET_SEND_UPDATE_MASTER_PAYMENT",
+		payload: true
+	})
+
+	$api.put("/masters/my/payment", data).then(({ data }) => {
+		dispatch({
+			type: "SET_SEND_UPDATE_MASTER_PAYMENT",
 			payload: false
 		})
 
@@ -60,4 +82,9 @@ const setMasterInfo = (info) => ({
 const setMasterPotencialCourses = (items) => ({
 	type: "SET_MASTER_POTENCIAL_COURSES",
 	payload: items
+})
+
+const setMasterStatistics = (statistics) => ({
+	type: "SET_MASTER_STATISTICS",
+	payload: statistics
 })

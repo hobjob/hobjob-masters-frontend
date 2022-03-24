@@ -10,12 +10,12 @@ const RenderFileInput = ({
     const [title, setTitle] = React.useState("");
 
     const adaptFileEventToValue = (delegate) => (e) => {
-        delegate(e.target.files[0]);
-
         if (e.target.files[0]) {
+            delegate(e.target.files[0]);
+
             const size = e.target.files[0].size;
 
-            if (size < 10000000) {
+            if (size < 15000000) {
                 setTitle(e.target.files[0].name);
             } else {
                 setTitle("");
@@ -25,7 +25,7 @@ const RenderFileInput = ({
 
     return (
         <>
-            <span className="subtitle__mb">{label}</span>
+            <span className="input-file-block__subtitle">{label}</span>
 
             {touched && error && error !== "Поле не может быть пустым" && (
                 <span className="input-file-block__error">{error}</span>

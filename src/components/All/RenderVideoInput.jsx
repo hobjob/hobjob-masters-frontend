@@ -10,9 +10,9 @@ const RenderVideoInput = ({
     const [title, setTitle] = React.useState("");
 
     const adaptFileEventToValue = (delegate) => (e) => {
-        delegate(e.target.files[0]);
-
         if (e.target.files[0]) {
+			delegate(e.target.files[0]);
+			
             const type = e.target.files[0].type;
             const size = e.target.files[0].size;
 
@@ -23,7 +23,7 @@ const RenderVideoInput = ({
                 type === "video/mpeg" ||
                 type === "video/webm"
             ) {
-                if (size < 10000000000) {
+                if (size < 2500000000) {
                     setTitle(e.target.files[0].name);
                 } else {
                     setTitle("");
@@ -36,7 +36,7 @@ const RenderVideoInput = ({
 
     return (
         <>
-            <span className="subtitle__mb">{label}</span>
+            <span className="input-file-block__subtitle">{label}</span>
 
             {touched && error && error !== "Поле не может быть пустым" && (
                 <span className="input-file-block__error">{error}</span>

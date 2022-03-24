@@ -13,7 +13,7 @@ const RegisterFormTwo = ({plusIndex, valid}) => {
                 <h2 className="reglog-block__title">Расскажите о себе</h2>
             </div>
 
-            <div className="reglog-block-input">
+            <div className="reglog-block-input file">
                 <Field
                     component={RenderImageInput}
                     name="avatar"

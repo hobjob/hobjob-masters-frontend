@@ -4,17 +4,14 @@ import {Field} from "redux-form";
 import {RenderInput, RenderFileInput} from "../";
 
 const AddPotencialCoursesLessonsFormItemsMaterials = ({fields}) => {
-    React.useEffect(() => {
-        fields.push({});
-    }, []);
-
     const addMaterial = () => {
         fields.push({});
     };
 
     const removeMaterial = (index) => {
-        if (index) fields.remove(index);
+        fields.remove(index);
     };
+
     return (
         <>
             {fields.map((material, index) => (
@@ -27,25 +24,23 @@ const AddPotencialCoursesLessonsFormItemsMaterials = ({fields}) => {
                             Материал #{index + 1}
                         </h4>
 
-                        {index !== 0 ? (
-                            <div
-                                className="add-potencial-courses-block-form-block-top-close"
-                                onClick={() => removeMaterial(index)}
+                        <div
+                            className="add-potencial-courses-block-form-block-top-close"
+                            onClick={() => removeMaterial(index)}
+                        >
+                            <svg
+                                width="15"
+                                height="15"
+                                viewBox="0 0 15 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
                             >
-                                <svg
-                                    width="15"
-                                    height="15"
-                                    viewBox="0 0 15 15"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M15 0.883783L14.1162 0L7.5 6.61621L0.883783 0L0 0.883783L6.61621 7.5L0 14.1162L0.883783 15L7.5 8.38378L14.1162 15L15 14.1162L8.38378 7.5L15 0.883783Z"
-                                        fill="black"
-                                    />
-                                </svg>
-                            </div>
-                        ) : null}
+                                <path
+                                    d="M15 0.883783L14.1162 0L7.5 6.61621L0.883783 0L0 0.883783L6.61621 7.5L0 14.1162L0.883783 15L7.5 8.38378L14.1162 15L15 14.1162L8.38378 7.5L15 0.883783Z"
+                                    fill="black"
+                                />
+                            </svg>
+                        </div>
                     </div>
 
                     <div className="add-potencial-courses-block-form-block-input">

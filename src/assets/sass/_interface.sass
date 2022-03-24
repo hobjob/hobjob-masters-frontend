@@ -48,12 +48,12 @@ span
 .subtitle
 	display: block
 	color: $gray
-	font-size: 21px
+	font-size: 24px
 
 .subtitle__mb
 	display: block
 	color: $gray
-	font-size: 21px
+	font-size: 24px
 	margin-bottom: 25px
 
 // p
@@ -252,6 +252,7 @@ li
 		+borderRadius
 		+SfRegular
 		+transition
+
 .btn-small-round
 	display: inline-flex
 	justify-content: center
@@ -341,7 +342,7 @@ input:-webkit-autofill:active
 		&:focus ~ label,
 		&:valid ~ label
 			top: -15px
-			font-size: 14px
+			font-size: 16px
 
 		&.error
 			border-bottom: 1px solid $red
@@ -422,6 +423,12 @@ input:-webkit-autofill:active
 .input
 	&-file-block
 		cursor: pointer
+
+		&__subtitle
+			display: block
+			color: $gray
+			font-size: 18px
+			margin-bottom: 15px
 
 		&__field
 			opacity: 0
@@ -542,7 +549,7 @@ input[type="file"]
 
 	&__label
 		color: $gray
-		font-size: 14px
+		font-size: 16px
 		pointer-events: none
 		+transition
 

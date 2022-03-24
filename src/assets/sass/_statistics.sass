@@ -1,42 +1,55 @@
-// moderation-courses
-.moderation-courses
-	margin: 50px 0
+// statistics
+.statistics
+	margin: 25px 0 50px 0
 	+openAnimation
 
-	&-null
-		margin: 50px 0
-		
+	&-top-info
 		display: flex
 		justify-content: space-between
-		align-items: center
 
-		&-text
-			width: 55%
-
-			&__title
-				font-size: 48px
-				margin-bottom: 25px
-
-			&-btn
-				display: flex
-				justify-content: space-between
-
-			&__btn
-				width: 49%
-
-		&__img
-			width: 450px
-			user-select: none
-
-	&-section
+		padding-bottom: 25px
 		margin-bottom: 50px
+		border-bottom: 1px solid $borderGray
 
+		&-block
+			display: flex
+			flex-direction: column
+			justify-content: center
+
+			padding-left: 25px
+
+			width: 24%
+			height: 150px
+
+			background-color: $backgroundGray
+
+			+borderRadiusBlock
+			+openAnimation
+			+transition
+
+			&:hover
+				+transformScale
+
+			&__description
+				font-size: 21px
+				margin-bottom: 5px
+
+				& span
+					font-size: 16px
+					padding: 5px 10px
+					border-radius: 100px
+					background-color: $mainColor
+					color: $white
+
+			&__number
+				font-size: 42px
+
+	&-courses
 		&__title
-			margin-bottom: 35px
+			margin-bottom: 25px
 			font-size: 36px
 
 		&-block
-			position: relative
 			padding: 15px
 
 			background-color: $backgroundGray
@@ -44,8 +57,6 @@
 			display: flex
 			justify-content: space-between
 			align-items: flex-start
-
-			overflow: hidden
 
 			margin-bottom: 25px
 
@@ -55,9 +66,6 @@
 
 			&:last-child
 				margin-bottom: 0
-
-			&.edit:hover
-				transform: scale(0.99)
 
 			&-content
 				display: flex
@@ -86,18 +94,5 @@
 						& span
 							color: $gray
 
-			&__status
-				display: block
-				font-size: 16px
-				padding: 5px 10px
-				border-radius: 100px
-				color: $white
-
-				& span
-					text-decoration: underline
-
-				&.moderation
-					background-color: $mainColor
-
-				&.reject
-					background-color: $red
+			&__info
+				font-size: 21px

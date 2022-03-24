@@ -20,14 +20,6 @@ const validate = values => {
 		errors.surname = `Не менее ${defaultMin} символов`;
 	}
 
-	if (!values.instagram) {
-		errors.instagram = 'Поле не может быть пустым';
-	} else if (values.instagram.length > defaultMax) {
-		errors.instagram = `Не более ${defaultMax} символов`;
-	} else if (values.instagram.length < defaultMin) {
-		errors.instagram = `Не менее ${defaultMin} символов`;
-	}
-
 	if (!values.masterDescription) {
 		errors.masterDescription = 'Поле не может быть пустым';
 	} else if (values.masterDescription.length > 1000) {
@@ -40,7 +32,7 @@ const validate = values => {
 		errors.avatar = 'Поле не может быть пустым';
 	} else if (values.avatar.type !== "image/jpeg" && values.avatar.type !== "image/png") {
 		errors.avatar = 'Ваше изображение неверного расширения. Доступные расширения: .jpg, .jpeg, .png';
-	} else if (values.avatar.size > 2000000) {
+	} else if (values.avatar.size > 2500000) {
 		errors.avatar = `Ваше изображение слишком большое. Максимальный вес 2мб`;
 	}
 

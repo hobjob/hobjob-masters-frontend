@@ -1,4 +1,5 @@
 import React from "react";
+import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 
@@ -11,9 +12,11 @@ import {
 import {sendAddPotencialCourse} from "../redux/actions/potencial_courses";
 
 const AddPotencialCourses = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const {isLoadedAllCategories} = useSelector(({categories}) => categories);
+    const {masterInfo, isLoadedMasterInfo} = useSelector(({master}) => master);
 
     const onSubmit = (data) => {
         const formData = new FormData();
@@ -66,18 +69,22 @@ const AddPotencialCourses = () => {
                         <title>Новый курс - HobJob для мастеров</title>
                     </Helmet>
 
-                    {isLoadedAllCategories ? (
-                        <section className="add-potencial-courses">
-                            <div className="container">
-                                <div className="add-potencial-courses-wrapper">
-                                    <AddPotencialCoursesInfoMessage />
+                    {isLoadedAllCategories && isLoadedMasterInfo ? (
+                        masterInfo.paymentInfo.name !== "" ? (
+                            <section className="add-potencial-courses">
+                                <div className="container">
+                                    <div className="add-potencial-courses-wrapper">
+                                        <AddPotencialCoursesInfoMessage />
 
-                                    <AddPotencialCoursesForm
-                                        onSubmit={onSubmit}
-                                    />
+                                        <AddPotencialCoursesForm
+                                            onSubmit={onSubmit}
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+                        ) : (
+                            history.push("/go/cabinet#payment")
+                        )
                     ) : (
                         <Loader />
                     )}

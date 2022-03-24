@@ -20,14 +20,6 @@ export const validateInfo = (values) => {
 		errors.surname = `Не менее ${defaultMin} символов`;
 	}
 
-	if (!values.instagram) {
-		errors.instagram = 'Поле не может быть пустым';
-	} else if (values.instagram.length > defaultMax) {
-		errors.instagram = `Не более ${defaultMax} символов`;
-	} else if (values.instagram.length < defaultMin) {
-		errors.instagram = `Не менее ${defaultMin} символов`;
-	}
-
 	if (!values.masterDescription) {
 		errors.masterDescription = 'Поле не может быть пустым';
 	} else if (values.masterDescription.length > 1000) {

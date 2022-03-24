@@ -28,14 +28,6 @@ const RegisterFormOne = ({plusIndex, valid}) => {
                     label="Ваша фамилия"
                 />
             </div>
-            <div className="reglog-block-input">
-                <Field
-                    component={RenderInput}
-                    type="text"
-                    name="instagram"
-                    label="Ваш Instagram"
-                />
-            </div>
 
             <button
                 className={`btn ${valid ? "disabled" : ""} reglog-block__btn`}

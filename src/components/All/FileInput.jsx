@@ -7,7 +7,7 @@ const FileInput = ({id, submitFile, messageSubmitFile}) => {
             const size = event.target.files[0].size;
 
             if (type === "image/jpeg" || type === "image/png") {
-                if (size < 2000000) {
+                if (size < 2500000) {
                     submitFile(event.target.files[0]);
                 } else {
                     messageSubmitFile(

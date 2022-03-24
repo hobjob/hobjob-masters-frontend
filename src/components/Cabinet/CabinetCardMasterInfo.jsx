@@ -74,7 +74,7 @@ const CabinetCardUserInfo = ({avatar, name, surname, email, edit}) => {
                         </label>
                     </div>
                 ) : (
-                    <div className="cabinet-card-user-info-avatar" style={{cursor: "default"}}>
+                    <div className="cabinet-card-user-info-avatar">
                         <div
                             className="cabinet-card-user-info-avatar-img"
                             style={{
@@ -85,6 +85,9 @@ const CabinetCardUserInfo = ({avatar, name, surname, email, edit}) => {
                 )}
 
                 <div className="cabinet-card-user-info-text">
+                    <span className="cabinet-card-user-info-text__subtitle">
+                        мастер HobJob
+                    </span>
                     <h2 className="cabinet-card-user-info-text__name">
                         {name} {surname}
                     </h2>
