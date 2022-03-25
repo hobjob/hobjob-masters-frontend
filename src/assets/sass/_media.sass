@@ -1,4 +1,31 @@
 // media
+@media screen and ( max-width: 1300px )
+	// moderation-courses
+	.moderation-courses
+		&-null
+			margin: 0
+
+			&-text
+				width: 100%
+
+			&-img
+				display: none
+
+	// add-potencial-courses
+	.add-potencial-courses
+		&-error-message
+			flex-direction: column
+
+			&-title
+				margin-bottom: 25px
+				padding-bottom: 25px
+				border-bottom: 1px solid $borderGray
+
+				width: 100%
+
+			&-text
+				width: 100%
+
 @media screen and ( max-width: 1200px )
 	// modal-window
 	.modal-window
@@ -20,6 +47,41 @@
 	.reglog
 		&-block-wrapper
 			width: 75%
+
+	// statistics
+	.statistics
+		&-top-info
+			&-block
+				width: 49.5%
+				margin-bottom: 15px
+
+	// add-potencial-courses
+	.add-potencial-courses
+		&-info-message
+			flex-direction: column
+
+			&-text
+				width: 100%
+
+			&-image-adaptive
+				display: block
+				margin-bottom: 50px
+
+				&__image
+					width: 600px
+
+			&-image
+				display: none
+
+		&-block
+			flex-direction: column
+
+			&-text
+				width: 100%
+
+			&-form
+				margin-top: 25px
+				width: 100%
 
 @media screen and ( max-width: 1100px )
 	// cabinet
@@ -43,6 +105,39 @@
 			&-contact
 				margin: 0
 
+@media screen and ( max-width: 1100px )
+	// moderation-courses
+	.moderation-courses
+		&-section
+			&-block
+				flex-direction: column
+
+				&-content
+					width: 100%
+					flex-direction: column
+
+					order: 2
+
+					&-cover
+						min-width: 100%
+
+					&-text
+						max-width: 100%
+						margin-left: 0
+						margin-top: 25px
+
+						&__title
+							margin-bottom: 25px
+
+				&-status-wrapper
+					width: 100%
+
+				&__status
+					width: 100%
+
+					margin-bottom: 15px
+					order: 1
+
 @media screen and ( max-width: 900px )
 	// interface
 	.title__mb
@@ -59,6 +154,48 @@
 		&__title
 			font-size: 18px
 
+	// statistics
+	.statistics
+		&-courses
+			&-block
+				flex-direction: column
+
+				&-content
+					flex-direction: column
+
+					width: 100%
+					padding-bottom: 25px
+					margin-bottom: 25px
+					border-bottom: 1px solid $borderGray
+
+					&-cover
+						min-width: 100%
+
+					&-text
+						max-width: 100%
+
+						margin-left: 0
+						margin-top: 25px
+
+						&__category
+							margin-top: 25px
+
+	// moderation-courses
+	.moderation-courses
+		&-null
+			&-text
+				&__title
+					font-size: 42px
+
+				&-btn
+					flex-direction: column
+
+				&__btn
+					width: 100%
+
+					&:first-child
+						margin-bottom: 15px
+
 	// cabinet
 	.cabinet
 		&-card-user-info
@@ -72,8 +209,11 @@
 			margin: 25px 0
 			padding-bottom: 50px
 
+			&:first-child
+				margin: 0 0 25px 0
+
 			&-form
-				margin-top: 25px
+				margin-top: 50px
 
 	// policy
 	.policy
@@ -94,7 +234,7 @@
 				&-block
 					&__link
 						display: block
-						margin: 10px 0 0 
+						margin: 10px 0 0
 
 @media screen and ( max-width: 800px )
 	// interface
@@ -108,6 +248,16 @@
 				width: 75%
 
 @media screen and ( max-width: 750px )
+	// add-potencial-courses
+	.add-potencial-courses
+		&-info-message
+			&-text
+				&__description
+					font-size: 21px
+
+			&-image-adaptive
+				&__image
+					width: 100%
 	// footer
 	.footer
 		&-block
@@ -153,10 +303,51 @@
 			margin: 25px 0
 			padding: 25px
 
+	// statistics
+	.statistics
+		&-top-info
+			&-block
+				width: 100%
+
+		&-courses
+			&-block
+				&-content
+					&-text
+						&__title
+							font-size: 24px
+
+						&__category
+							font-size: 18px
+
+	// moderation-courses
+	.moderation-courses
+		&-null
+			&-text
+				&__title
+					font-size: 36px
+
+	// add-potencial-courses
+	.add-potencial-courses
+		&-block
+			&-text
+				text-align: center
+
+				&__title
+					font-size: 28px
+
+			&-form
+				&-block
+					padding: 30px 15px
+
 @media screen and ( max-width: 500px )
 	// interface
 	.description, .description__mt, .description__mb
 		font-size: 21px
+
+	.input
+		&-file-block
+			&__btn
+				min-width: 100%
 
 	// header
 	.header
@@ -206,6 +397,30 @@
 
 				&__subtitle
 					font-size: 18px
+
+	// add-potencial-courses
+	.add-potencial-courses
+		&-error-message
+			padding: 20px 15px
+			flex-direction: column
+
+			&-title
+				&__title
+					font-size: 24px
+
+			&-text
+				&__message
+					font-size: 21px
+
+		&-info-message
+			padding: 20px 15px
+
+			&-text
+				&__description
+					font-size: 18px
+
+			&-image-adaptive
+				display: none
 
 	// footer
 	.footer

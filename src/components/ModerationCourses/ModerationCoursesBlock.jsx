@@ -24,7 +24,11 @@ const ModerationCoursesBlock = ({image, number, title, category}) => {
                     </p>
                 </div>
             </div>
-            <span className="moderation-courses-section-block__status moderation">На модерации</span>
+            <div className="moderation-courses-section-block-status-wrapper">
+                <span className="moderation-courses-section-block__status moderation">
+                    На модерации
+                </span>
+            </div>
         </div>
     );
 };

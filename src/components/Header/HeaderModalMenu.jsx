@@ -65,27 +65,28 @@ const HeaderModalMenu = React.memo(
                     </Link>
                     <nav className="header-modal-menu-nav">
                         <NavLink
-                            to="/shop"
+                            to="/"
                             className="header-modal-menu-nav__link"
                             activeClassName="header-modal-menu-nav__link active"
                             onClick={onClickCloseModalMenu}
                         >
-                            Курсы
+                            О нас
                         </NavLink>
-                        <a
-                            href={`${process.env.REACT_APP_DOMEN_MASTERS_SERVICES}`}
-                            className="header-modal-menu-nav__link"
-                            onClick={onClickCloseModalMenu}
-                        >
-                            Для мастеров
-                        </a>
                         <NavLink
-                            to="/magazine"
+                            to="/"
                             className="header-modal-menu-nav__link"
                             activeClassName="header-modal-menu-nav__link active"
                             onClick={onClickCloseModalMenu}
                         >
-                            Журнал
+                            Как добавить курс?
+                        </NavLink>
+                        <NavLink
+                            to="/course-regulations"
+                            className="header-modal-menu-nav__link"
+                            activeClassName="header-modal-menu-nav__link active"
+                            onClick={onClickCloseModalMenu}
+                        >
+                            Рекомендации по созданию курса
                         </NavLink>
                         {!isLoadedMasterInfo ? (
                             <div className="header-modal-menu-nav-bottom">
@@ -109,12 +110,30 @@ const HeaderModalMenu = React.memo(
                         ) : (
                             <div className="header-modal-menu-nav-bottom">
                                 <NavLink
-                                    to="/go/training"
+                                    to="/go/statistics"
                                     className="header-modal-menu-nav__link"
                                     activeClassName="header-modal-menu-nav__link active"
                                     onClick={onClickCloseModalMenu}
                                 >
-                                    Мое обучение
+                                    Статистика
+                                </NavLink>
+
+                                <NavLink
+                                    to="/go/courses/add"
+                                    className="header-modal-menu-nav__link"
+                                    activeClassName="header-modal-menu-nav__link active"
+                                    onClick={onClickCloseModalMenu}
+                                >
+                                    Добавить курс
+                                </NavLink>
+
+                                <NavLink
+                                    to="/go/moderation-courses"
+                                    className="header-modal-menu-nav__link"
+                                    activeClassName="header-modal-menu-nav__link active"
+                                    onClick={onClickCloseModalMenu}
+                                >
+                                    Курсы на модерации
                                 </NavLink>
 
                                 <NavLink
@@ -123,16 +142,7 @@ const HeaderModalMenu = React.memo(
                                     activeClassName="header-modal-menu-nav__link active"
                                     onClick={onClickCloseModalMenu}
                                 >
-                                    Мой профиль
-                                </NavLink>
-
-                                <NavLink
-                                    to="/go/referrals"
-                                    className="header-modal-menu-nav__link"
-                                    activeClassName="header-modal-menu-nav__link active"
-                                    onClick={onClickCloseModalMenu}
-                                >
-                                    Пригласи друга
+                                    Настройки
                                 </NavLink>
 
                                 <span
