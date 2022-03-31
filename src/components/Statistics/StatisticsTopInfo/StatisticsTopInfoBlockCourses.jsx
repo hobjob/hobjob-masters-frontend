@@ -5,7 +5,7 @@ const StatisticsTopInfoBlockCourses = ({number}) => {
     return (
         <div className="statistics-top-info-block">
             <span className="statistics-top-info-block__description">
-                Курсов
+                Всего курсов
             </span>
 
             <h3 className="statistics-top-info-block__number">

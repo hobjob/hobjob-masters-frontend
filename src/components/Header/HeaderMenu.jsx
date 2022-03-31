@@ -5,26 +5,25 @@ const HeaderMenu = React.memo(() => {
     return (
         <nav className="header-nav">
             <NavLink
-                to="/1"
+                to="/"
                 className="header-nav__link"
                 activeClassName="header-nav__link active"
             >
-                О нас
-            </NavLink>
-            <NavLink
-                to="/1"
-                className="header-nav__link"
-                activeClassName="header-nav__link active"
-            >
-                Как добавить курс?
+                Главная
             </NavLink>
             <NavLink
                 to="/course-regulations"
                 className="header-nav__link"
                 activeClassName="header-nav__link active"
             >
-                Рекомендации по созданию курса
+                Рекомендации для мастеров
             </NavLink>
+            <a
+                href={process.env.REACT_APP_HOBJOB_DOMEN}
+                className="header-nav__link"
+            >
+                Платформа HobJob
+            </a>
         </nav>
     );
 });

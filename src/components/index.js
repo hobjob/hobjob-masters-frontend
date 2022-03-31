@@ -9,7 +9,6 @@ export { default as RenderInputAutoSize }  from "./All/RenderInputAutoSize"
 export { default as RenderSelect } from "./All/RenderSelect"
 export { default as FileInput } from "./All/FileInput"
 export { default as BtnLoader } from "./All/BtnLoader"
-export { default as Tab } from "./All/Tab"
 export { default as ImageBox } from "./All/ImageBox"
 export { default as ModalWindow } from "./All/ModalWindow"
 
@@ -32,6 +31,10 @@ export { default as PasswordRecoveryNewPasswordError } from "./PasswordRecovery/
 export { default as Header } from "./Header/Header"
 export { default as HeaderMenu } from "./Header/HeaderMenu"
 export { default as HeaderModalMenu } from "./Header/HeaderModalMenu"
+
+// Categories
+export { default as CategoriesSection } from "./Categories/CategoriesSection"
+export { default as CategoriesItem } from "./Categories/CategoriesItem"
 
 // Cabinet
 export { default as CabinetCardMasterInfo } from "./Cabinet/CabinetCardMasterInfo"

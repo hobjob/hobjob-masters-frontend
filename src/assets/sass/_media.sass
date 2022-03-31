@@ -83,7 +83,100 @@
 				margin-top: 25px
 				width: 100%
 
+	// course-regulations
+	.course-regulations
+		margin: 25px 0
+
+		&-wrapper
+			flex-direction: column
+
+		&-menu-wrapper
+			padding: 20px 10px 20px 20px
+			top: 15px
+			width: 100%
+			margin-bottom: 25px
+
+		&-menu
+			&__btn
+				display: flex
+
+			&-item
+				&:first-child
+					border-top: 1px solid $borderGray
+					padding-top: 15px
+					margin-top: 15px
+
+		&-content-wrapper
+			width: 100%
+
 @media screen and ( max-width: 1100px )
+	// main-offer
+	.main-offer
+		&__title
+			max-width: 100%
+			font-size: 36px
+
+		&-img
+			height: 300px
+
+	// main-services
+	.main-services
+		margin: 50px 0
+
+		&-wrapper
+			flex-direction: column
+
+		&__title
+			font-size: 42px
+			width: 100%
+			margin-bottom: 50px
+
+		&-items-wrapper
+			width: 100%
+
+	// main-payment
+	.main-payment
+		margin: 50px 0
+
+		&-wrapper
+			flex-direction: column
+
+		&__title
+			font-size: 42px
+			width: 100%
+			margin-bottom: 50px
+
+		&-description
+			width: 100%
+
+	// categories
+	.categories
+		margin: 50px 0
+
+		&-text
+			&__title
+				font-size: 42px
+
+	// main-faq
+	.main-faq
+		margin: 50px 0
+
+		&__title
+			font-size: 42px
+			margin-bottom: 50px
+
+		&-item
+			flex-direction: column
+
+			&__title
+				font-size: 36px
+				width: 100%
+				margin-bottom: 25px
+
+			&__description
+				font-size: 24px
+				width: 100%
+
 	// cabinet
 	.cabinet
 		&-block
@@ -105,7 +198,6 @@
 			&-contact
 				margin: 0
 
-@media screen and ( max-width: 1100px )
 	// moderation-courses
 	.moderation-courses
 		&-section
@@ -138,14 +230,16 @@
 					margin-bottom: 15px
 					order: 1
 
+	// categories
+	.categories
+		&-item
+			margin-right: 0
+			width: 100%
+
 @media screen and ( max-width: 900px )
 	// interface
 	.title__mb
 		margin-bottom: 50px
-
-	.tab
-		&-bottom
-			width: 100%
 
 	// cookie
 	.cookie
@@ -153,6 +247,20 @@
 
 		&__title
 			font-size: 18px
+
+	// main-footer
+	.main-footer
+		&-block
+			&__title
+				font-size: 42px
+
+			&__btn
+				width: 100%
+
+	// categories
+	.categories
+		&-text
+			width: 100%
 
 	// statistics
 	.statistics
@@ -284,13 +392,16 @@
 		&-block-wrapper
 			width: 100%
 
-@media screen and ( max-width: 600px )
-	// interface
-	.tab
-		&-top
-			&__title
-				font-size: 21px
+@media screen and ( max-width: 650px )
+	// main-offer
+	.main-offer
+		&__title
+			font-size: 28px
 
+		&-img
+			height: 200px
+
+@media screen and ( max-width: 600px )
 	// reglog
 	.reglog
 		&-block
@@ -343,6 +454,12 @@
 	// interface
 	.description, .description__mt, .description__mb
 		font-size: 21px
+
+	.subtitle, .subtitle__mb
+		font-size: 18px
+
+	.subtitle__mb
+		margin-bottom: 15px
 
 	.input
 		&-file-block
@@ -401,7 +518,7 @@
 	// add-potencial-courses
 	.add-potencial-courses
 		&-error-message
-			padding: 20px 15px
+			padding: 20px
 			flex-direction: column
 
 			&-title
@@ -413,7 +530,7 @@
 					font-size: 21px
 
 		&-info-message
-			padding: 20px 15px
+			padding: 20px
 
 			&-text
 				&__description
@@ -421,6 +538,133 @@
 
 			&-image-adaptive
 				display: none
+
+	// course-regulations
+	.course-regulations
+		&-content
+			&-item
+				&__title
+					font-size: 32px
+
+				&-block
+					margin-bottom: 25px
+
+					&-top-text
+						padding: 20px
+
+						&__title
+							font-size: 24px
+
+						&__description
+							font-size: 18px
+
+					&-descriptions
+						&__description
+							font-size: 18px
+
+							& ul
+								margin: 0
+
+							& ul > li
+								font-size: 18px
+
+						&__link
+							font-size: 18px
+
+	// main-offer
+	.main-offer
+		&__title
+			font-size: 19px
+
+		&-img
+			height: 125px
+
+	// main-services
+	.main-services
+		margin: 25px 0
+
+		&__title
+			font-size: 28px
+			margin-bottom: 25px
+
+		&-item
+			padding: 20px 15px
+
+			&__title
+				font-size: 24px
+
+			&__description
+				font-size: 21px
+
+	// main-payment
+	.main-payment
+		margin: 25px 0
+
+		&__title
+			font-size: 28px
+			margin-bottom: 25px
+
+		&-description
+			&__description
+				font-size: 21px
+
+			&-img
+				margin-top: 25px
+
+	// categories
+	.categories
+		margin: 25px 0
+
+		&-text
+			&__title
+				font-size: 28px
+				margin-bottom: 25px
+
+		&-items-wrapper
+			margin-top: 25px
+
+		&-item
+			padding: 20px 15px
+
+			&__title
+				font-size: 24px
+
+			&-img
+				min-width: 100px
+				min-height: 100px
+
+			&__img
+				width: 50px
+
+	// main-faq
+	.main-faq
+		margin: 25px 0
+
+		&__title
+			font-size: 28px
+			margin-bottom: 25px
+
+		&-item
+			margin-bottom: 25px
+
+			&__title
+				font-size: 24px
+
+			&__description
+				font-size: 21px
+
+	// main-footer
+	.main-footer
+		margin: 0 0 25px 0
+
+		&-block
+			padding: 20px 15px
+
+			&__title
+				font-size: 28px
+
+			&__description
+				font-size: 21px
 
 	// footer
 	.footer

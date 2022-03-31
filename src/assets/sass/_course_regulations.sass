@@ -29,6 +29,11 @@
 		overflow-y: auto
 		overflow-x: hidden
 
+		+transition
+
+		&.close
+			max-height: 0
+
 		&::-webkit-scrollbar
 			width: 4px
 			height: 7px
@@ -53,6 +58,14 @@
 		&::-ms-scrollbar-thumb:hover
 			background-color: #E2E2E2
 
+		&__btn
+			display: none
+			align-items: center
+			font-size: 21px
+
+			& svg
+				margin-right: 10px
+
 		&-item
 			margin-bottom: 30px
 
@@ -60,6 +73,7 @@
 				margin-bottom: 0
 
 			&__title
+				user-select: none
 				cursor: pointer
 				font-size: 21px
 
@@ -77,6 +91,8 @@
 				+transition
 
 				&__title
+					user-select: none
+					cursor: pointer
 					display: block
 					font-size: 17px
 
@@ -104,6 +120,11 @@
 
 	&-content
 		&-item
+			margin-bottom: 75px
+
+			&:last-child
+				margin-bottom: 0
+
 			&__title
 				font-size: 42px
 
@@ -113,6 +134,11 @@
 				border-bottom: 1px solid $borderGray
 
 			&-block
+				margin-bottom: 50px
+
+				&:last-child
+					margin-bottom: 0
+
 				&-top-text
 					margin-bottom: 25px
 
@@ -123,9 +149,9 @@
 
 					&__title
 						font-size: 28px
-						margin-bottom: 15px
 
 					&__description
+						margin-top: 15px
 						font-size: 21px
 
 				&-descriptions
@@ -134,5 +160,31 @@
 
 					border-bottom: 1px solid $borderGray
 
+					&:last-child
+						margin-bottom: 0
+
 					&__description
-						font-size: 21px
+						font-size: 24px
+
+						& a
+							color: $mainColor
+							text-decoration: underline
+
+						& ul
+							list-style: none
+							margin-left: 25px
+
+						& ul > li
+							font-size: 21px
+							margin-bottom: 15px
+
+							&:last-child
+								margin-bottom: 0
+
+					&__link
+						cursor: pointer
+						display: block
+						margin-top: 25px
+						font-size: 24px
+						color: $mainColor
+						text-decoration: underline

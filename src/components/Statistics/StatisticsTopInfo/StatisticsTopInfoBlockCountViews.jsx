@@ -8,8 +8,8 @@ const StatisticsTopInfoBlockCountViews = ({number}) => {
         <div className="statistics-top-info-block">
             <span className="statistics-top-info-block__description">
                 Среднее время просмотра
-            </span>
-
+			</span>
+			
             <h3 className="statistics-top-info-block__number">
                 <NumberFormat
                     value={number}

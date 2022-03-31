@@ -23,7 +23,7 @@ const ModerationCoursesNull = () => {
                         to="/course-regulations"
                         className="btn-regular moderation-courses-null-text__btn"
                     >
-                        Рекомендации по созданию курса
+                        Рекомендации для мастеров
                     </Link>
                 </div>
             </div>

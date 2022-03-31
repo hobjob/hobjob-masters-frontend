@@ -18,6 +18,10 @@ const AddPotencialCourses = () => {
     const {isLoadedAllCategories} = useSelector(({categories}) => categories);
     const {masterInfo, isLoadedMasterInfo} = useSelector(({master}) => master);
 
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const onSubmit = (data) => {
         const formData = new FormData();
 

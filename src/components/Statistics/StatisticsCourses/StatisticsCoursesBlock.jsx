@@ -1,4 +1,7 @@
 import React from "react";
+import NumberFormat from "react-number-format";
+import moment from "moment";
+import "moment/locale/ru";
 
 import {checkDeclension} from "../../../Functions/checkDeclension";
 
@@ -8,7 +11,7 @@ const StatisticsCoursesBlock = ({
     countMaterials,
     title,
     category,
-    countStudents,
+    countViewingDuration,
 }) => {
     return (
         <div className="statistics-courses-block">
@@ -50,7 +53,28 @@ const StatisticsCoursesBlock = ({
             </div>
 
             <p className="statistics-courses-block__info">
-                Учеников: {countStudents}
+                Просмотров за{" "}
+                <span>{moment().locale("ru").format("MMMM")}</span> -
+                <NumberFormat
+                    value={countViewingDuration}
+                    displayType={"text"}
+                    thousandSeparator={" "}
+                    renderText={(value, props) => (
+                        <p
+                            {...props}
+                            className="statistics-courses-block__info__number"
+                        >
+                            {value}{" "}
+                            {
+                                checkDeclension(countViewingDuration, [
+                                    "минута",
+                                    "минуты",
+                                    "минут",
+                                ]).text
+                            }
+                        </p>
+                    )}
+                />
             </p>
         </div>
     );

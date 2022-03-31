@@ -1,0 +1,153 @@
+// main-offer
+.main-offer
+	margin: 25px 0
+	+openAnimation
+
+	&__title
+		font-size: 48px
+		max-width: 80%
+
+		margin-bottom: 25px
+
+		& a
+			color: $mainColor
+			text-decoration: underline
+
+			+SfRegular
+
+	&-img-wrapper
+		display: flex
+		justify-content: space-between
+
+	&-img
+		width: 33%
+		height: 500px
+
+		+backgroundSetting
+		+borderRadius
+
+// main-services
+.main-services
+	margin: 75px 0
+
+	&-wrapper
+		display: flex
+		justify-content: space-between
+
+	&__title
+		font-size: 46px
+		width: 35%
+
+	&-items-wrapper
+		width: 60%
+
+	&-item
+		padding: 35px
+		background-color: $backgroundGray
+		margin-bottom: 15px
+		+borderRadiusBlock
+		+transition
+
+		&:hover
+			background-color: $mainColor
+			color: $white
+
+		&:hover a
+			color: $white
+
+		&__title
+			font-size: 32px
+			margin-bottom: 25px
+
+		&__description
+			font-size: 24px
+
+			& a
+				color: $mainColor
+				text-decoration: underline
+				+transition
+
+// main-payment
+.main-payment
+	margin: 75px 0
+
+	&-wrapper
+		display: flex
+		justify-content: space-between
+
+	&__title
+		font-size: 46px
+		width: 35%
+
+	&-description
+		width: 60%
+
+		&__description
+			font-size: 24px
+			margin-bottom: 25px
+
+		&-img
+			margin-top: 75px
+			display: flex
+			justify-content: center
+
+			&__img
+				width: 90%
+
+				user-select: none
+				pointer-events: none
+
+// main-faq
+.main-faq
+	margin: 75px 0
+
+	&__title
+		font-size: 46px
+		margin-bottom: 75px
+
+	&-item
+		display: flex
+		justify-content: space-between
+
+		padding-top: 25px
+		margin-bottom: 75px
+
+		border-top: 1px solid $borderGray
+
+		&:last-child
+			margin-bottom: 0
+
+		&__title
+			font-size: 36px
+			width: 30%
+
+		&__description
+			font-size: 24px
+			width: 60%
+
+// main-footer
+.main-footer
+	margin: 0 0 50px 0
+
+	&-block
+		text-align: center
+		
+		display: flex
+		flex-direction: column
+		align-items: center
+
+		padding: 35px
+		background-color: $backgroundGray
+
+		+borderRadiusBlock
+
+		&__title
+			font-size: 54px
+			margin-bottom: 25px
+
+		&__description
+			font-size: 24px
+			margin-bottom: 50px
+
+		&__btn
+			width: 300px

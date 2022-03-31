@@ -7,8 +7,6 @@ import {RenderInputAutoSize, RenderImageInput} from "../../";
 const RegisterFormTwo = ({plusIndex, valid}) => {
     return (
         <div className="reglog-block">
-            <span className="reglog-block__number">2 / 3</span>
-
             <div className="reglog-block-title">
                 <h2 className="reglog-block__title">Расскажите о себе</h2>
             </div>
