@@ -11,8 +11,8 @@ const RenderImageInput = ({
 
     const adaptFileEventToValue = (delegate) => (e) => {
         if (e.target.files[0]) {
-			delegate(e.target.files[0]);
-			
+            delegate(e.target.files[0]);
+
             const type = e.target.files[0].type;
             const size = e.target.files[0].size;
 
@@ -76,16 +76,18 @@ const RenderImageInput = ({
                         </svg>
                     </div>
 
-                    <div
-                        className="input-file-block-img"
-                        style={{
-                            backgroundImage: `url("${
-                                defaultValue && imageAvatar === ""
-                                    ? `${process.env.REACT_APP_IMAGE_DOMEN}/${defaultValue}`
-                                    : imageAvatar
-                            }")`,
-                        }}
-                    ></div>
+                    {defaultValue || imageAvatar !== "" ? (
+                        <div
+                            className="input-file-block-img"
+                            style={{
+                                backgroundImage: `url("${
+                                    defaultValue && imageAvatar === ""
+                                        ? `${process.env.REACT_APP_IMAGE_DOMEN}/${defaultValue}`
+                                        : imageAvatar
+                                }")`,
+                            }}
+                        ></div>
+                    ) : null}
                 </label>
             </div>
         </>
