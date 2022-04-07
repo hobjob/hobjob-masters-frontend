@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AddPotencialCoursesInfoMessage = () => {
     return (
@@ -24,6 +25,12 @@ const AddPotencialCoursesInfoMessage = () => {
                     Если модерация не пройдена - не страшно. На исправление
                     ошибок есть 14 дней.
                 </p>
+                <Link
+                    to="/course-regulations"
+                    className="btn add-potencial-courses-info-message-text__btn"
+                >
+                    Рекомендации для мастеров
+                </Link>
             </div>
             <div className="add-potencial-courses-info-message-image">
                 <img

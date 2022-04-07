@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { SubmissionError } from 'redux-form'
 
 import $api from '../../http/';

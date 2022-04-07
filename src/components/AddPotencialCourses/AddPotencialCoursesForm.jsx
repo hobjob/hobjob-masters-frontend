@@ -1,7 +1,12 @@
 import React from "react";
+import {useSelector} from "react-redux";
 import {reduxForm} from "redux-form";
 
-import {AddPotencialCoursesInfoForm, AddPotencialCoursesLessonsForm} from "../";
+import {
+    AddPotencialCoursesInfoForm,
+    AddPotencialCoursesLessonsForm,
+    AddPotencialCoursesPaymentForm,
+} from "../";
 
 import validate from "./validate";
 
@@ -11,13 +16,22 @@ let AddPotencialCoursesForm = ({
     submitting,
     pristine,
 }) => {
+    const {masterInfo} = useSelector(({master}) => master);
+
     return (
         <form onSubmit={handleSubmit}>
             <AddPotencialCoursesInfoForm />
 
             <AddPotencialCoursesLessonsForm
                 valid={invalid || submitting || pristine}
+                btnVisible={masterInfo.paymentInfo.name !== ""}
             />
+
+            {masterInfo.paymentInfo.name === "" ? (
+                <AddPotencialCoursesPaymentForm
+                    valid={invalid || submitting || pristine}
+                />
+            ) : null}
         </form>
     );
 };

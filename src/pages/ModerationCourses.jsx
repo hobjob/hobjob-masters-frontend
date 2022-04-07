@@ -9,6 +9,7 @@ import {checkDeclension} from "../Functions/checkDeclension";
 
 import {
     Loader,
+    ConfirmedEmail,
     ModerationCoursesBlock,
     ModerationCoursesBlockEdit,
     ModerationCoursesNull,
@@ -18,6 +19,7 @@ const ModerationCourses = () => {
     const dispatch = useDispatch();
 
     const {
+        masterInfo,
         potencialCoursesModeration,
         potencialCoursesReject,
         isLoadedPotencialCourses,
@@ -45,100 +47,112 @@ const ModerationCourses = () => {
                     </Helmet>
 
                     {isLoadedPotencialCourses && isLoadedAllCategories ? (
-                        <section className="moderation-courses">
-                            <div className="container">
-                                <div className="moderation-courses-wrapper">
-                                    {potencialCoursesModeration.length ||
-                                    potencialCoursesReject.length ? (
-                                        <>
-                                            {potencialCoursesModeration.length ? (
-                                                <div className="moderation-courses-section">
-                                                    <h2 className="moderation-courses-section__title">
-                                                        На модерации
-                                                    </h2>
+                        masterInfo.confirmedEmail ? (
+                            <section className="moderation-courses">
+                                <div className="container">
+                                    <div className="moderation-courses-wrapper">
+                                        {potencialCoursesModeration.length ||
+                                        potencialCoursesReject.length ? (
+                                            <>
+                                                {potencialCoursesModeration.length ? (
+                                                    <div className="moderation-courses-section">
+                                                        <h2 className="moderation-courses-section__title">
+                                                            На модерации
+                                                        </h2>
 
-                                                    <div className="moderation-courses-section-block-wrapper">
-                                                        {potencialCoursesModeration.map(
-                                                            (course, index) => (
-                                                                <ModerationCoursesBlock
-                                                                    {...course}
-                                                                    category={
-                                                                        categories[
-                                                                            course
-                                                                                .category
-                                                                        ].title
-                                                                    }
-                                                                    key={`moderation-courses-block-${index}`}
-                                                                />
-                                                            )
-                                                        )}
+                                                        <div className="moderation-courses-section-block-wrapper">
+                                                            {potencialCoursesModeration.map(
+                                                                (
+                                                                    course,
+                                                                    index
+                                                                ) => (
+                                                                    <ModerationCoursesBlock
+                                                                        {...course}
+                                                                        category={
+                                                                            categories[
+                                                                                course
+                                                                                    .category
+                                                                            ]
+                                                                                .title
+                                                                        }
+                                                                        key={`moderation-courses-block-${index}`}
+                                                                    />
+                                                                )
+                                                            )}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            ) : null}
-                                            {potencialCoursesReject.length ? (
-                                                <div className="moderation-courses-section">
-                                                    <h2 className="moderation-courses-section__title">
-                                                        Отклоненные
-                                                    </h2>
+                                                ) : null}
+                                                {potencialCoursesReject.length ? (
+                                                    <div className="moderation-courses-section">
+                                                        <h2 className="moderation-courses-section__title">
+                                                            Отклоненные
+                                                        </h2>
 
-                                                    <div className="moderation-courses-block-wrapper">
-                                                        {potencialCoursesReject.map(
-                                                            (course, index) => (
-                                                                <ModerationCoursesBlockEdit
-                                                                    {...course}
-                                                                    category={
-                                                                        categories[
-                                                                            course
-                                                                                .category
-                                                                        ].title
-                                                                    }
-                                                                    // days={checkDeclension(
-                                                                    //     moment(
-                                                                    //         course.errorDate,
-                                                                    //         "DD.MM.YYYY"
-                                                                    //     )
-                                                                    //         .add(
-                                                                    //             14,
-                                                                    //             "days"
-                                                                    //         )
-                                                                    //         .diff(
-                                                                    //             course.errorDate,
-                                                                    //             "days"
-                                                                    //         )
-                                                                    // )}
-                                                                    days={checkDeclension(
-                                                                        moment(
-                                                                            course.errorDate,
-                                                                            "DD.MM.YYYY"
-                                                                        )
-                                                                            .add(
-                                                                                14,
-                                                                                "days"
+                                                        <div className="moderation-courses-block-wrapper">
+                                                            {potencialCoursesReject.map(
+                                                                (
+                                                                    course,
+                                                                    index
+                                                                ) => (
+                                                                    <ModerationCoursesBlockEdit
+                                                                        {...course}
+                                                                        category={
+                                                                            categories[
+                                                                                course
+                                                                                    .category
+                                                                            ]
+                                                                                .title
+                                                                        }
+                                                                        // days={checkDeclension(
+                                                                        //     moment(
+                                                                        //         course.errorDate,
+                                                                        //         "DD.MM.YYYY"
+                                                                        //     )
+                                                                        //         .add(
+                                                                        //             14,
+                                                                        //             "days"
+                                                                        //         )
+                                                                        //         .diff(
+                                                                        //             course.errorDate,
+                                                                        //             "days"
+                                                                        //         )
+                                                                        // )}
+                                                                        days={checkDeclension(
+                                                                            moment(
+                                                                                course.errorDate,
+                                                                                "DD.MM.YYYY"
                                                                             )
-                                                                            .diff(
-                                                                                moment(),
-                                                                                "days"
-                                                                            ),
-                                                                        [
-                                                                            "день",
-                                                                            "дня",
-                                                                            "дней",
-                                                                        ]
-                                                                    )}
-                                                                    key={`moderation-courses-block-${index}`}
-                                                                />
-                                                            )
-                                                        )}
+                                                                                .add(
+                                                                                    14,
+                                                                                    "days"
+                                                                                )
+                                                                                .diff(
+                                                                                    moment(),
+                                                                                    "days"
+                                                                                ),
+                                                                            [
+                                                                                "день",
+                                                                                "дня",
+                                                                                "дней",
+                                                                            ]
+                                                                        )}
+                                                                        key={`moderation-courses-block-${index}`}
+                                                                    />
+                                                                )
+                                                            )}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            ) : null}
-                                        </>
-                                    ) : (
-                                        <ModerationCoursesNull />
-                                    )}
+                                                ) : null}
+                                            </>
+                                        ) : (
+                                            <ModerationCoursesNull />
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+                        ) : (
+                            <ConfirmedEmail />
+                        )
                     ) : (
                         <Loader />
                     )}

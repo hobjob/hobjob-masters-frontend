@@ -17,8 +17,13 @@ const CourseRegulationsMenuItem = ({
     };
 
     return (
-        <div className="course-regulations-menu-item" >
-            <p className="course-regulations-menu-item__title" onClick={onClickMenu}>{title}</p>
+        <div className="course-regulations-menu-item">
+            <p
+                className="course-regulations-menu-item__title"
+                onClick={onClickMenu}
+            >
+                {title}
+            </p>
 
             <div
                 className={`course-regulations-menu-item-list`}
@@ -34,7 +39,7 @@ const CourseRegulationsMenuItem = ({
                         key={`course-regulations-menu-item-list__title-${index}`}
                     >
                         <span
-                            className="course-regulations-menu-item-list__title"
+                            className={`course-regulations-menu-item-list__title`}
                             onClick={onClikcMenuAdaptive}
                         >
                             {item.title}

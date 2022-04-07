@@ -34,7 +34,7 @@ const Cabinet = () => {
     React.useEffect(() => {
         if (isLoadedMasterInfo) {
             if (hash !== "") {
-				const id = hash.replace("#", "");
+                const id = hash.replace("#", "");
 
                 const element = document.getElementById(id);
 
@@ -110,20 +110,22 @@ const Cabinet = () => {
                                             />
                                         </div>
 
-                                        <div className="cabinet-block">
-                                            <div className="cabinet-block-text">
-                                                <h3 className="cabinet-block-text__title">
-                                                    Платежная информация
-                                                </h3>
-                                            </div>
+                                        {masterInfo.paymentInfo.name !== "" ? (
+                                            <div className="cabinet-block">
+                                                <div className="cabinet-block-text">
+                                                    <h3 className="cabinet-block-text__title">
+                                                        Платежная информация
+                                                    </h3>
+                                                </div>
 
-                                            <CabinetMasterPayment
-                                                onSubmit={
-                                                    onSubmitCabinetMasterPayment
-                                                }
-                                                {...masterInfo.paymentInfo}
-                                            />
-                                        </div>
+                                                <CabinetMasterPayment
+                                                    onSubmit={
+                                                        onSubmitCabinetMasterPayment
+                                                    }
+                                                    {...masterInfo.paymentInfo}
+                                                />
+                                            </div>
+                                        ) : null}
 
                                         <div className="cabinet-block">
                                             <div className="cabinet-block-text">

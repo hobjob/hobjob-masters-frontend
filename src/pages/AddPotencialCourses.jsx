@@ -1,5 +1,4 @@
 import React from "react";
-import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 
@@ -7,15 +6,17 @@ import {
     AddPotencialCoursesInfoMessage,
     AddPotencialCoursesForm,
     Loader,
+    ConfirmedEmail,
 } from "../components/";
 
 import {sendAddPotencialCourse} from "../redux/actions/potencial_courses";
 
 const AddPotencialCourses = () => {
-    const history = useHistory();
     const dispatch = useDispatch();
 
-    const {isLoadedAllCategories} = useSelector(({categories}) => categories);
+    const {isLoadedAllCategories, itemsArray} = useSelector(
+        ({categories}) => categories
+    );
     const {masterInfo, isLoadedMasterInfo} = useSelector(({master}) => master);
 
     React.useEffect(() => {
@@ -62,6 +63,10 @@ const AddPotencialCourses = () => {
             }
         });
 
+        if (!data["category"]) {
+            formData.append(`category`, JSON.stringify(itemsArray[0].transfer));
+        }
+
         return dispatch(sendAddPotencialCourse(formData));
     };
 
@@ -74,7 +79,7 @@ const AddPotencialCourses = () => {
                     </Helmet>
 
                     {isLoadedAllCategories && isLoadedMasterInfo ? (
-                        masterInfo.paymentInfo.name !== "" ? (
+                        masterInfo.confirmedEmail ? (
                             <section className="add-potencial-courses">
                                 <div className="container">
                                     <div className="add-potencial-courses-wrapper">
@@ -87,7 +92,7 @@ const AddPotencialCourses = () => {
                                 </div>
                             </section>
                         ) : (
-                            history.push("/go/cabinet#payment")
+                            <ConfirmedEmail />
                         )
                     ) : (
                         <Loader />

@@ -43,7 +43,7 @@ const EditPotencialCoursesLessonsForm = ({valid}) => {
                         } add-potencial-courses-block-form__btn`}
                         disabled={valid}
                     >
-                        Отправить курс на модерацию (около 3 минут)
+                        Отправить курс на модерацию
                     </button>
                 )}
             </div>

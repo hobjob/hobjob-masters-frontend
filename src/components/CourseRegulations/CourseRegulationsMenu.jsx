@@ -116,7 +116,7 @@ const CourseRegulationsMenu = () => {
     ];
 
     const [stateOpenAdaptive, setStateOpenAdaptive] = React.useState(false);
-
+	
     const onClikcMenuAdaptive = () => {
         setStateOpenAdaptive(!stateOpenAdaptive);
     };

@@ -105,6 +105,21 @@
 			width: 100%
 
 @media screen and ( max-width: 1100px )
+	// confirmed-email
+	.confirmed-email
+		&-wrapper
+			flex-direction: column
+			align-items: flex-start
+
+		&-text
+			width: 100%
+
+			&__btn
+				width: 100%
+
+		&-image
+			display: none
+
 	// main-offer
 	.main-offer
 		&__title
@@ -297,6 +312,19 @@
 
 	// cabinet
 	.cabinet
+		&-message
+			margin-bottom: 0
+			flex-direction: column
+			align-items: flex-start
+
+			&__title
+				order: 2
+				width: 100%
+
+			&-close
+				order: 1
+				margin-bottom: 10px
+
 		&-card-user-info
 			flex-direction: column
 			text-align: center
@@ -339,6 +367,9 @@
 	// interface
 	.title, .title__mb
 		font-size: 38px
+
+	.title__mb
+		margin-bottom: 25px
 
 	// header
 	.header
@@ -446,6 +477,9 @@
 	.subtitle__mb
 		margin-bottom: 15px
 
+	.title, .title__mb
+		font-size: 32px
+
 	.input
 		&-file-block
 			&__btn
@@ -478,6 +512,14 @@
 		&-block
 			padding: 35px
 
+	// confirmed-email
+	.confirmed-email
+		margin: 25px 0
+
+	// moderation-courses
+	.moderation-courses
+		margin: 25px 0
+
 	// cabinet
 	.cabinet
 		margin: 25px 0
@@ -497,7 +539,6 @@
 						font-size: 28px
 
 		&-block
-			margin: 50px 0
 			padding-bottom: 25px
 
 			&-text
@@ -509,6 +550,8 @@
 
 	// add-potencial-courses
 	.add-potencial-courses
+		margin: 25px 0
+
 		&-error-message
 			padding: 20px
 			flex-direction: column
@@ -521,12 +564,18 @@
 				&__message
 					font-size: 21px
 
+				&__btn
+					width: 100%
+
 		&-info-message
 			padding: 20px
 
 			&-text
 				&__description
 					font-size: 18px
+
+				&__btn
+					width: 100%
 
 			&-image-adaptive
 				display: none

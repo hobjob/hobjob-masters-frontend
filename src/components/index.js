@@ -43,6 +43,9 @@ export { default as CabinetMasterPayment } from "./Cabinet/CabinetMasterPayment"
 export { default as CabinetMasterPassword } from "./Cabinet/CabinetMasterPassword"
 export { default as CabinetMessage } from "./Cabinet/CabinetMessage"
 
+// ConfirmedEmail
+export { default as ConfirmedEmail } from "./ConfirmedEmail/ConfirmedEmail"
+
 // AddPotencialCourses
 export { default as AddPotencialCoursesInfoMessage } from "./AddPotencialCourses/AddPotencialCoursesInfoMessage"
 export { default as AddPotencialCoursesForm } from "./AddPotencialCourses/AddPotencialCoursesForm"
@@ -50,6 +53,7 @@ export { default as AddPotencialCoursesInfoForm } from "./AddPotencialCourses/Ad
 export { default as AddPotencialCoursesLessonsForm } from "./AddPotencialCourses/AddPotencialCoursesLessonsForm"
 export { default as AddPotencialCoursesLessonsFormItems } from "./AddPotencialCourses/AddPotencialCoursesLessonsFormItems"
 export { default as AddPotencialCoursesLessonsFormItemsMaterials } from "./AddPotencialCourses/AddPotencialCoursesLessonsFormItemsMaterials"
+export { default as AddPotencialCoursesPaymentForm } from "./AddPotencialCourses/AddPotencialCoursesPaymentForm"
 
 // EditPotencialCourses
 export { default as EditPotencialCoursesErrorMessage } from "./EditPotencialCourses/EditPotencialCoursesErrorMessage"

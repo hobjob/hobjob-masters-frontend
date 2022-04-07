@@ -40,3 +40,6 @@ export { default as EngineeringWorks } from "./EngineeringWorks"
 
 // CourseRegulations
 export { default as CourseRegulations } from "./CourseRegulations"
+
+// ConfirmedEmail
+export { default as ConfirmedEmail } from "./ConfirmedEmail"

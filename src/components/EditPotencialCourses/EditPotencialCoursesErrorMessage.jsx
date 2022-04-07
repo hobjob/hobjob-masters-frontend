@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const EditPotencialCoursesErrorMessage = ({errorMessage, number}) => {
     return (
@@ -20,6 +21,12 @@ const EditPotencialCoursesErrorMessage = ({errorMessage, number}) => {
                     <a href="mailto:support@hobjob.ru">support@hobjob.ru</a>,{" "}
                     указав номер курса: #{number}
                 </p>
+                <Link
+                    to="/course-regulations"
+                    className="btn add-potencial-courses-error-message-text__btn"
+                >
+                    Рекомендации для мастеров
+                </Link>
             </div>
         </div>
     );

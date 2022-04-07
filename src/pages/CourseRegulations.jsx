@@ -492,6 +492,7 @@ const CourseRegulations = () => {
                                 <CourseRegulationsContentItem
                                     {...item}
                                     mainIndex={index}
+                                    key={`course-regulations-content-item-${index}`}
                                 />
                             ))}
                         </div>

@@ -1,10 +1,10 @@
 import React from "react";
-import {useSelector} from "react-redux";
 import {FieldArray} from "redux-form";
+import {useSelector} from "react-redux";
 
-import {AddPotencialCoursesLessonsFormItems, BtnLoader} from "../";
+import {BtnLoader, AddPotencialCoursesLessonsFormItems} from "../";
 
-const AddPotencialCoursesLessonsForm = ({valid}) => {
+const AddPotencialCoursesLessonsForm = ({btnVisible, valid}) => {
     const {isSendPotencialCourse} = useSelector(
         ({potencial_courses}) => potencial_courses
     );
@@ -29,22 +29,26 @@ const AddPotencialCoursesLessonsForm = ({valid}) => {
                     />
                 </div>
 
-                {isSendPotencialCourse ? (
-                    <button
-                        className="btn add-potencial-courses-block-form__btn disabled"
-                        disabled
-                    >
-                        <BtnLoader />
-                    </button>
+                {btnVisible ? (
+                    isSendPotencialCourse ? (
+                        <button
+                            className="btn add-potencial-courses-block-form__btn disabled"
+                            disabled
+                        >
+                            <BtnLoader />
+                        </button>
+                    ) : (
+                        <button
+                            className={`btn ${
+                                valid ? "disabled" : ""
+                            } add-potencial-courses-block-form__btn`}
+                            disabled={valid}
+                        >
+                            Отправить курс на модерацию
+                        </button>
+                    )
                 ) : (
-                    <button
-                        className={`btn ${
-                            valid ? "disabled" : ""
-                        } add-potencial-courses-block-form__btn`}
-                        disabled={valid}
-                    >
-                        Отправить курс на модерацию (около 3 минут)
-                    </button>
+                    null
                 )}
             </div>
         </div>
