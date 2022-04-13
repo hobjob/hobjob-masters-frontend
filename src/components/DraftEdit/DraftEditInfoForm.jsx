@@ -9,24 +9,25 @@ import {
     RenderImageInput,
 } from "../";
 
-const AddPotencialCoursesInfoForm = () => {
+const DraftEditInfoForm = () => {
     const categories = useSelector(({categories}) => categories.itemsArray);
+    const {itemById} = useSelector(({draft}) => draft);
 
     return (
-        <div className="add-potencial-courses-block">
-            <div className="add-potencial-courses-block-text">
-                <span className="subtitle__mb add-potencial-courses-block-text__subtitle">
+        <div className="potencial-courses-block">
+            <div className="potencial-courses-block-text">
+                <span className="subtitle__mb potencial-courses-block-text__subtitle">
                     1 этап
                 </span>
 
-                <h2 className="add-potencial-courses-block-text__title">
+                <h2 className="potencial-courses-block-text__title">
                     Информация о курсе
                 </h2>
             </div>
 
-            <div className="add-potencial-courses-block-form">
-                <div className="add-potencial-courses-block-form-block">
-                    <div className="add-potencial-courses-block-form-input">
+            <div className="potencial-courses-block-form">
+                <div className="potencial-courses-block-form-block">
+                    <div className="potencial-courses-block-form-input">
                         <Field
                             component={RenderInput}
                             type="text"
@@ -35,7 +36,7 @@ const AddPotencialCoursesInfoForm = () => {
                         />
                     </div>
 
-                    <div className="add-potencial-courses-block-form-input">
+                    <div className="potencial-courses-block-form-input">
                         <Field
                             component={RenderInputAutoSize}
                             type="text"
@@ -44,7 +45,7 @@ const AddPotencialCoursesInfoForm = () => {
                         />
                     </div>
 
-                    <div className="add-potencial-courses-block-form-input">
+                    <div className="potencial-courses-block-form-input">
                         <Field
                             component={RenderSelect}
                             name="category"
@@ -53,11 +54,12 @@ const AddPotencialCoursesInfoForm = () => {
                         />
                     </div>
 
-                    <div className="add-potencial-courses-block-form-input">
+                    <div className="potencial-courses-block-form-input">
                         <Field
                             component={RenderImageInput}
                             name="image"
                             label="Фото курса"
+                            defaultValue={itemById.image}
                         />
                     </div>
                 </div>
@@ -66,4 +68,4 @@ const AddPotencialCoursesInfoForm = () => {
     );
 };
 
-export default AddPotencialCoursesInfoForm;
+export default DraftEditInfoForm;

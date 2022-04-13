@@ -12,33 +12,33 @@ const ModerationCoursesBlockEdit = ({
     console.log(days);
     return (
         <Link
-            to={`/go/courses/edit/${_id}`}
-            className="moderation-courses-section-block edit"
+            to={`/go/moderations-courses/edit/${_id}`}
+            className="moderations-courses-section-block edit"
         >
-            <div className="moderation-courses-section-block-content">
+            <div className="moderations-courses-section-block-content">
                 <div
-                    className="moderation-courses-section-block-content-cover"
+                    className="moderations-courses-section-block-content-cover"
                     style={{
                         backgroundImage: `url('${`${process.env.REACT_APP_IMAGE_DOMEN}/${image}`}')`,
                     }}
                 ></div>
-                <div className="moderation-courses-section-block-content-text">
-                    <div className="moderation-courses-section-block-content-text-item">
-                        <span className="subtitle__mb moderation-courses-section-block-content-text__subtitle">
+                <div className="moderations-courses-section-block-content-text">
+                    <div className="moderations-courses-section-block-content-text-item">
+                        <span className="subtitle__mb moderations-courses-section-block-content-text__subtitle">
                             Курс #{number}
                         </span>
-                        <h3 className="moderation-courses-section-block-content-text__title">
+                        <h3 className="moderations-courses-section-block-content-text__title">
                             {title}
                         </h3>
                     </div>
-                    <p className="moderation-courses-section-block-content-text__category">
+                    <p className="moderations-courses-section-block-content-text__category">
                         <span>Направление:</span> {category}
                     </p>
                 </div>
             </div>
 
-            <div className="moderation-courses-section-block-status-wrapper">
-                <p className="moderation-courses-section-block__status reject">
+            <div className="moderations-courses-section-block-status-wrapper">
+                <p className="moderations-courses-section-block__status reject">
                     Отклонен,{" "}
                     {days.num === 0
                         ? "курс будет удален сегодня"

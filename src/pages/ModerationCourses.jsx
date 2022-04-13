@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 import moment from "moment";
 
-import {fetchMasterPotencialCourses} from "../redux/actions/master";
+import {fetchMasterModerationCourses} from "../redux/actions/master";
 
 import {checkDeclension} from "../Functions/checkDeclension";
 
@@ -20,9 +20,9 @@ const ModerationCourses = () => {
 
     const {
         masterInfo,
-        potencialCoursesModeration,
-        potencialCoursesReject,
-        isLoadedPotencialCourses,
+        moderationCourses,
+        moderationCoursesReject,
+        isLoadedModerationCourses,
     } = useSelector(({master}) => master);
     const {isLoadedAllCategories} = useSelector(({categories}) => categories);
     const categories = useSelector(({categories}) => categories.items);
@@ -30,11 +30,8 @@ const ModerationCourses = () => {
     React.useEffect(() => {
         window.scrollTo(0, 0);
 
-        if (
-            !potencialCoursesModeration.length ||
-            !potencialCoursesReject.length
-        ) {
-            dispatch(fetchMasterPotencialCourses());
+        if (!moderationCourses.length || !moderationCoursesReject.length) {
+            dispatch(fetchMasterModerationCourses());
         }
     }, []);
 
@@ -46,22 +43,22 @@ const ModerationCourses = () => {
                         <title>Курсы на модерации - HobJob для мастеров</title>
                     </Helmet>
 
-                    {isLoadedPotencialCourses && isLoadedAllCategories ? (
+                    {isLoadedModerationCourses && isLoadedAllCategories ? (
                         masterInfo.confirmedEmail ? (
-                            <section className="moderation-courses">
+                            <section className="moderations-courses">
                                 <div className="container">
-                                    <div className="moderation-courses-wrapper">
-                                        {potencialCoursesModeration.length ||
-                                        potencialCoursesReject.length ? (
+                                    <div className="moderations-courses-wrapper">
+                                        {moderationCourses.length ||
+                                        moderationCoursesReject.length ? (
                                             <>
-                                                {potencialCoursesModeration.length ? (
-                                                    <div className="moderation-courses-section">
-                                                        <h2 className="moderation-courses-section__title">
+                                                {moderationCourses.length ? (
+                                                    <div className="moderations-courses-section">
+                                                        <h2 className="moderations-courses-section__title">
                                                             На модерации
                                                         </h2>
 
-                                                        <div className="moderation-courses-section-block-wrapper">
-                                                            {potencialCoursesModeration.map(
+                                                        <div className="moderations-courses-section-block-wrapper">
+                                                            {moderationCourses.map(
                                                                 (
                                                                     course,
                                                                     index
@@ -75,21 +72,21 @@ const ModerationCourses = () => {
                                                                             ]
                                                                                 .title
                                                                         }
-                                                                        key={`moderation-courses-block-${index}`}
+                                                                        key={`moderations-courses-block-${index}`}
                                                                     />
                                                                 )
                                                             )}
                                                         </div>
                                                     </div>
                                                 ) : null}
-                                                {potencialCoursesReject.length ? (
-                                                    <div className="moderation-courses-section">
-                                                        <h2 className="moderation-courses-section__title">
+                                                {moderationCoursesReject.length ? (
+                                                    <div className="moderations-courses-section">
+                                                        <h2 className="moderations-courses-section__title">
                                                             Отклоненные
                                                         </h2>
 
-                                                        <div className="moderation-courses-block-wrapper">
-                                                            {potencialCoursesReject.map(
+                                                        <div className="moderations-courses-block-wrapper">
+                                                            {moderationCoursesReject.map(
                                                                 (
                                                                     course,
                                                                     index
@@ -103,20 +100,6 @@ const ModerationCourses = () => {
                                                                             ]
                                                                                 .title
                                                                         }
-                                                                        // days={checkDeclension(
-                                                                        //     moment(
-                                                                        //         course.errorDate,
-                                                                        //         "DD.MM.YYYY"
-                                                                        //     )
-                                                                        //         .add(
-                                                                        //             14,
-                                                                        //             "days"
-                                                                        //         )
-                                                                        //         .diff(
-                                                                        //             course.errorDate,
-                                                                        //             "days"
-                                                                        //         )
-                                                                        // )}
                                                                         days={checkDeclension(
                                                                             moment(
                                                                                 course.errorDate,
@@ -136,7 +119,7 @@ const ModerationCourses = () => {
                                                                                 "дней",
                                                                             ]
                                                                         )}
-                                                                        key={`moderation-courses-block-${index}`}
+                                                                        key={`moderations-courses-block-${index}`}
                                                                     />
                                                                 )
                                                             )}

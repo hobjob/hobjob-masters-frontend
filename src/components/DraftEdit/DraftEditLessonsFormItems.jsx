@@ -1,4 +1,5 @@
 import React from "react";
+import {useSelector} from "react-redux";
 import {Field, FieldArray} from "redux-form";
 
 import {
@@ -6,14 +7,11 @@ import {
     RenderInputAutoSize,
     RenderImageInput,
     RenderVideoInput,
-    AddPotencialCoursesLessonsFormItemsMaterials,
+    DraftEditLessonsFormItemsMaterials,
 } from "../";
 
-const AddPotencialCoursesLessonsFormItems = ({fields}) => {
-    React.useEffect(() => {
-        fields.push({});
-        fields.push({});
-    }, []);
+const DraftEditLessonsFormItems = ({fields}) => {
+    const {itemById} = useSelector(({draft}) => draft);
 
     const addLesson = () => {
         fields.push({});
@@ -27,18 +25,18 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
         <>
             {fields.map((lesson, index) => (
                 <div
-                    className="add-potencial-courses-block-form-block"
-                    key={`add-potencial-courses-block-form-block-${index}`}
+                    className="potencial-courses-block-form-block"
+                    key={`potencial-courses-block-form-block-${index}`}
                 >
-                    <div className="add-potencial-courses-block-form-block-subblock">
-                        <div className="add-potencial-courses-block-form-block-top">
-                            <h3 className="add-potencial-courses-block-form-block-top__title">
+                    <div className="potencial-courses-block-form-block-subblock">
+                        <div className="potencial-courses-block-form-block-top">
+                            <h3 className="potencial-courses-block-form-block-top__title">
                                 Урок #{index + 1}
                             </h3>
 
                             {index !== 0 && index !== 1 ? (
                                 <div
-                                    className="add-potencial-courses-block-form-block-top-close"
+                                    className="potencial-courses-block-form-block-top-close"
                                     onClick={() => removeLesson(index)}
                                 >
                                     <svg
@@ -56,7 +54,7 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
                                 </div>
                             ) : null}
                         </div>
-                        <div className="add-potencial-courses-block-form-block-input">
+                        <div className="potencial-courses-block-form-block-input">
                             <Field
                                 component={RenderInput}
                                 type="text"
@@ -64,7 +62,7 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
                                 label="Название"
                             />
                         </div>
-                        <div className="add-potencial-courses-block-form-block-input">
+                        <div className="potencial-courses-block-form-block-input">
                             <Field
                                 component={RenderInputAutoSize}
                                 type="text"
@@ -72,40 +70,54 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
                                 label="Описание"
                             />
                         </div>
-                        <div className="add-potencial-courses-block-form-block-input">
+                        <div className="potencial-courses-block-form-block-input">
                             <Field
                                 component={RenderImageInput}
                                 name={`${lesson}.image`}
                                 label="Фотография урока"
+                                defaultValue={
+                                    itemById.lessons[index] &&
+                                    itemById.lessons[index].image
+                                }
                             />
                         </div>
                     </div>
 
-                    <div className="add-potencial-courses-block-form-block-subblock">
-                        <h3 className="add-potencial-courses-block-form-block-subblock__title">
+                    <div className="potencial-courses-block-form-block-subblock">
+                        <h3 className="potencial-courses-block-form-block-subblock__title">
                             Материалы
                         </h3>
 
-                        <div className="add-potencial-courses-block-form-block-input">
+                        <div className="potencial-courses-block-form-block-input">
                             <FieldArray
-                                component={
-                                    AddPotencialCoursesLessonsFormItemsMaterials
-                                }
+                                component={DraftEditLessonsFormItemsMaterials}
                                 name={`${lesson}.materials`}
+                                materialsValue={
+                                    itemById.lessons[index] &&
+                                    itemById.lessons[index].materials
+                                }
                             />
                         </div>
                     </div>
 
-                    <div className="add-potencial-courses-block-form-block-subblock">
-                        <h3 className="add-potencial-courses-block-form-block-subblock__title">
+                    <div className="potencial-courses-block-form-block-subblock">
+                        <h3 className="potencial-courses-block-form-block-subblock__title">
                             Видео
                         </h3>
 
-                        <div className="add-potencial-courses-block-form-block-input">
+                        <div className="potencial-courses-block-form-block-input">
                             <Field
                                 component={RenderVideoInput}
                                 name={`${lesson}.video`}
                                 label="Допустимые расширения (.mp4, .avi, .mov, .mpeg, .webm)"
+                                defaultValue={
+                                    itemById.lessons[index] &&
+                                    itemById.lessons[index].video &&
+                                    itemById.lessons[index].video.fileNameUser
+                                }
+                                url={`/potencial-courses/drafts/upload-video/${
+                                    itemById._id
+                                }/${index + 1}`}
                             />
                         </div>
                     </div>
@@ -115,7 +127,7 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
             <button
                 type="button"
                 onClick={addLesson}
-                className="btn__gray add-potencial-courses-block-form__btn"
+                className="btn__gray potencial-courses-block-form__btn"
             >
                 Добавить урок
                 <svg
@@ -133,4 +145,4 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
     );
 };
 
-export default AddPotencialCoursesLessonsFormItems;
+export default DraftEditLessonsFormItems;

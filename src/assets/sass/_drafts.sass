@@ -1,0 +1,98 @@
+// drafts
+.drafts
+	margin: 50px 0
+	+openAnimation
+
+	&-top-text
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+		margin-bottom: 25px
+		padding-bottom: 25px
+
+		border-bottom: 1px solid $borderGray
+
+		&__title
+			font-size: 42px
+
+	&-null
+		margin: 100px 0
+		display: flex
+		justify-content: center
+		+openAnimation
+
+		&__title
+			font-size: 32px
+			color: $gray
+
+	&-item
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+
+		padding: 15px 20px
+
+		background-color: $backgroundGray
+
+		margin-bottom: 15px
+
+		+openAnimation
+		+borderRadiusBlock
+		+transition
+
+		&:hover
+			transform: scale(0.99)
+
+		&:last-child
+			margin-bottom: 0
+
+		&.loader
+			pointer-events: none
+			user-select: none
+			opacity: 0.3
+
+		&-text
+			width: 100%
+
+			&__subtitle
+				display: block
+				color: $gray
+				font-size: 21px
+				margin-bottom: 10px
+
+			&-bottom
+				display: flex
+				align-items: center
+
+				&-image
+					margin-right: 15px
+
+					border-radius: 50%
+					min-width: 75px
+					height: 75px
+
+					+backgroundSetting
+
+				&__title
+					max-width: 50%
+					font-size: 32px
+
+					overflow: hidden
+					display: -webkit-box
+					-webkit-line-clamp: 1
+					-webkit-box-orient: vertical
+
+		&__delete
+			cursor: pointer
+			text-align: center
+			display: inline-block
+			font-size: 16px
+			padding: 5px 10px
+			border-radius: 100px
+			color: $white
+			background-color: $red
+			+transition
+
+			&:active
+				+transformScale

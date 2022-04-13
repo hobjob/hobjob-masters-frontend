@@ -47,7 +47,7 @@ const Statistics = () => {
                                     <StatisticsCourses />
                                 </>
                             ) : (
-                                history.push("/go/moderation-courses")
+                                history.push("/go/moderations-courses")
                             )
                         ) : (
                             <Loader />

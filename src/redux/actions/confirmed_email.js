@@ -11,6 +11,6 @@ export const fetchSendRepeatConfirmedEmailMaster = () => (dispatch) => {
 
 export const fetchConfirmedEmailMaster = (hash) => (dispatch) => {
 	$api.get(`/masters/confirmed/${hash}`).then(() => {
-		window.location.href = "/go/moderation-courses"
+		window.location.href = "/go/moderations-courses"
 	})
 }

@@ -38,11 +38,11 @@ const validate = (values) => {
 				lessonErrors.title = 'Поле не может быть пустым';
 				lessonsArrayErrors[index] = lessonErrors
 
-			} else if (values.title.length > defaultMax) {
+			} else if (lesson.title.length > defaultMax) {
 				lessonErrors.title = `Не более ${defaultMax} символов`;
 				lessonsArrayErrors[index] = lessonErrors
 
-			} else if (values.title.length < defaultMin) {
+			} else if (lesson.title.length < defaultMin) {
 				lessonErrors.title = `Не менее ${defaultMin} символов`;
 				lessonsArrayErrors[index] = lessonErrors
 
@@ -52,11 +52,11 @@ const validate = (values) => {
 				lessonErrors.description = 'Поле не может быть пустым';
 				lessonsArrayErrors[index] = lessonErrors
 
-			} else if (values.description.length > 1000) {
+			} else if (lesson.description.length > 1000) {
 				lessonErrors.description = `Не более ${1000} символов`;
 				lessonsArrayErrors[index] = lessonErrors
 
-			} else if (values.description.length < defaultMin) {
+			} else if (lesson.description.length < defaultMin) {
 				lessonErrors.description = `Не менее ${defaultMin} символов`;
 				lessonsArrayErrors[index] = lessonErrors
 

@@ -9,7 +9,7 @@ import {
 } from "../components/";
 
 import {
-    fetchPotencialCourseById,
+    fetchModerationCourseById,
     sendUpdatePotencialCourse,
 } from "../redux/actions/potencial_courses";
 
@@ -20,29 +20,23 @@ const EditPotencialCourses = ({
 }) => {
     const dispatch = useDispatch();
 
-    const {isLoadedPotencialCourseById, potencialCourseById} = useSelector(
+    const {isLoadedModerationCourseById, moderationCourseById} = useSelector(
         ({potencial_courses}) => potencial_courses
     );
-    const {isLoadedAllCategories} = useSelector(({categories}) => categories);
+    const {isLoadedAllCategories, itemsArray} = useSelector(({categories}) => categories);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     React.useEffect(() => {
-        dispatch(fetchPotencialCourseById(id));
+        dispatch(fetchModerationCourseById(id));
     }, [id]);
 
     const onSubmit = (data) => {
-        const formData = new FormData();
-
+		const formData = new FormData();
+		
         Object.keys(data).map((key) => {
-            formData.append(key, JSON.stringify(data[key]));
-
-            if (key === "image") {
-                formData.append(`image`, data[key]);
-            }
-
             if (key === "lessons") {
                 data[key].map((lesson, index_lesson) => {
                     if (lesson.image) {
@@ -51,31 +45,27 @@ const EditPotencialCourses = ({
                             lesson.image
                         );
                     }
-
-                    if (lesson.video && !lesson.video.indexFile) {
-                        formData.append(
-                            `lessons-${index_lesson + 1}-video`,
-                            lesson.video
-                        );
-                    }
-
                     if (lesson.materials) {
                         lesson.materials.map((material, material_index) => {
-                            if (material.file) {
-                                formData.append(
-                                    `lessons-${index_lesson + 1}-materials-${
-                                        material_index + 1
-                                    }`,
-                                    material.file
-                                );
-                            }
+                            formData.append(
+                                `lessons-${index_lesson + 1}-materials-${
+                                    material_index + 1
+                                }`,
+                                material.file
+                            );
                         });
                     }
                 });
+                formData.append(key, JSON.stringify(data[key]));
+            } else {
+                formData.append(key, data[key]);
             }
         });
+        if (!data["category"]) {
+            formData.append(`category`, itemsArray[0].transfer);
+		}
 
-        return dispatch(sendUpdatePotencialCourse(id, formData));
+        dispatch(sendUpdatePotencialCourse(formData));
     };
 
     return (
@@ -86,13 +76,13 @@ const EditPotencialCourses = ({
                         <title>Изменить курс - HobJob для мастеров</title>
                     </Helmet>
 
-                    {isLoadedAllCategories && isLoadedPotencialCourseById ? (
-                        Object.keys(potencialCourseById).length ? (
-                            <section className="add-potencial-courses">
+                    {isLoadedAllCategories && isLoadedModerationCourseById ? (
+                        Object.keys(moderationCourseById).length ? (
+                            <section className="potencial-courses">
                                 <div className="container">
-                                    <div className="add-potencial-courses-wrapper">
+                                    <div className="potencial-courses-wrapper">
                                         <EditPotencialCoursesErrorMessage
-                                            {...potencialCourseById}
+                                            {...moderationCourseById}
                                         />
 
                                         <EditPotencialCoursesForm

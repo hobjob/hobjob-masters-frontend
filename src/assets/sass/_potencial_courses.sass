@@ -1,6 +1,6 @@
-// add-potencial-courses
-.add-potencial-courses
-	margin: 50px 0
+// potencial-courses
+.potencial-courses
+	margin: 25px 0 50px 0
 	+openAnimation
 
 	&-info-message
@@ -62,13 +62,13 @@
 		+borderRadiusBlock
 
 		&-title
-			width: 27%
+			width: 25%
 
 			&__title
 				font-size: 32px
 
 		&-text
-			width: 70%
+			width: 60%
 
 			&__message
 				font-size: 24px
@@ -164,6 +164,11 @@
 						align-items: center
 						cursor: pointer
 
+						+transition
+
+						&:active
+							+transformScale
+
 				&-subblock-subblock
 					padding: 35px
 					background-color: $backgroundGray
@@ -174,3 +179,13 @@
 
 			&__btn
 				width: 100%
+
+		&-btn
+			display: flex
+			justify-content: space-between
+
+			width: 60%
+			margin-left: auto
+
+			&__btn
+				width: 49%

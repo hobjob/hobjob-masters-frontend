@@ -1,30 +1,30 @@
 const initialState = {
-	isSendPotencialCourse: false,
+	isSendSubmitModerationCourse: false,
 
-	potencialCourseById: {},
-	isLoadedPotencialCourseById: false
+	moderationCourseById: {},
+	isLoadedModerationCourseById: false
 }
 
 const potencial_courses = (state = initialState, action) => {
-	if (action.type === "SET_IS_SEND_POTENCIAL_COURSE") {
+	if (action.type === "SET_IS_SEND_SUBMIT_MODERATION_COURSE") {
 		return {
 			...state,
-			isSendPotencialCourse: action.payload
+			isSendSubmitModerationCourse: action.payload
 		}
 	}
 
-	if (action.type === "SET_POTENCIAL_COURSE_BY_ID") {
+	if (action.type === "SET_MODERATION_COURSE_BY_ID") {
 		return {
 			...state,
-			potencialCourseById: action.payload,
-			isLoadedPotencialCourseById: true
+			moderationCourseById: action.payload,
+			isLoadedModerationCourseById: true
 		}
 	}
 
-	if (action.type === "SET_IS_LOADED_POTENCIAL_COURSE_BY_ID") {
+	if (action.type === "SET_IS_LOADED_MODERATION_COURSE_BY_ID") {
 		return {
 			...state,
-			isLoadedPotencialCourseById: action.payload,
+			isLoadedModerationCourseById: action.payload,
 		}
 	}
 

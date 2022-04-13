@@ -3,7 +3,7 @@ import {Field} from "redux-form";
 
 import {RenderInput, RenderFileInput} from "../";
 
-const AddPotencialCoursesLessonsFormItemsMaterials = ({fields}) => {
+const DraftEditLessonsFormItemsMaterials = ({fields, materialsValue}) => {
     const addMaterial = () => {
         fields.push({});
     };
@@ -16,16 +16,16 @@ const AddPotencialCoursesLessonsFormItemsMaterials = ({fields}) => {
         <>
             {fields.map((material, index) => (
                 <div
-                    className="add-potencial-courses-block-form-block-subblock-subblock"
-                    key={`add-potencial-courses-block-form-block-${index}`}
+                    className="potencial-courses-block-form-block-subblock-subblock"
+                    key={`potencial-courses-block-form-block-${index}`}
                 >
-                    <div className="add-potencial-courses-block-form-block-top">
-                        <h4 className="add-potencial-courses-block-form-block-top__title">
+                    <div className="potencial-courses-block-form-block-top">
+                        <h4 className="potencial-courses-block-form-block-top__title">
                             Материал #{index + 1}
                         </h4>
 
                         <div
-                            className="add-potencial-courses-block-form-block-top-close"
+                            className="potencial-courses-block-form-block-top-close"
                             onClick={() => removeMaterial(index)}
                         >
                             <svg
@@ -43,7 +43,7 @@ const AddPotencialCoursesLessonsFormItemsMaterials = ({fields}) => {
                         </div>
                     </div>
 
-                    <div className="add-potencial-courses-block-form-block-input">
+                    <div className="potencial-courses-block-form-block-input">
                         <Field
                             component={RenderInput}
                             type="text"
@@ -52,11 +52,19 @@ const AddPotencialCoursesLessonsFormItemsMaterials = ({fields}) => {
                         />
                     </div>
 
-                    <div className="add-potencial-courses-block-form-block-input">
+                    <div className="potencial-courses-block-form-block-input">
                         <Field
                             component={RenderFileInput}
                             name={`${material}.file`}
                             label="Файл"
+                            defaultValue={
+                                materialsValue &&
+                                materialsValue[index] &&
+                                materialsValue[index].file.split("/")[
+                                    materialsValue[index].file.split("/")
+                                        .length - 1
+                                ]
+                            }
                         />
                     </div>
                 </div>
@@ -65,7 +73,7 @@ const AddPotencialCoursesLessonsFormItemsMaterials = ({fields}) => {
             <button
                 type="button"
                 onClick={addMaterial}
-                className="btn__gray add-potencial-courses-block-form__btn"
+                className="btn__gray potencial-courses-block-form__btn"
             >
                 Добавить материал
                 <svg
@@ -83,4 +91,4 @@ const AddPotencialCoursesLessonsFormItemsMaterials = ({fields}) => {
     );
 };
 
-export default AddPotencialCoursesLessonsFormItemsMaterials;
+export default DraftEditLessonsFormItemsMaterials;

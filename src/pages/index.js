@@ -17,8 +17,11 @@ export { default as Cabinet } from "./Cabinet"
 // ModerationCourses
 export { default as ModerationCourses } from "./ModerationCourses"
 
-// AddPotencialCourses
-export { default as AddPotencialCourses } from "./AddPotencialCourses"
+// DraftEdit
+export { default as DraftEdit } from "./DraftEdit"
+
+// Drafts
+export { default as Drafts } from "./Drafts"
 
 // EditPotencialCourses
 export { default as EditPotencialCourses } from "./EditPotencialCourses"

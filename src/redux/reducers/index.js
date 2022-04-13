@@ -7,6 +7,7 @@ import login from './login';
 import password_recovery from './password_recovery';
 import master from './master';
 import potencial_courses from './potencial_courses';
+import draft from './draft';
 import confirmed_email from './confirmed_email';
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
 	password_recovery,
 	master,
 	potencial_courses,
+	draft,
 	confirmed_email,
 	form: formReducer
 });

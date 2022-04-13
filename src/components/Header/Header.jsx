@@ -165,17 +165,17 @@ const Header = React.memo(() => {
                                                     </NavLink>
 
                                                     <NavLink
-                                                        to="/go/courses/add"
-                                                        className="header-user-menu__link"
-                                                    >
-                                                        Добавить курс
-                                                    </NavLink>
-
-                                                    <NavLink
-                                                        to="/go/moderation-courses"
+                                                        to="/go/moderations-courses"
                                                         className="header-user-menu__link"
                                                     >
                                                         Курсы на модерации
+                                                    </NavLink>
+
+                                                    <NavLink
+                                                        to="/go/drafts"
+                                                        className="header-user-menu__link"
+                                                    >
+                                                        Черновики
                                                     </NavLink>
 
                                                     <NavLink

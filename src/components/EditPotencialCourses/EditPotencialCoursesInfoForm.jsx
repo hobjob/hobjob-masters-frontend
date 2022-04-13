@@ -12,25 +12,25 @@ import {
 const EditPotencialCoursesInfoForm = () => {
     const categories = useSelector(({categories}) => categories.itemsArray);
 
-    const {potencialCourseById} = useSelector(
+    const {moderationCourseById} = useSelector(
         ({potencial_courses}) => potencial_courses
     );
 
     return (
-        <div className="add-potencial-courses-block">
-            <div className="add-potencial-courses-block-text">
-                <span className="subtitle__mb add-potencial-courses-block-text__subtitle">
+        <div className="potencial-courses-block">
+            <div className="potencial-courses-block-text">
+                <span className="subtitle__mb potencial-courses-block-text__subtitle">
                     1 этап
                 </span>
 
-                <h2 className="add-potencial-courses-block-text__title">
+                <h2 className="potencial-courses-block-text__title">
                     Информация о курсе
                 </h2>
             </div>
 
-            <div className="add-potencial-courses-block-form">
-                <div className="add-potencial-courses-block-form-block">
-                    <div className="add-potencial-courses-block-form-input">
+            <div className="potencial-courses-block-form">
+                <div className="potencial-courses-block-form-block">
+                    <div className="potencial-courses-block-form-input">
                         <Field
                             component={RenderInput}
                             type="text"
@@ -39,7 +39,7 @@ const EditPotencialCoursesInfoForm = () => {
                         />
                     </div>
 
-                    <div className="add-potencial-courses-block-form-input">
+                    <div className="potencial-courses-block-form-input">
                         <Field
                             component={RenderInputAutoSize}
                             type="text"
@@ -48,7 +48,7 @@ const EditPotencialCoursesInfoForm = () => {
                         />
                     </div>
 
-                    <div className="add-potencial-courses-block-form-input">
+                    <div className="potencial-courses-block-form-input">
                         <Field
                             component={RenderSelect}
                             name="category"
@@ -57,12 +57,12 @@ const EditPotencialCoursesInfoForm = () => {
                         />
                     </div>
 
-                    <div className="add-potencial-courses-block-form-input">
+                    <div className="potencial-courses-block-form-input">
                         <Field
                             component={RenderImageInput}
                             name="image"
                             label="Фото курса"
-                            defaultValue={potencialCourseById.image}
+                            defaultValue={moderationCourseById.image}
                         />
                     </div>
                 </div>

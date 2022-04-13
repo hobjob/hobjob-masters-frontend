@@ -17,12 +17,12 @@ let EditPotencialCoursesForm = ({
     pristine,
     initialize,
 }) => {
-    const {potencialCourseById} = useSelector(
+    const {moderationCourseById} = useSelector(
         ({potencial_courses}) => potencial_courses
     );
 
     React.useEffect(() => {
-            initialize(potencialCourseById);
+        initialize(moderationCourseById);
     }, []);
 
     return (

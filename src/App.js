@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import { Header, Footer } from './components/';
 
-import { Home, Login, Register, PasswordRecoveryEmail, PasswordRecoveryNewPassword, Cabinet, ModerationCourses, AddPotencialCourses, EditPotencialCourses, Statistics, Policy, PublicOffer, Regulations, EngineeringWorks, CourseRegulations, ConfirmedEmail } from './pages/';
+import { Home, Login, Register, PasswordRecoveryEmail, PasswordRecoveryNewPassword, Cabinet, ModerationCourses, DraftEdit, Drafts, EditPotencialCourses, Statistics, Policy, PublicOffer, Regulations, EngineeringWorks, CourseRegulations, ConfirmedEmail } from './pages/';
 
 dotenv.config()
 
@@ -37,9 +37,11 @@ const App = () => {
 
 						<Route path="/go/cabinet" render={() => <Cabinet />} exact />
 
-						<Route path="/go/moderation-courses" render={() => <ModerationCourses />} exact />
-						<Route path="/go/courses/add" render={() => <AddPotencialCourses />} exact />
-						<Route path="/go/courses/edit/:id" render={(props) => <EditPotencialCourses {...props} />} exact />
+						<Route path="/go/moderations-courses" render={() => <ModerationCourses />} exact />
+						<Route path="/go/moderations-courses/edit/:id" render={(props) => <EditPotencialCourses {...props} />} exact />
+
+						<Route path="/go/drafts/:id" render={(props) => <DraftEdit {...props} />} exact />
+						<Route path="/go/drafts" render={() => <Drafts />} exact />
 
 						<Route path="/go/statistics" render={() => <Statistics />} exact />
 

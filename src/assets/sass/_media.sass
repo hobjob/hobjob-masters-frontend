@@ -1,7 +1,7 @@
 // media
 @media screen and ( max-width: 1300px )
-	// moderation-courses
-	.moderation-courses
+	// moderations-courses
+	.moderations-courses
 		&-null
 			margin: 0
 
@@ -11,8 +11,8 @@
 			&-img
 				display: none
 
-	// add-potencial-courses
-	.add-potencial-courses
+	// potencial-courses
+	.potencial-courses
 		&-error-message
 			flex-direction: column
 
@@ -50,8 +50,8 @@
 				width: 49.5%
 				margin-bottom: 15px
 
-	// add-potencial-courses
-	.add-potencial-courses
+	// potencial-courses
+	.potencial-courses
 		&-info-message
 			flex-direction: column
 
@@ -208,8 +208,8 @@
 			&-contact
 				margin: 0
 
-	// moderation-courses
-	.moderation-courses
+	// moderations-courses
+	.moderations-courses
 		&-section
 			&-block
 				flex-direction: column
@@ -294,8 +294,8 @@
 						&__category
 							margin-top: 25px
 
-	// moderation-courses
-	.moderation-courses
+	// moderations-courses
+	.moderations-courses
 		&-null
 			&-text
 				&__title
@@ -309,6 +309,14 @@
 
 					&:first-child
 						margin-bottom: 15px
+
+	// drafts
+	.drafts
+		&-item
+			&-text
+				&-bottom
+					&__title
+						max-width: 95%
 
 	// cabinet
 	.cabinet
@@ -378,8 +386,8 @@
 				width: 75%
 
 @media screen and ( max-width: 750px )
-	// add-potencial-courses
-	.add-potencial-courses
+	// potencial-courses
+	.potencial-courses
 		&-info-message
 			&-text
 				&__description
@@ -446,15 +454,15 @@
 						&__category
 							font-size: 18px
 
-	// moderation-courses
-	.moderation-courses
+	// moderations-courses
+	.moderations-courses
 		&-null
 			&-text
 				&__title
 					font-size: 36px
 
-	// add-potencial-courses
-	.add-potencial-courses
+	// potencial-courses
+	.potencial-courses
 		&-block
 			&-text
 				text-align: center
@@ -516,8 +524,8 @@
 	.confirmed-email
 		margin: 25px 0
 
-	// moderation-courses
-	.moderation-courses
+	// moderations-courses
+	.moderations-courses
 		margin: 25px 0
 
 	// cabinet
@@ -548,8 +556,42 @@
 				&__subtitle
 					font-size: 18px
 
-	// add-potencial-courses
-	.add-potencial-courses
+	// drafts
+	.drafts
+		margin: 25px 0
+
+		&-top-text
+			align-items: flex-start
+			flex-direction: column
+
+			&__title
+				font-size: 32px
+
+			&__btn
+				margin-top: 25px
+				width: 100%
+
+		&-null
+			margin: 50px 0
+			
+			&__title
+				font-size: 24px
+
+		&-item
+			&-text
+				&__subtitle
+					font-size: 18px
+
+				&-bottom
+					&-image
+						min-width: 60px
+						height: 60px
+
+					&__title
+						font-size: 24px
+
+	// potencial-courses
+	.potencial-courses
 		margin: 25px 0
 
 		&-error-message

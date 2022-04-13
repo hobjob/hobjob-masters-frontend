@@ -2,10 +2,13 @@ const initialState = {
 	masterInfo: {},
 	statistics: {},
 
-	potencialCoursesModeration: [],
-	potencialCoursesReject: [],
+	moderationCourses: [],
+	moderationCoursesReject: [],
 
-	isLoadedPotencialCourses: false,
+	draftsCourses: [],
+
+	isLoadedModerationCourses: false,
+	isLoadedDraftsCourses: false,
 	isLoadedMasterInfo: false,
 	isLoadedMasterStatistics: false,
 
@@ -44,25 +47,22 @@ const master = (state = initialState, action) => {
 		}
 	}
 
-	if (action.type === "SET_MASTER_POTENCIAL_COURSES") {
-		const potencialCoursesModerationArray = []
-		const potencialCoursesRejectArray = []
-
-		action.payload.map(course => {
-			if (course.status === "moderation" || course.status === "uploading") {
-				potencialCoursesModerationArray.push(course)
-			}
-
-			if (course.status === "reject") {
-				potencialCoursesRejectArray.push(course)
-			}
-		})
+	if (action.type === "SET_MASTER_MODERATION_COURSES") {
+		const { moderationCourses, moderationCoursesReject } = action.payload
 
 		return {
 			...state,
-			potencialCoursesModeration: potencialCoursesModerationArray,
-			potencialCoursesReject: potencialCoursesRejectArray,
-			isLoadedPotencialCourses: true
+			moderationCourses,
+			moderationCoursesReject,
+			isLoadedModerationCourses: true
+		}
+	}
+
+	if (action.type === "SET_MASTER_DRAFTS_COURSES") {
+		return {
+			...state,
+			draftsCourses: action.payload,
+			isLoadedDraftsCourses: true
 		}
 	}
 

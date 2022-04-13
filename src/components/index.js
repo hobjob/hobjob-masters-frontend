@@ -46,14 +46,19 @@ export { default as CabinetMessage } from "./Cabinet/CabinetMessage"
 // ConfirmedEmail
 export { default as ConfirmedEmail } from "./ConfirmedEmail/ConfirmedEmail"
 
-// AddPotencialCourses
-export { default as AddPotencialCoursesInfoMessage } from "./AddPotencialCourses/AddPotencialCoursesInfoMessage"
-export { default as AddPotencialCoursesForm } from "./AddPotencialCourses/AddPotencialCoursesForm"
-export { default as AddPotencialCoursesInfoForm } from "./AddPotencialCourses/AddPotencialCoursesInfoForm"
-export { default as AddPotencialCoursesLessonsForm } from "./AddPotencialCourses/AddPotencialCoursesLessonsForm"
-export { default as AddPotencialCoursesLessonsFormItems } from "./AddPotencialCourses/AddPotencialCoursesLessonsFormItems"
-export { default as AddPotencialCoursesLessonsFormItemsMaterials } from "./AddPotencialCourses/AddPotencialCoursesLessonsFormItemsMaterials"
-export { default as AddPotencialCoursesPaymentForm } from "./AddPotencialCourses/AddPotencialCoursesPaymentForm"
+// DraftEdit
+export { default as DraftEditInfoMessage } from "./DraftEdit/DraftEditInfoMessage"
+export { default as DraftEditForm } from "./DraftEdit/DraftEditForm"
+export { default as DraftEditInfoForm } from "./DraftEdit/DraftEditInfoForm"
+export { default as DraftEditLessonsForm } from "./DraftEdit/DraftEditLessonsForm"
+export { default as DraftEditLessonsFormItems } from "./DraftEdit/DraftEditLessonsFormItems"
+export { default as DraftEditLessonsFormItemsMaterials } from "./DraftEdit/DraftEditLessonsFormItemsMaterials"
+export { default as DraftEditPaymentForm } from "./DraftEdit/DraftEditPaymentForm"
+export { default as DraftEditFormBtn } from "./DraftEdit/DraftEditFormBtn"
+
+// Drafts
+export { default as DraftsNull } from "./Drafts/DraftsNull"
+export { default as DraftsItems } from "./Drafts/DraftsItems"
 
 // EditPotencialCourses
 export { default as EditPotencialCoursesErrorMessage } from "./EditPotencialCourses/EditPotencialCoursesErrorMessage"

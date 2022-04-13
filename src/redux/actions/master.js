@@ -8,9 +8,20 @@ export const fetchMasterInfo = () => (dispatch) => {
 	})
 }
 
-export const fetchMasterPotencialCourses = () => (dispatch) => {
-	$api.get("/masters/my/potencial-courses").then(({ data }) => {
-		dispatch(setMasterPotencialCourses(data))
+export const fetchMasterModerationCourses = () => (dispatch) => {
+	$api.get("/masters/my/courses/moderation").then(({ data }) => {
+		dispatch(setMasterModerationCourses(data))
+	})
+}
+
+export const fetchMasterDraftsCourses = () => (dispatch) => {
+	$api.get("/masters/my/courses/drafts").then(({ data }) => {
+		dispatch(setMasterDraftsCourses(data))
+
+		dispatch({
+			type: "SET_IS_SEND_DELETE_DRAFT",
+			payload: false
+		})
 	})
 }
 
@@ -79,8 +90,13 @@ const setMasterInfo = (info) => ({
 	payload: info
 })
 
-const setMasterPotencialCourses = (items) => ({
-	type: "SET_MASTER_POTENCIAL_COURSES",
+const setMasterModerationCourses = (items) => ({
+	type: "SET_MASTER_MODERATION_COURSES",
+	payload: items
+})
+
+const setMasterDraftsCourses = (items) => ({
+	type: "SET_MASTER_DRAFTS_COURSES",
 	payload: items
 })
 

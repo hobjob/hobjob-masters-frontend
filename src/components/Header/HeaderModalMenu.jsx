@@ -115,21 +115,21 @@ const HeaderModalMenu = React.memo(
                                 </NavLink>
 
                                 <NavLink
-                                    to="/go/courses/add"
-                                    className="header-modal-menu-nav__link"
-                                    activeClassName="header-modal-menu-nav__link active"
-                                    onClick={onClickCloseModalMenu}
-                                >
-                                    Добавить курс
-                                </NavLink>
-
-                                <NavLink
-                                    to="/go/moderation-courses"
+                                    to="/go/moderations-courses"
                                     className="header-modal-menu-nav__link"
                                     activeClassName="header-modal-menu-nav__link active"
                                     onClick={onClickCloseModalMenu}
                                 >
                                     Курсы на модерации
+                                </NavLink>
+
+                                <NavLink
+                                    to="/go/drafts"
+                                    className="header-modal-menu-nav__link"
+                                    activeClassName="header-modal-menu-nav__link active"
+                                    onClick={onClickCloseModalMenu}
+                                >
+                                    Черновики
                                 </NavLink>
 
                                 <NavLink
