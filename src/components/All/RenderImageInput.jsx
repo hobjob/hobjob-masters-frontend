@@ -17,7 +17,7 @@ const RenderImageInput = ({
             const size = e.target.files[0].size;
 
             if (type === "image/jpeg" || type === "image/png") {
-                if (size < 2500000) {
+                if (size < 5500000) {
                     let reader = new FileReader();
 
                     reader.onload = function (e) {

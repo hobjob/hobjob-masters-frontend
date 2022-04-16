@@ -23,8 +23,8 @@ const validate = (values) => {
 	if (values.image && typeof values.image !== "string") {
 		if (values.image.type !== "image/jpeg" && values.image.type !== "image/png") {
 			errors.image = 'Ваше изображение неверного расширения. Доступные расширения: .jpg, .jpeg, .png';
-		} else if (values.image.size > 2500000) {
-			errors.image = `Ваше изображение слишком большое. Максимальный вес 2мб`;
+		} else if (values.image.size > 5500000) {
+			errors.image = `Ваше изображение слишком большое. Максимальный вес 5мб`;
 		}
 	}
 
@@ -67,8 +67,8 @@ const validate = (values) => {
 					lessonErrors.image = 'Ваше изображение неверного расширения. Доступные расширения: .jpg, .jpeg, .png';
 					lessonsArrayErrors[index] = lessonErrors
 
-				} else if (lesson.image.size > 2500000) {
-					lessonErrors.image = `Ваше изображение слишком большое. Максимальный вес 2мб`;
+				} else if (lesson.image.size > 5500000) {
+					lessonErrors.image = `Ваше изображение слишком большое. Максимальный вес 5мб`;
 					lessonsArrayErrors[index] = lessonErrors
 
 				}
@@ -120,7 +120,10 @@ const validate = (values) => {
 					lesson.video.type !== "video/avi" &&
 					lesson.video.type !== "video/mov" &&
 					lesson.video.type !== "video/mpeg" &&
-					lesson.video.type !== "video/webm"
+					lesson.video.type !== "video/webm" &&
+					lesson.video.type !== "video/quicktime" &&
+					lesson.video.type !== "video/heif" &&
+					lesson.video.type !== "video/hevc"
 				) {
 					lessonErrors.video = 'Ваше видео неверного расширения. Доступные расширения: .mp4, .avi, .mov, .mpeg, .webm';
 					lessonsArrayErrors[index] = lessonErrors

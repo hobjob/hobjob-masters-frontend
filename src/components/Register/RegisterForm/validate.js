@@ -32,8 +32,8 @@ const validate = values => {
 		errors.avatar = 'Поле не может быть пустым';
 	} else if (values.avatar.type !== "image/jpeg" && values.avatar.type !== "image/png") {
 		errors.avatar = 'Ваше изображение неверного расширения. Доступные расширения: .jpg, .jpeg, .png';
-	} else if (values.avatar.size > 2500000) {
-		errors.avatar = `Ваше изображение слишком большое. Максимальный вес 2мб`;
+	} else if (values.avatar.size > 5500000) {
+		errors.avatar = `Ваше изображение слишком большое. Максимальный вес 5мб`;
 	}
 
 	if (!values.email) {

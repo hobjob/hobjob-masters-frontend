@@ -5,12 +5,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchMasterDraftsCourses} from "../redux/actions/master";
 import {sendAddDraft, sendDeleteDraft} from "../redux/actions/draft";
 
-import {DraftsNull, DraftsItems, Loader} from "../components/";
+import {DraftsNull, DraftsItems, Loader, ConfirmedEmail} from "../components/";
 
 const Drafts = () => {
     const dispatch = useDispatch();
 
-    const {draftsCourses, isLoadedDraftsCourses} = useSelector(
+    const {masterInfo, draftsCourses, isLoadedDraftsCourses} = useSelector(
         ({master}) => master
     );
     const {isSendDeleteDraft} = useSelector(({draft}) => draft);
@@ -39,43 +39,47 @@ const Drafts = () => {
                         <title>Черновики - HobJob для мастеров</title>
                     </Helmet>
                     {isLoadedDraftsCourses ? (
-                        <section className="drafts">
-                            <div className="container">
-                                <div className="drafts-wrapper">
-                                    <div className="drafts-top-text">
-                                        <h2 className="drafts-top-text__title">
-                                            Черновики
-                                        </h2>
-                                        <button
-                                            className="btn-small drafts-top-text__btn"
-                                            onClick={addCourseDraft}
-                                        >
-                                            Добавитиь черновик
-                                        </button>
-									</div>
-                                    {draftsCourses.length ? (
-                                        <div className="drafts-items-wrapper">
-                                            {draftsCourses.map(
-                                                (item, index) => (
-                                                    <DraftsItems
-                                                        {...item}
-                                                        deleteCourseDraft={
-                                                            deleteCourseDraft
-                                                        }
-                                                        isSendDeleteDraft={
-                                                            isSendDeleteDraft
-                                                        }
-                                                        key={`drafts-item-${index}`}
-                                                    />
-                                                )
-                                            )}
+                        masterInfo.confirmedEmail ? (
+                            <section className="drafts">
+                                <div className="container">
+                                    <div className="drafts-wrapper">
+                                        <div className="drafts-top-text">
+                                            <h2 className="drafts-top-text__title">
+                                                Черновики
+                                            </h2>
+                                            <button
+                                                className="btn-small drafts-top-text__btn"
+                                                onClick={addCourseDraft}
+                                            >
+                                                Добавить черновик
+                                            </button>
                                         </div>
-                                    ) : (
-                                        <DraftsNull />
-                                    )}
+                                        {draftsCourses.length ? (
+                                            <div className="drafts-items-wrapper">
+                                                {draftsCourses.map(
+                                                    (item, index) => (
+                                                        <DraftsItems
+                                                            {...item}
+                                                            deleteCourseDraft={
+                                                                deleteCourseDraft
+                                                            }
+                                                            isSendDeleteDraft={
+                                                                isSendDeleteDraft
+                                                            }
+                                                            key={`drafts-item-${index}`}
+                                                        />
+                                                    )
+                                                )}
+                                            </div>
+                                        ) : (
+                                            <DraftsNull />
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+                        ) : (
+                            <ConfirmedEmail />
+                        )
                     ) : (
                         <Loader />
                     )}

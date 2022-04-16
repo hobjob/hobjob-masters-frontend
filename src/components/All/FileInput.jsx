@@ -7,11 +7,11 @@ const FileInput = ({id, submitFile, messageSubmitFile}) => {
             const size = event.target.files[0].size;
 
             if (type === "image/jpeg" || type === "image/png") {
-                if (size < 2500000) {
+                if (size < 5500000) {
                     submitFile(event.target.files[0]);
                 } else {
                     messageSubmitFile(
-                        "Ваше изображение слишком большое. Максимальный вес 2мб"
+                        "Ваше изображение слишком большое. Максимальный вес 5мб"
                     );
                 }
             } else {

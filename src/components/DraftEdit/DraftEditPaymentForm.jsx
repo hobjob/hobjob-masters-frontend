@@ -23,7 +23,7 @@ const DraftEditPaymentForm = () => {
                 </h2>
 
                 <p className="description potencial-courses-block-text__description">
-                    Для загрузки курса добавьте данные карты на которую вам
+                    Для загрузки курса добавьте данные карты, на которую вам
                     будет поступать платёж
                 </p>
             </div>

@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {sendLogout} from "../../redux/actions/logout";
 import {fetchMasterInfo} from "../../redux/actions/master";
 import {fetchCategories} from "../../redux/actions/categories";
+import {sendAddDraft} from "../../redux/actions/draft";
 
 import {HeaderMenu, HeaderModalMenu} from "../";
 
@@ -42,6 +43,10 @@ const Header = React.memo(() => {
             dispatch(fetchCategories());
         }
     }, []);
+
+    const addCourseDraft = () => {
+        dispatch(sendAddDraft());
+    };
 
     const toggleUserMenu = () => {
         setHeaderUserMenuAnimateClose(true);
@@ -163,6 +168,13 @@ const Header = React.memo(() => {
                                                     >
                                                         Статистика
                                                     </NavLink>
+
+                                                    <span
+                                                        className="header-user-menu__link"
+                                                        onClick={addCourseDraft}
+                                                    >
+                                                        Добавить курс
+                                                    </span>
 
                                                     <NavLink
                                                         to="/go/moderations-courses"

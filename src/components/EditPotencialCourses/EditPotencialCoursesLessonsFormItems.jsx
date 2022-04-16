@@ -34,6 +34,9 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
                         <div className="potencial-courses-block-form-block-top">
                             <h3 className="potencial-courses-block-form-block-top__title">
                                 Урок #{index + 1}
+                                {index !== 0 && index !== 1 ? null : (
+                                    <span>Обязательно</span>
+                                )}
                             </h3>
 
                             {index !== 0 ? (
