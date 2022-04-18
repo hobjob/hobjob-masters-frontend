@@ -56,7 +56,6 @@ const RenderVideoInput = ({
 				
                 setProgress(100);
 				onChange(file);
-				
             } else {
 				const chunks = Math.ceil(file.size / chunkSize);
 				

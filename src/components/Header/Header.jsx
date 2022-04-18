@@ -187,7 +187,10 @@ const Header = React.memo(() => {
                                                         to="/go/drafts"
                                                         className="header-user-menu__link"
                                                     >
-                                                        Черновики
+                                                        Черновики{" "}
+                                                        {masterInfo.draftsCount
+                                                            ? `(${masterInfo.draftsCount})`
+                                                            : null}
                                                     </NavLink>
 
                                                     <NavLink

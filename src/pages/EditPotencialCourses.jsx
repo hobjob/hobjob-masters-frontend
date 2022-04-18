@@ -35,6 +35,8 @@ const EditPotencialCourses = ({
 
     const onSubmit = (data) => {
 		const formData = new FormData();
+
+		console.log(data);
 		
         Object.keys(data).map((key) => {
             if (key === "lessons") {

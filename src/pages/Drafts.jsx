@@ -46,6 +46,13 @@ const Drafts = () => {
                                         <div className="drafts-top-text">
                                             <h2 className="drafts-top-text__title">
                                                 Черновики
+                                                {masterInfo.draftsCount ? (
+                                                    <span>
+                                                        (
+                                                        {masterInfo.draftsCount}
+                                                        )
+                                                    </span>
+                                                ) : null}
                                             </h2>
                                             <button
                                                 className="btn-small drafts-top-text__btn"

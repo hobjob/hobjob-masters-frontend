@@ -8,18 +8,18 @@ export const sendSubmitModerationCourse = (id, data) => (dispatch) => {
 		payload: true
 	})
 
-	return $api.post(`/potencial-courses/moderation/${id}`, data).then(({ data }) => {
+	$api.post(`/potencial-courses/moderation/${id}`, data).then(({ data }) => {
 		window.location.href = "/go/moderations-courses"
 	})
 }
 
 export const sendUpdatePotencialCourse = (data) => (dispatch) => {
 	dispatch({
-		type: "SET_IS_SEND_POTENCIAL_COURSE",
+		type: "SET_IS_SEND_SUBMIT_MODERATION_COURSE",
 		payload: true
 	})
 
-	return $api.put(`/potencial-courses/moderation`, data).then(({ data }) => {
+	$api.put(`/potencial-courses/moderation`, data).then(({ data }) => {
 		window.location.href = "/go/moderations-courses"
 	})
 }

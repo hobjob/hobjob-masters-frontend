@@ -22,7 +22,9 @@ const HeaderModalMenu = React.memo(
             return pathname === "/";
         };
 
-        const {isLoadedMasterInfo} = useSelector(({master}) => master);
+        const {masterInfo, isLoadedMasterInfo} = useSelector(
+            ({master}) => master
+        );
 
         const addCourseDraft = () => {
             dispatch(sendAddDraft());
@@ -152,7 +154,10 @@ const HeaderModalMenu = React.memo(
                                     activeClassName="header-modal-menu-nav__link active"
                                     onClick={onClickCloseModalMenu}
                                 >
-                                    Черновики
+                                    Черновики{" "}
+                                    {masterInfo.draftsCount
+                                        ? `(${masterInfo.draftsCount})`
+                                        : null}
                                 </NavLink>
 
                                 <NavLink
