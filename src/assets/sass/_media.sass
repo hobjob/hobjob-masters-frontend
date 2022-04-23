@@ -79,6 +79,9 @@
 				margin-top: 25px
 				width: 100%
 
+			&-btn
+				width: 100%
+
 	// course-regulations
 	.course-regulations
 		margin: 25px 0
@@ -318,6 +321,25 @@
 				&-bottom
 					&__title
 						max-width: 95%
+
+	// potencial-courses
+	.potencial-courses
+		&-block
+			&-btn
+				flex-direction: column
+
+				&-status-draft
+					margin-bottom: 25px
+
+					&__title
+						font-size: 18px
+
+				&__btn
+					&:first-child
+						margin-bottom: 15px
+
+				&-status-draft, &__btn
+					width: 100%
 
 	// cabinet
 	.cabinet
@@ -581,7 +603,7 @@
 
 		&-null
 			margin: 50px 0
-			
+
 			&__title
 				font-size: 24px
 
@@ -629,6 +651,13 @@
 
 			&-image-adaptive
 				display: none
+
+		&-notification
+			justify-content: center
+			width: calc(100% - 30px)
+
+		&-block
+			margin: 0 0 25px 0
 
 	// course-regulations
 	.course-regulations
