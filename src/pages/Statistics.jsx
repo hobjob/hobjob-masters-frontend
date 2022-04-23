@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -9,7 +9,7 @@ import {fetchMasterStatistics} from "../redux/actions/master";
 import {fetchCategories} from "../redux/actions/categories";
 
 const Statistics = () => {
-	const history = useHistory()
+    const history = useHistory();
 
     const dispatch = useDispatch();
 
@@ -47,7 +47,7 @@ const Statistics = () => {
                                     <StatisticsCourses />
                                 </>
                             ) : (
-                                history.push("/go/moderations-courses")
+                                <Redirect to="/go/moderations-courses" />
                             )
                         ) : (
                             <Loader />

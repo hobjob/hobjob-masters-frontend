@@ -1,5 +1,3 @@
-import { SubmissionError } from 'redux-form'
-
 import $api from '../../http/';
 
 export const sendSubmitModerationCourse = (id, data) => (dispatch) => {

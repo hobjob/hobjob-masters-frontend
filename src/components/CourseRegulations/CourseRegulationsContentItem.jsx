@@ -2,7 +2,11 @@ import React from "react";
 
 import {Link, animateScroll as scroll} from "react-scroll";
 
-const CourseRegulationsContentItem = ({title, items, mainIndex}) => {
+const CourseRegulationsContentItem = ({
+    title,
+    items,
+    mainIndex,
+}) => {
     return (
         <div className="course-regulations-content-item">
             <h2 className="course-regulations-content-item__title">{title}</h2>

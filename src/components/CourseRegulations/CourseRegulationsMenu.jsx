@@ -116,8 +116,8 @@ const CourseRegulationsMenu = () => {
     ];
 
     const [stateOpenAdaptive, setStateOpenAdaptive] = React.useState(false);
-	
-    const onClikcMenuAdaptive = () => {
+
+    const onClickMenuAdaptive = () => {
         setStateOpenAdaptive(!stateOpenAdaptive);
     };
 
@@ -125,7 +125,7 @@ const CourseRegulationsMenu = () => {
         <div className="course-regulations-menu-wrapper">
             {stateOpenAdaptive ? (
                 <span
-                    onClick={onClikcMenuAdaptive}
+                    onClick={onClickMenuAdaptive}
                     className="course-regulations-menu__btn"
                 >
                     <svg
@@ -161,7 +161,7 @@ const CourseRegulationsMenu = () => {
                 </span>
             ) : (
                 <span
-                    onClick={onClikcMenuAdaptive}
+                    onClick={onClickMenuAdaptive}
                     className="course-regulations-menu__btn"
                 >
                     <svg
@@ -207,7 +207,7 @@ const CourseRegulationsMenu = () => {
                 {regulationsMenu.map((item, index) => (
                     <CourseRegulationsMenuItem
                         {...item}
-                        onClikcMenuAdaptive={onClikcMenuAdaptive}
+                        onClickMenuAdaptive={onClickMenuAdaptive}
                         index={index}
                         key={`course-regulations-menu-${index}`}
                     />

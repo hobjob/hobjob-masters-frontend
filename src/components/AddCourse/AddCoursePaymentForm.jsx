@@ -4,7 +4,7 @@ import {createTextMask} from "redux-form-input-masks";
 
 import {RenderInput} from "../";
 
-const DraftEditPaymentForm = () => {
+const AddCoursePaymentForm = () => {
     const cardMask = createTextMask({
         pattern: "9999 9999 9999 9999",
         guide: false,
@@ -61,4 +61,4 @@ const DraftEditPaymentForm = () => {
     );
 };
 
-export default DraftEditPaymentForm;
+export default AddCoursePaymentForm;

@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ModerationCoursesNull = () => {
     return (
@@ -14,10 +14,10 @@ const ModerationCoursesNull = () => {
                 </p>
                 <div className="moderations-courses-null-text-btn">
                     <Link
-                        to="/go/drafts"
+                        to="/go/add/course"
                         className="btn moderations-courses-null-text__btn"
                     >
-                        Черновики
+                        Добавить курс
                     </Link>
                     <Link
                         to="/course-regulations"

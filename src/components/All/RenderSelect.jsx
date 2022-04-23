@@ -6,6 +6,7 @@ const RenderSelect = ({
     label,
     choise,
     meta: {touched, error},
+    onFunc,
 }) => {
     return (
         <div className="select">
@@ -14,31 +15,64 @@ const RenderSelect = ({
             >
                 {label}
             </label>
-            <select
-                {...input}
-                className={`select__field ${touched && error ? "error" : ""}`}
-                disabled={disabled ? true : false}
-            >
-                {typeof choise[0] == "object"
-                    ? choise.map((item, index) => (
-                          <option
-                              value={item.key}
-                              className="select__option"
-                              key={`select__option-${index}`}
-                          >
-                              {item.title}
-                          </option>
-                      ))
-                    : choise.map((item, index) => (
-                          <option
-                              value={item}
-                              className="select__option"
-                              key={`select__option-${index}`}
-                          >
-                              {item}
-                          </option>
-                      ))}
-            </select>
+            {onFunc ? (
+                <select
+                    {...input}
+                    className={`select__field ${
+                        touched && error ? "error" : ""
+                    }`}
+                    disabled={disabled ? true : false}
+                    onChange={(e) => onFunc(e.target.value)}
+                >
+                    {typeof choise[0] == "object"
+                        ? choise.map((item, index) => (
+                              <option
+                                  value={item.key}
+                                  className="select__option"
+                                  key={`select__option-${index}`}
+                              >
+                                  {item.title}
+                              </option>
+                          ))
+                        : choise.map((item, index) => (
+                              <option
+                                  value={item}
+                                  className="select__option"
+                                  key={`select__option-${index}`}
+                              >
+                                  {item}
+                              </option>
+                          ))}
+                </select>
+            ) : (
+                <select
+                    {...input}
+                    className={`select__field ${
+                        touched && error ? "error" : ""
+                    }`}
+                    disabled={disabled ? true : false}
+                >
+                    {typeof choise[0] == "object"
+                        ? choise.map((item, index) => (
+                              <option
+                                  value={item.key}
+                                  className="select__option"
+                                  key={`select__option-${index}`}
+                              >
+                                  {item.title}
+                              </option>
+                          ))
+                        : choise.map((item, index) => (
+                              <option
+                                  value={item}
+                                  className="select__option"
+                                  key={`select__option-${index}`}
+                              >
+                                  {item}
+                              </option>
+                          ))}
+                </select>
+            )}
         </div>
     );
 };

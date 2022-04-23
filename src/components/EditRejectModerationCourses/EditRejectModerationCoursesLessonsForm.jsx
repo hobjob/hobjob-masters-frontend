@@ -2,12 +2,13 @@ import React from "react";
 import {useSelector} from "react-redux";
 import {FieldArray} from "redux-form";
 
-import {EditPotencialCoursesLessonsFormItems, BtnLoader} from "../";
+import {EditRejectModerationCoursesLessonsFormItems, BtnLoader} from "../";
 
-const EditPotencialCoursesLessonsForm = ({valid}) => {
+const EditRejectModerationCoursesLessonsForm = ({valid}) => {
     const {isSendSubmitModerationCourse} = useSelector(
         ({potencial_courses}) => potencial_courses
     );
+    const {isLoadsGlobal} = useSelector(({video}) => video);
 
     return (
         <div className="potencial-courses-block">
@@ -24,7 +25,7 @@ const EditPotencialCoursesLessonsForm = ({valid}) => {
             <div className="potencial-courses-block-form">
                 <div className="potencial-courses-block-form-input">
                     <FieldArray
-                        component={EditPotencialCoursesLessonsFormItems}
+                        component={EditRejectModerationCoursesLessonsFormItems}
                         name="lessons"
                     />
                 </div>
@@ -39,9 +40,9 @@ const EditPotencialCoursesLessonsForm = ({valid}) => {
                 ) : (
                     <button
                         className={`btn ${
-                            valid ? "disabled" : ""
+                            valid || isLoadsGlobal ? "disabled" : ""
                         } potencial-courses-block-form__btn`}
-                        disabled={valid}
+                        disabled={valid || isLoadsGlobal}
                     >
                         Отправить курс на модерацию
                     </button>
@@ -51,4 +52,4 @@ const EditPotencialCoursesLessonsForm = ({valid}) => {
     );
 };
 
-export default EditPotencialCoursesLessonsForm;
+export default EditRejectModerationCoursesLessonsForm;

@@ -1,46 +1,21 @@
 import React from "react";
-import {useSelector, connect} from "react-redux";
-import {getFormValues} from "redux-form";
+import {useSelector} from "react-redux";
 
 import {BtnLoader} from "../";
 
-const DraftEditFormBtn = ({valid, values, sendUpdateDraft}) => {
+const DraftEditFormBtn = ({valid}) => {
     const {isSendSubmitModerationCourse} = useSelector(
         ({potencial_courses}) => potencial_courses
     );
-    const {isSendUpdateDraft} = useSelector(({draft}) => draft);
-
-    const [title, setTitle] = React.useState("");
-
-    React.useEffect(() => {
-        if (values) {
-            setTitle(values.title);
-        }
-    }, [values]);
+    const {itemById} = useSelector(({draft}) => draft);
 
     return (
         <div className="potencial-courses-block-btn">
-            {isSendUpdateDraft ? (
-                <button
-                    className="btn potencial-courses-block-btn__btn disabled"
-                    disabled
-                >
-                    <BtnLoader />
-                </button>
-            ) : (
-                <button
-                    onClick={() => sendUpdateDraft(values)}
-                    type="button"
-                    className={`btn-regular ${
-                        title === "" || title === undefined ? "disabled" : ""
-                    } potencial-courses-block-btn__btn`}
-                    disabled={
-                        title === "" || title === undefined ? true : false
-                    }
-                >
-                    Сохранить черновик
-                </button>
-            )}
+            <div className="potencial-courses-block-btn-status-draft">
+                <p className="potencial-courses-block-btn-status-draft__title">
+                    Все хорошо, мы сохранили ваш черновик в {itemById.updateDate}
+                </p>
+            </div>
 
             {isSendSubmitModerationCourse ? (
                 <button
@@ -63,6 +38,4 @@ const DraftEditFormBtn = ({valid, values, sendUpdateDraft}) => {
     );
 };
 
-export default connect((state) => ({
-    values: getFormValues("potencial-courses-info-form")(state),
-}))(DraftEditFormBtn);
+export default DraftEditFormBtn;

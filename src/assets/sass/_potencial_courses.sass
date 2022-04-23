@@ -86,6 +86,37 @@
 				width: 300px
 				margin-top: 50px
 
+	&-notification
+		user-select: none
+
+		z-index: 2
+		position: fixed
+
+		left: 15px
+		bottom: 15px
+
+		display: inline-flex
+		align-items: center
+
+		background-color: $backgroundGray
+		padding: 15px 25px
+
+		+borderRadiusBlock
+		+openPopup
+
+		&.close
+			+closePopup
+
+		&-loader
+			width: 30px
+			height: 30px
+			background-color: $mainColor
+			border-radius: 50%
+			animation: ballPulse 1s ease-in-out infinite
+
+		&__title
+			margin-left: 15px
+
 	&-block-wrapper
 		margin-top: 25px
 
@@ -106,6 +137,15 @@
 
 			&__title
 				font-size: 42px
+
+			&__link
+				display: block
+
+				margin-top: 25px
+
+				font-size: 21px
+				color: $mainColor
+				text-decoration: underline
 
 			&__description
 				margin-top: 25px
@@ -193,5 +233,14 @@
 			width: 60%
 			margin-left: auto
 
-			&__btn
+			&-status-draft
+				display: flex
+				align-items: center
+				justify-content: center
+
+				&__title
+					color: $gray
+					font-size: 18px
+
+			&-status-draft, &__btn
 				width: 49%

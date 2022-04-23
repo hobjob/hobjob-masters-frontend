@@ -1,23 +1,31 @@
 import React from "react";
 
 const RenderImageInput = ({
-    input: {value: omitValue, onChange, onBlur, ...inputProps},
+    input: {value: omitValue, onChange, ...inputProps},
     meta: {touched, error},
     label,
     defaultValue,
+    onFunc,
     ...props
 }) => {
     const [imageAvatar, setImageAvatar] = React.useState("");
 
-    const adaptFileEventToValue = (delegate) => (e) => {
+    const adaptFileEventToValue = (e) => {
         if (e.target.files[0]) {
-            delegate(e.target.files[0]);
-
             const type = e.target.files[0].type;
             const size = e.target.files[0].size;
 
             if (type === "image/jpeg" || type === "image/png") {
                 if (size < 5500000) {
+                    onChange(e.target.files[0]);
+
+                    if (onFunc) {
+                        const file = {};
+                        file[inputProps.name] = e.target.files[0];
+
+                        onFunc(file);
+                    }
+
                     let reader = new FileReader();
 
                     reader.onload = function (e) {
@@ -46,8 +54,7 @@ const RenderImageInput = ({
                 <label className="input-file-block__label">
                     <input
                         className="input-file-block__field"
-                        onChange={adaptFileEventToValue(onChange)}
-                        onBlur={adaptFileEventToValue(onBlur)}
+                        onChange={adaptFileEventToValue}
                         type="file"
                         multiple={false}
                         accept=".jpg, .jpeg, .png"

@@ -1,6 +1,10 @@
 import React from "react";
+import {useDispatch} from "react-redux";
 
 import $api from "../../http/";
+
+import {setStatusFile} from "../../redux/actions/video";
+import {setDraftById, setIsSendUpdateDraft} from "../../redux/actions/draft";
 
 const RenderVideoInput = ({
     input: {value: omitValue, onChange, onBlur, ...inputProps},
@@ -8,8 +12,11 @@ const RenderVideoInput = ({
     label,
     defaultValue,
     url,
+    lessonIndex,
     ...props
 }) => {
+    const dispatch = useDispatch();
+
     const chunkSize = 1000 * 1024;
 
     const [currentChunkIndex, setCurrentChunkIndex] = React.useState(0);
@@ -35,6 +42,8 @@ const RenderVideoInput = ({
                 if (size < 2500000000) {
                     setFile(e.target.files[0]);
                     setProgress(1);
+
+                    dispatch(setStatusFile({lessonIndex, isLoad: true}));
                 }
             }
         }
@@ -52,13 +61,14 @@ const RenderVideoInput = ({
         }
 
         if (file) {
-			if (file.finalFilename) {
-				
+            if (file.finalFilename) {
                 setProgress(100);
-				onChange(file);
+                onChange(file);
+
+                dispatch(setStatusFile({lessonIndex, isLoad: false}));
             } else {
-				const chunks = Math.ceil(file.size / chunkSize);
-				
+                const chunks = Math.ceil(file.size / chunkSize);
+
                 if (Math.round((currentChunkIndex / chunks) * 100)) {
                     setProgress(Math.round((currentChunkIndex / chunks) * 100));
                 }
@@ -99,10 +109,21 @@ const RenderVideoInput = ({
         }).then((response) => {
             const filesize = file.size;
             const chunks = Math.ceil(filesize / chunkSize) - 1;
-			const isLastChunk = currentChunkIndex === chunks;
-			
+            const isLastChunk = currentChunkIndex === chunks;
+
             if (isLastChunk) {
-                file.finalFilename = response.data.finalFilename;
+                if (response.data.draft) {
+                    file.finalFilename = response.data.file.finalFilename;
+                    file.fileNameUser = response.data.file.fileNameUser;
+
+                    dispatch(setIsSendUpdateDraft(true));
+                    dispatch(setIsSendUpdateDraft(false));
+                    dispatch(setDraftById(response.data.draft));
+                } else {
+                    file.finalFilename = response.data.finalFilename;
+                    file.fileNameUser = response.data.fileNameUser;
+                }
+
                 setCurrentChunkIndex(0);
             } else {
                 setCurrentChunkIndex(currentChunkIndex + 1);

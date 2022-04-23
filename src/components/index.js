@@ -5,7 +5,7 @@ export { default as RenderInput } from "./All/RenderInput"
 export { default as RenderFileInput } from "./All/RenderFileInput"
 export { default as RenderImageInput } from "./All/RenderImageInput"
 export { default as RenderVideoInput } from "./All/RenderVideoInput"
-export { default as RenderInputAutoSize }  from "./All/RenderInputAutoSize"
+export { default as RenderInputAutoSize } from "./All/RenderInputAutoSize"
 export { default as RenderSelect } from "./All/RenderSelect"
 export { default as FileInput } from "./All/FileInput"
 export { default as BtnLoader } from "./All/BtnLoader"
@@ -46,8 +46,20 @@ export { default as CabinetMessage } from "./Cabinet/CabinetMessage"
 // ConfirmedEmail
 export { default as ConfirmedEmail } from "./ConfirmedEmail/ConfirmedEmail"
 
+// PotencialCourses
+export { default as PotencialCoursesInfoMessage } from "./PotencialCourses/PotencialCoursesInfoMessage"
+
+// AddCourse
+export { default as AddCourseForm } from "./AddCourse/AddCourseForm"
+export { default as AddCourseInfoForm } from "./AddCourse/AddCourseInfoForm"
+export { default as AddCourseLessonsForm } from "./AddCourse/AddCourseLessonsForm"
+export { default as AddCourseLessonsFormItems } from "./AddCourse/AddCourseLessonsFormItems"
+export { default as AddCourseLessonsFormItemsMaterials } from "./AddCourse/AddCourseLessonsFormItemsMaterials"
+export { default as AddCoursePaymentForm } from "./AddCourse/AddCoursePaymentForm"
+export { default as AddCourseFormBtn } from "./AddCourse/AddCourseFormBtn"
+
 // DraftEdit
-export { default as DraftEditInfoMessage } from "./DraftEdit/DraftEditInfoMessage"
+export { default as DraftNotificationUpdate } from "./DraftEdit/DraftNotificationUpdate"
 export { default as DraftEditForm } from "./DraftEdit/DraftEditForm"
 export { default as DraftEditInfoForm } from "./DraftEdit/DraftEditInfoForm"
 export { default as DraftEditLessonsForm } from "./DraftEdit/DraftEditLessonsForm"
@@ -60,13 +72,13 @@ export { default as DraftEditFormBtn } from "./DraftEdit/DraftEditFormBtn"
 export { default as DraftsNull } from "./Drafts/DraftsNull"
 export { default as DraftsItems } from "./Drafts/DraftsItems"
 
-// EditPotencialCourses
-export { default as EditPotencialCoursesErrorMessage } from "./EditPotencialCourses/EditPotencialCoursesErrorMessage"
-export { default as EditPotencialCoursesForm } from "./EditPotencialCourses/EditPotencialCoursesForm"
-export { default as EditPotencialCoursesInfoForm } from "./EditPotencialCourses/EditPotencialCoursesInfoForm"
-export { default as EditPotencialCoursesLessonsForm } from "./EditPotencialCourses/EditPotencialCoursesLessonsForm"
-export { default as EditPotencialCoursesLessonsFormItems } from "./EditPotencialCourses/EditPotencialCoursesLessonsFormItems"
-export { default as EditPotencialCoursesLessonsFormItemsMaterials } from "./EditPotencialCourses/EditPotencialCoursesLessonsFormItemsMaterials"
+// EditRejectModerationCourses
+export { default as EditRejectModerationCoursesErrorMessage } from "./EditRejectModerationCourses/EditRejectModerationCoursesErrorMessage"
+export { default as EditRejectModerationCoursesForm } from "./EditRejectModerationCourses/EditRejectModerationCoursesForm"
+export { default as EditRejectModerationCoursesInfoForm } from "./EditRejectModerationCourses/EditRejectModerationCoursesInfoForm"
+export { default as EditRejectModerationCoursesLessonsForm } from "./EditRejectModerationCourses/EditRejectModerationCoursesLessonsForm"
+export { default as EditRejectModerationCoursesLessonsFormItems } from "./EditRejectModerationCourses/EditRejectModerationCoursesLessonsFormItems"
+export { default as EditRejectModerationCoursesLessonsFormItemsMaterials } from "./EditRejectModerationCourses/EditRejectModerationCoursesLessonsFormItemsMaterials"
 
 // ModerationCourses
 export { default as ModerationCoursesBlock } from "./ModerationCourses/ModerationCoursesBlock"

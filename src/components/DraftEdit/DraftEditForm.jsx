@@ -16,30 +16,53 @@ let DraftEditForm = ({
     initialize,
     invalid,
     submitting,
-    pristine,
-    sendUpdateDraft,
+    sendUpdateDraftOn,
+    dirty,
 }) => {
     const {masterInfo} = useSelector(({master}) => master);
-    const {itemById} = useSelector(({draft}) => draft);
+    const {itemById, isLoadedByIdAndUpdate} = useSelector(({draft}) => draft);
 
     React.useEffect(() => {
         initialize(itemById);
     }, []);
 
+    React.useEffect(() => {
+        if (isLoadedByIdAndUpdate) {
+            initialize(itemById);
+        }
+    }, [isLoadedByIdAndUpdate]);
+
+    const sendUpdateDraftOnDirty = (
+        valuesFile,
+        ignoreLessonIndex,
+        ignoreLessonMaterialsIndex
+    ) => {
+        if (dirty) {
+            sendUpdateDraftOn(
+                valuesFile,
+                ignoreLessonIndex,
+                ignoreLessonMaterialsIndex
+            );
+        }
+    };
+
     return (
         <form onSubmit={handleSubmit}>
-            <DraftEditInfoForm />
+            <DraftEditInfoForm
+                sendUpdateDraftOnDirty={sendUpdateDraftOnDirty}
+                sendUpdateDraftOn={sendUpdateDraftOn}
+            />
 
-            <DraftEditLessonsForm />
+            <DraftEditLessonsForm
+                sendUpdateDraftOnDirty={sendUpdateDraftOnDirty}
+                sendUpdateDraftOn={sendUpdateDraftOn}
+            />
 
             {masterInfo.paymentInfo.name === "" ? (
                 <DraftEditPaymentForm />
             ) : null}
 
-            <DraftEditFormBtn
-                valid={invalid || submitting}
-                sendUpdateDraft={sendUpdateDraft}
-            />
+            <DraftEditFormBtn valid={invalid || submitting} />
         </form>
     );
 };

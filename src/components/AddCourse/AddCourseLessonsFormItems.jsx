@@ -1,5 +1,4 @@
 import React from "react";
-import {useSelector} from "react-redux";
 import {Field, FieldArray} from "redux-form";
 
 import {
@@ -7,25 +6,21 @@ import {
     RenderInputAutoSize,
     RenderImageInput,
     RenderVideoInput,
-    DraftEditLessonsFormItemsMaterials,
+    AddCourseLessonsFormItemsMaterials,
 } from "../";
 
-const DraftEditLessonsFormItems = ({
-    fields,
-    sendUpdateDraftOnDirty,
-    sendUpdateDraftOn,
-}) => {
-    const {itemById} = useSelector(({draft}) => draft);
+const AddCourseLessonsFormItems = ({fields}) => {
+    React.useEffect(() => {
+        fields.push({});
+        fields.push({});
+    }, []);
 
     const addLesson = () => {
         fields.push({});
     };
 
     const removeLesson = (index) => {
-        if (index !== 0 && index !== 1) {
-            fields.remove(index);
-            sendUpdateDraftOn(null, index);
-        }
+        if (index !== 0 && index !== 1) fields.remove(index);
     };
 
     return (
@@ -70,7 +65,6 @@ const DraftEditLessonsFormItems = ({
                                 type="text"
                                 name={`${lesson}.title`}
                                 label="Название"
-                                onBlur={sendUpdateDraftOnDirty}
                             />
                         </div>
                         <div className="potencial-courses-block-form-block-input">
@@ -79,7 +73,6 @@ const DraftEditLessonsFormItems = ({
                                 type="text"
                                 name={`${lesson}.description`}
                                 label="Описание"
-                                onBlur={sendUpdateDraftOnDirty}
                             />
                         </div>
                         <div className="potencial-courses-block-form-block-input">
@@ -87,13 +80,6 @@ const DraftEditLessonsFormItems = ({
                                 component={RenderImageInput}
                                 name={`${lesson}.image`}
                                 label="Фотография урока"
-                                defaultValue={
-                                    itemById.lessons[index] &&
-                                    itemById.lessons[index].image
-                                }
-                                onFunc={(file) =>
-                                    sendUpdateDraftOn(file)
-                                }
                             />
                         </div>
                     </div>
@@ -105,16 +91,8 @@ const DraftEditLessonsFormItems = ({
 
                         <div className="potencial-courses-block-form-block-input">
                             <FieldArray
-                                component={DraftEditLessonsFormItemsMaterials}
+                                component={AddCourseLessonsFormItemsMaterials}
                                 name={`${lesson}.materials`}
-                                materialsValue={
-                                    itemById.lessons[index] &&
-                                    itemById.lessons[index].materials
-                                }
-                                sendUpdateDraftOnDirty={sendUpdateDraftOnDirty}
-                                sendUpdateDraftOn={
-                                    sendUpdateDraftOn
-                                }
                             />
                         </div>
                     </div>
@@ -129,15 +107,8 @@ const DraftEditLessonsFormItems = ({
                                 component={RenderVideoInput}
                                 name={`${lesson}.video`}
                                 label="Допустимые расширения (.mp4, .avi, .mov, .mpeg, .webm)"
-                                defaultValue={
-                                    itemById.lessons[index] &&
-                                    itemById.lessons[index].video &&
-                                    itemById.lessons[index].video.fileNameUser
-                                }
+                                url={`/potencial-courses/temp/drafts/upload-video`}
                                 lessonIndex={index}
-                                url={`/potencial-courses/drafts/upload-video/${
-                                    itemById._id
-                                }/${index + 1}`}
                             />
                         </div>
                     </div>
@@ -165,4 +136,4 @@ const DraftEditLessonsFormItems = ({
     );
 };
 
-export default DraftEditLessonsFormItems;
+export default AddCourseLessonsFormItems;

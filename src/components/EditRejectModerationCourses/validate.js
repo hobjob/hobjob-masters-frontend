@@ -72,6 +72,9 @@ const validate = (values) => {
 					lessonsArrayErrors[index] = lessonErrors
 
 				}
+			} else if (!lesson.image) {
+				lessonErrors.image = 'Поле не может быть путсым';
+				lessonsArrayErrors[index] = lessonErrors
 			}
 
 			if (lesson.materials) {
@@ -100,6 +103,9 @@ const validate = (values) => {
 							materialsArrayErrors[materialIndex] = materialErrors
 
 						}
+					} else if (!material.file) {
+						materialErrors.file = 'Поле не может быть путсым'
+						materialsArrayErrors[materialIndex] = materialErrors
 					}
 				})
 
@@ -133,6 +139,9 @@ const validate = (values) => {
 					lessonsArrayErrors[index] = lessonErrors
 
 				}
+			} else if (!lesson.video) {
+				lessonErrors.video = 'Поле не может быть путсым'
+				lessonsArrayErrors[index] = lessonErrors
 			}
 
 			if (lessonsArrayErrors.length) {

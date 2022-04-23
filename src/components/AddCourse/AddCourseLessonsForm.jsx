@@ -1,12 +1,9 @@
 import React from "react";
 import {FieldArray} from "redux-form";
 
-import {DraftEditLessonsFormItems} from "../";
+import {AddCourseLessonsFormItems} from "../";
 
-const DraftEditLessonsForm = ({
-    sendUpdateDraftOnDirty,
-    sendUpdateDraftOn,
-}) => {
+const AddCourseLessonsForm = () => {
     return (
         <div className="potencial-courses-block">
             <div className="potencial-courses-block-text">
@@ -29,11 +26,7 @@ const DraftEditLessonsForm = ({
             <div className="potencial-courses-block-form">
                 <div className="potencial-courses-block-form-input">
                     <FieldArray
-                        component={DraftEditLessonsFormItems}
-                        sendUpdateDraftOnDirty={sendUpdateDraftOnDirty}
-                        sendUpdateDraftOn={
-                            sendUpdateDraftOn
-                        }
+                        component={AddCourseLessonsFormItems}
                         name="lessons"
                     />
                 </div>
@@ -42,4 +35,4 @@ const DraftEditLessonsForm = ({
     );
 };
 
-export default DraftEditLessonsForm;
+export default AddCourseLessonsForm;

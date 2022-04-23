@@ -1,8 +1,6 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
-import {useSelector, useDispatch} from "react-redux";
-
-import {sendAddDraft} from "../../redux/actions/draft";
+import {useSelector} from "react-redux";
 
 import Logo from "../../assets/images/logo.svg";
 
@@ -13,8 +11,6 @@ const HeaderModalMenu = React.memo(
         onClickCloseModalMenu,
         clickLogout,
     }) => {
-        const dispatch = useDispatch();
-
         const checkActive = (match, location) => {
             if (!location) return false;
             const {pathname} = location;
@@ -25,10 +21,6 @@ const HeaderModalMenu = React.memo(
         const {masterInfo, isLoadedMasterInfo} = useSelector(
             ({master}) => master
         );
-
-        const addCourseDraft = () => {
-            dispatch(sendAddDraft());
-        };
 
         return (
             <div
@@ -132,12 +124,12 @@ const HeaderModalMenu = React.memo(
                                     Статистика
                                 </NavLink>
 
-                                <span
+                                <Link
+                                    to="/go/add/course"
                                     className="header-modal-menu-nav__link"
-                                    onClick={addCourseDraft}
                                 >
                                     Добавить курс
-                                </span>
+                                </Link>
 
                                 <NavLink
                                     to="/go/moderations-courses"

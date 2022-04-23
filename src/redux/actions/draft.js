@@ -2,9 +2,28 @@ import $api from '../../http/';
 
 import { fetchMasterDraftsCourses } from "./master";
 
-export const sendAddDraft = () => (dispatch) => {
-	$api.post(`/potencial-courses/drafts`).then(({ data }) => {
-		window.location.href = `/go/drafts/${data._id}`
+export const sendCreateDraft = (data) => (dispatch) => {
+	dispatch({
+		type: "SET_IS_SEND_CREATE_DRAFT",
+		payload: true
+	})
+
+	$api.post(`/potencial-courses/drafts`, data).then(() => {
+		window.location.href = "/go/drafts";
+	})
+}
+
+export const sendCreateDraftAndModeration = (data, paymentInfo) => (dispatch) => {
+	dispatch({
+		type: "SET_IS_SEND_SUBMIT_MODERATION_COURSE",
+		payload: true
+
+	})
+
+	$api.post(`/potencial-courses/drafts`, data).then((response) => {
+		$api.post(`/potencial-courses/moderation/${response.data._id}`, paymentInfo).then(() => {
+			window.location.href = "/go/moderations-courses"
+		})
 	})
 }
 
@@ -19,22 +38,21 @@ export const sendDeleteDraft = (id) => (dispatch) => {
 	})
 }
 
-export const sendUpdateDraft = (data, redirect, loaded, callbackFunc) => (dispatch) => {
+export const sendUpdateDraft = (data, loaded, callbackFunc) => (dispatch) => {
 	if (loaded) {
-		dispatch({
-			type: "SET_IS_SEND_UPDATE_DRAFT",
-			payload: true
-		})
+		dispatch(setIsSendUpdateDraft(true))
 	}
 
-	$api.put(`/potencial-courses/drafts`, data).then(() => {
+	$api.put(`/potencial-courses/drafts`, data).then((response) => {
 		if (callbackFunc) {
 			callbackFunc()
 		}
 
-		if (redirect) {
-			window.location.href = `/go/drafts`
+		if (loaded) {
+			dispatch(setIsSendUpdateDraft(false))
 		}
+
+		dispatch(setDraftById(response.data))
 	})
 }
 
@@ -51,7 +69,12 @@ export const fetchDraftById = (id) => (dispatch) => {
 	})
 }
 
-const setDraftById = (item) => ({
+export const setDraftById = (item) => ({
 	type: "SET_DRAFT_BY_ID",
 	payload: item
+})
+
+export const setIsSendUpdateDraft = (status) => ({
+	type: "SET_IS_SEND_UPDATE_DRAFT",
+	payload: status
 })

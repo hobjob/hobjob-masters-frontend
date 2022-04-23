@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const EditPotencialCoursesErrorMessage = ({errorMessage, number}) => {
+const EditRejectModerationCoursesErrorMessage = ({errorMessage, number}) => {
     return (
         <div className="potencial-courses-error-message">
             <div className="potencial-courses-error-message-title">
@@ -32,4 +32,4 @@ const EditPotencialCoursesErrorMessage = ({errorMessage, number}) => {
     );
 };
 
-export default EditPotencialCoursesErrorMessage;
+export default EditRejectModerationCoursesErrorMessage;

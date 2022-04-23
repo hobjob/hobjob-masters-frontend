@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import { Header, Footer } from './components/';
 
-import { Home, Login, Register, PasswordRecoveryEmail, PasswordRecoveryNewPassword, Cabinet, ModerationCourses, DraftEdit, Drafts, EditPotencialCourses, Statistics, Policy, PublicOffer, Regulations, EngineeringWorks, CourseRegulations, ConfirmedEmail } from './pages/';
+import { Home, Login, Register, PasswordRecoveryEmail, PasswordRecoveryNewPassword, Cabinet, ModerationCourses, AddCourse, DraftEdit, Drafts, EditRejectModerationCourses, Statistics, Policy, PublicOffer, Regulations, EngineeringWorks, CourseRegulations, ConfirmedEmail } from './pages/';
 
 dotenv.config()
 
@@ -19,7 +19,8 @@ const App = () => {
 						<Route path="/" render={() => <Home />} exact />
 
 						{/* CourseRegulations */}
-						<Route path="/course-regulations" render={() => <CourseRegulations />} exact />
+						<Route path="/course-regulations/:blockId" render={(props) => <CourseRegulations {...props} />} exact />
+						<Route path="/course-regulations" render={(props) => <CourseRegulations {...props} />} exact />
 
 						{/* Policy */}
 						<Route path="/policy" render={() => <Policy />} exact />
@@ -38,7 +39,9 @@ const App = () => {
 						<Route path="/go/cabinet" render={() => <Cabinet />} exact />
 
 						<Route path="/go/moderations-courses" render={() => <ModerationCourses />} exact />
-						<Route path="/go/moderations-courses/edit/:id" render={(props) => <EditPotencialCourses {...props} />} exact />
+						<Route path="/go/moderations-courses/edit/:id" render={(props) => <EditRejectModerationCourses {...props} />} exact />
+
+						<Route path="/go/add/course" render={() => <AddCourse />} exact />
 
 						<Route path="/go/drafts/:id" render={(props) => <DraftEdit {...props} />} exact />
 						<Route path="/go/drafts" render={() => <Drafts />} exact />

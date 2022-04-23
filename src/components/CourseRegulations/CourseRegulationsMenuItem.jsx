@@ -6,7 +6,7 @@ const CourseRegulationsMenuItem = ({
     index,
     title,
     subtitle,
-    onClikcMenuAdaptive,
+    onClickMenuAdaptive,
 }) => {
     const [stateOpen, setStateOpen] = React.useState(
         index === 0 ? true : false
@@ -40,7 +40,7 @@ const CourseRegulationsMenuItem = ({
                     >
                         <span
                             className={`course-regulations-menu-item-list__title`}
-                            onClick={onClikcMenuAdaptive}
+                            onClick={onClickMenuAdaptive}
                         >
                             {item.title}
                         </span>

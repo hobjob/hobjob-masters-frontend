@@ -4,8 +4,8 @@ import {useSelector, useDispatch} from "react-redux";
 
 import {sendLogout} from "../../redux/actions/logout";
 import {fetchMasterInfo} from "../../redux/actions/master";
+import {fetchMasterDraftsCourses} from "../../redux/actions/master";
 import {fetchCategories} from "../../redux/actions/categories";
-import {sendAddDraft} from "../../redux/actions/draft";
 
 import {HeaderMenu, HeaderModalMenu} from "../";
 
@@ -14,7 +14,12 @@ import Logo from "../../assets/images/logo.svg";
 const Header = React.memo(() => {
     const dispatch = useDispatch();
 
-    const {masterInfo, isLoadedMasterInfo} = useSelector(({master}) => master);
+    const {
+        masterInfo,
+        draftsCourses,
+        isLoadedDraftsCourses,
+        isLoadedMasterInfo,
+    } = useSelector(({master}) => master);
     const categories = useSelector(({categories}) => categories.items);
 
     const [modalMenuState, setModalMenuState] = React.useState(false);
@@ -39,14 +44,14 @@ const Header = React.memo(() => {
             dispatch(fetchMasterInfo());
         }
 
+        if (!draftsCourses.length) {
+            dispatch(fetchMasterDraftsCourses());
+        }
+
         if (!Object.keys(categories).length) {
             dispatch(fetchCategories());
         }
     }, []);
-
-    const addCourseDraft = () => {
-        dispatch(sendAddDraft());
-    };
 
     const toggleUserMenu = () => {
         setHeaderUserMenuAnimateClose(true);
@@ -126,103 +131,102 @@ const Header = React.memo(() => {
             <header className="header">
                 <div className="container">
                     <div className="header-wrapper">
-                        <Link to="/" className="header-logo__link">
-                            <img
-                                src={Logo}
-                                alt="HobJob"
-                                className="header-logo__img"
-                            />
-                        </Link>
+                        <div className="header-right-block">
+                            <Link to="/" className="header-logo__link">
+                                <img
+                                    src={Logo}
+                                    alt="HobJob"
+                                    className="header-logo__img"
+                                />
+                            </Link>
 
-                        <HeaderMenu />
+                            <HeaderMenu />
+                        </div>
 
-                        <nav className="header-left">
-                            {isLoadedMasterInfo ? (
-                                <>
+                        <nav className="header-left-block">
+                            {isLoadedMasterInfo && isLoadedDraftsCourses ? (
+                                <div className="header-user">
+                                    <div className="header-user-nav">
+                                        <Link
+                                            to="/go/add/course"
+                                            className="header-user-nav__link active"
+                                        >
+                                            Добавить курс
+                                        </Link>
+                                        <NavLink
+                                            to="/go/moderations-courses"
+                                            className="header-user-nav__link"
+                                            activeClassName="header-user-nav__link"
+                                        >
+                                            Курсы на модерации
+                                        </NavLink>
+                                    </div>
+
                                     {document.documentElement.clientWidth >
-                                    1200 ? (
-                                        <div className="header-user">
-                                            <div
-                                                onClick={toggleUserMenu}
-                                                ref={headerUserMenuRef}
-                                                className={`header-user-avatar ${
-                                                    headerUserMenu
-                                                        ? "active"
-                                                        : ""
-                                                }`}
-                                                style={{
-                                                    backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar}")`,
-                                                }}
-                                            ></div>
-                                            {headerUserMenu ? (
-                                                <div
-                                                    className={`header-user-menu ${
-                                                        headerUserMenuAnimateClose
-                                                            ? "close"
-                                                            : ""
-                                                    }`}
-                                                >
-                                                    <NavLink
-                                                        to="/go/statistics"
-                                                        className="header-user-menu__link"
-                                                    >
-                                                        Статистика
-                                                    </NavLink>
-
-                                                    <span
-                                                        className="header-user-menu__link"
-                                                        onClick={addCourseDraft}
-                                                    >
-                                                        Добавить курс
-                                                    </span>
-
-                                                    <NavLink
-                                                        to="/go/moderations-courses"
-                                                        className="header-user-menu__link"
-                                                    >
-                                                        Курсы на модерации
-                                                    </NavLink>
-
-                                                    <NavLink
-                                                        to="/go/drafts"
-                                                        className="header-user-menu__link"
-                                                    >
-                                                        Черновики{" "}
-                                                        {masterInfo.draftsCount
-                                                            ? `(${masterInfo.draftsCount})`
-                                                            : null}
-                                                    </NavLink>
-
-                                                    <NavLink
-                                                        to="/go/cabinet"
-                                                        className="header-user-menu__link"
-                                                    >
-                                                        Настройки
-                                                    </NavLink>
-
-                                                    <span
-                                                        onClick={clickLogout}
-                                                        className="header-user-menu__link"
-                                                    >
-                                                        Выйти
-                                                    </span>
-                                                </div>
-                                            ) : null}
-                                        </div>
+                                    1400 ? (
+                                        <div
+                                            onClick={toggleUserMenu}
+                                            ref={headerUserMenuRef}
+                                            className={`header-user-avatar ${
+                                                headerUserMenu ? "active" : ""
+                                            }`}
+                                            style={{
+                                                backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar}")`,
+                                            }}
+                                        ></div>
                                     ) : (
                                         <div
-                                            className="header-user"
+                                            className="header-user-avatar"
+                                            style={{
+                                                backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar}")`,
+                                            }}
                                             onClick={onClickModalMenu}
-                                        >
-                                            <div
-                                                className="header-user-avatar"
-                                                style={{
-                                                    backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar}")`,
-                                                }}
-                                            ></div>
-                                        </div>
+                                        ></div>
                                     )}
-                                </>
+
+                                    {headerUserMenu ? (
+                                        <div
+                                            className={`header-user-menu ${
+                                                headerUserMenuAnimateClose
+                                                    ? "close"
+                                                    : ""
+                                            }`}
+                                        >
+                                            <NavLink
+                                                to="/go/statistics"
+                                                className="header-user-menu__link"
+                                            >
+                                                Статистика
+                                            </NavLink>
+
+                                            <NavLink
+                                                to="/go/drafts"
+                                                className="header-user-menu__link"
+                                            >
+                                                Черновики{" "}
+                                                {draftsCourses.length ? (
+                                                    <span>
+                                                        ({draftsCourses.length})
+                                                    </span>
+                                                ) : null}
+                                            </NavLink>
+
+                                            <NavLink
+                                                to="/go/cabinet"
+                                                className="header-user-menu__link"
+                                            >
+                                                Настройки
+                                            </NavLink>
+
+                                            <span
+                                                onClick={clickLogout}
+                                                className="header-user-menu__link"
+                                            >
+                                                Выйти
+                                            </span>
+                                        </div>
+                                    ) : null}
+                                </div>
                             ) : (
                                 <a
                                     href="/go/login"

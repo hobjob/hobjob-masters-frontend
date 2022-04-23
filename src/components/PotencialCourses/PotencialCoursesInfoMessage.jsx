@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DraftEditInfoMessage = () => {
+const PotencialCoursesInfoMessage = () => {
     return (
         <div className="potencial-courses-info-message">
             <div className="potencial-courses-info-message-image-adaptive">
@@ -43,4 +43,4 @@ const DraftEditInfoMessage = () => {
     );
 };
 
-export default DraftEditInfoMessage;
+export default PotencialCoursesInfoMessage;

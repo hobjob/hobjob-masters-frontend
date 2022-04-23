@@ -1,10 +1,11 @@
 import React from "react";
+import {Prompt} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 
 import {
-    EditPotencialCoursesErrorMessage,
-    EditPotencialCoursesForm,
+    EditRejectModerationCoursesErrorMessage,
+    EditRejectModerationCoursesForm,
     Loader,
 } from "../components/";
 
@@ -13,17 +14,21 @@ import {
     sendUpdatePotencialCourse,
 } from "../redux/actions/potencial_courses";
 
-const EditPotencialCourses = ({
+const EditRejectModerationCourses = ({
     match: {
         params: {id},
     },
 }) => {
     const dispatch = useDispatch();
 
-    const {isLoadedModerationCourseById, moderationCourseById} = useSelector(
-        ({potencial_courses}) => potencial_courses
+    const {
+        isSendSubmitModerationCourse,
+        isLoadedModerationCourseById,
+        moderationCourseById,
+    } = useSelector(({potencial_courses}) => potencial_courses);
+    const {isLoadedAllCategories, itemsArray} = useSelector(
+        ({categories}) => categories
     );
-    const {isLoadedAllCategories, itemsArray} = useSelector(({categories}) => categories);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -34,10 +39,8 @@ const EditPotencialCourses = ({
     }, [id]);
 
     const onSubmit = (data) => {
-		const formData = new FormData();
+        const formData = new FormData();
 
-		console.log(data);
-		
         Object.keys(data).map((key) => {
             if (key === "lessons") {
                 data[key].map((lesson, index_lesson) => {
@@ -65,15 +68,30 @@ const EditPotencialCourses = ({
         });
         if (!data["category"]) {
             formData.append(`category`, itemsArray[0].transfer);
-		}
+        }
 
         dispatch(sendUpdatePotencialCourse(formData));
     };
+
+    React.useEffect(() => {
+        if (!isSendSubmitModerationCourse) {
+            window.onbeforeunload = () => true;
+        } else {
+            window.onbeforeunload = undefined;
+        }
+    }, [isSendSubmitModerationCourse]);
 
     return (
         <>
             {localStorage.getItem("accessToken") ? (
                 <>
+                    <Prompt
+                        when={!isSendSubmitModerationCourse}
+                        message={() =>
+                            "У вас есть не сохраненные данные курса. Если вы перейдете на другую страницу данные не сохранятся."
+                        }
+                    />
+
                     <Helmet>
                         <title>Изменить курс - HobJob для мастеров</title>
                     </Helmet>
@@ -83,11 +101,11 @@ const EditPotencialCourses = ({
                             <section className="potencial-courses">
                                 <div className="container">
                                     <div className="potencial-courses-wrapper">
-                                        <EditPotencialCoursesErrorMessage
+                                        <EditRejectModerationCoursesErrorMessage
                                             {...moderationCourseById}
                                         />
 
-                                        <EditPotencialCoursesForm
+                                        <EditRejectModerationCoursesForm
                                             onSubmit={onSubmit}
                                         />
                                     </div>
@@ -107,4 +125,4 @@ const EditPotencialCourses = ({
     );
 };
 
-export default EditPotencialCourses;
+export default EditRejectModerationCourses;

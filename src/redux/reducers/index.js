@@ -9,6 +9,7 @@ import master from './master';
 import potencial_courses from './potencial_courses';
 import draft from './draft';
 import confirmed_email from './confirmed_email';
+import video from './video';
 
 const rootReducer = combineReducers({
 	categories,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
 	potencial_courses,
 	draft,
 	confirmed_email,
+	video,
 	form: formReducer
 });
 

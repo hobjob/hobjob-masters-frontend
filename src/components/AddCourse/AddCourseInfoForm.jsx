@@ -9,12 +9,8 @@ import {
     RenderImageInput,
 } from "../";
 
-const EditPotencialCoursesInfoForm = () => {
+const AddCourseInfoForm = () => {
     const categories = useSelector(({categories}) => categories.itemsArray);
-
-    const {moderationCourseById} = useSelector(
-        ({potencial_courses}) => potencial_courses
-    );
 
     return (
         <div className="potencial-courses-block">
@@ -22,10 +18,15 @@ const EditPotencialCoursesInfoForm = () => {
                 <span className="subtitle__mb potencial-courses-block-text__subtitle">
                     1 этап
                 </span>
-
                 <h2 className="potencial-courses-block-text__title">
                     Информация о курсе
                 </h2>
+                <a
+                    href="/course-regulations/theme-course"
+                    className="potencial-courses-block-text__link"
+                >
+                    Рекомендации по созданию курса
+                </a>
             </div>
 
             <div className="potencial-courses-block-form">
@@ -62,7 +63,6 @@ const EditPotencialCoursesInfoForm = () => {
                             component={RenderImageInput}
                             name="image"
                             label="Фото курса"
-                            defaultValue={moderationCourseById.image}
                         />
                     </div>
                 </div>
@@ -71,4 +71,4 @@ const EditPotencialCoursesInfoForm = () => {
     );
 };
 
-export default EditPotencialCoursesInfoForm;
+export default AddCourseInfoForm;

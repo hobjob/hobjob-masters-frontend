@@ -3,16 +3,10 @@ import {Field} from "redux-form";
 
 import {RenderInput, RenderFileInput} from "../";
 
-const EditPotencialCoursesLessonsFormItemsMaterials = ({
+const EditRejectModerationCoursesLessonsFormItemsMaterials = ({
     fields,
     materialsValue,
 }) => {
-    React.useEffect(() => {
-        if (!materialsValue) {
-            fields.push({});
-        }
-    }, []);
-
     const addMaterial = () => {
         fields.push({});
     };
@@ -99,4 +93,4 @@ const EditPotencialCoursesLessonsFormItemsMaterials = ({
     );
 };
 
-export default EditPotencialCoursesLessonsFormItemsMaterials;
+export default EditRejectModerationCoursesLessonsFormItemsMaterials;

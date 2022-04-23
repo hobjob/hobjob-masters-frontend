@@ -1,21 +1,29 @@
 import React from "react";
 
 const RenderFileInput = ({
-    input: {value: omitValue, onChange, onBlur, ...inputProps},
+    input: {value: omitValue, onChange, ...inputProps},
     meta: {touched, error},
     label,
     defaultValue,
+    onFunc,
     ...props
 }) => {
     const [title, setTitle] = React.useState("");
 
-    const adaptFileEventToValue = (delegate) => (e) => {
+    const adaptFileEventToValue = (e) => {
         if (e.target.files[0]) {
-            delegate(e.target.files[0]);
-
             const size = e.target.files[0].size;
 
             if (size < 15000000) {
+                onChange(e.target.files[0]);
+
+                if (onFunc) {
+                    const file = {};
+                    file[inputProps.name] = e.target.files[0];
+
+                    onFunc(file);
+                }
+
                 setTitle(e.target.files[0].name);
             } else {
                 setTitle("");
@@ -35,8 +43,7 @@ const RenderFileInput = ({
                 <label className="input-file-block__label">
                     <input
                         className="input-file-block__field"
-                        onChange={adaptFileEventToValue(onChange)}
-                        onBlur={adaptFileEventToValue(onBlur)}
+                        onChange={adaptFileEventToValue}
                         type="file"
                         multiple={false}
                         {...props.input}

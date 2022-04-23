@@ -132,7 +132,6 @@ const validate = (values) => {
 			} else if (lesson.video.size > 2500000000 && !lesson.video.fileNameUser) {
 				lessonErrors.video = `Ваше видео слишком большое. Максимальный вес 2гб`;
 				lessonsArrayErrors[index] = lessonErrors
-
 			}
 
 			if (lessonsArrayErrors.length) {

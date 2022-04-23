@@ -1,4 +1,16 @@
 // media
+@media screen and ( max-width: 1400px )
+	// header
+	.header
+		&-nav
+			display: none
+
+		&-menu-button
+			display: block
+
+		&-user-menu
+			display: none
+
 @media screen and ( max-width: 1300px )
 	// moderations-courses
 	.moderations-courses
@@ -27,17 +39,6 @@
 				width: 100%
 
 @media screen and ( max-width: 1200px )
-	// header
-	.header
-		&-nav
-			display: none
-
-		&-menu-button
-			display: block
-
-		&-user-menu
-			display: none
-
 	// reglog
 	.reglog
 		&-block-wrapper
@@ -381,6 +382,10 @@
 
 	// header
 	.header
+		&-user
+			&-nav
+				display: none
+
 		&-modal-menu
 			&-content
 				width: 75%

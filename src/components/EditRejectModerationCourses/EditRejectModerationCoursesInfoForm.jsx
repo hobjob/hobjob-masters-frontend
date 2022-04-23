@@ -9,9 +9,12 @@ import {
     RenderImageInput,
 } from "../";
 
-const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
+const EditRejectModerationCoursesInfoForm = () => {
     const categories = useSelector(({categories}) => categories.itemsArray);
-    const {itemById} = useSelector(({draft}) => draft);
+
+    const {moderationCourseById} = useSelector(
+        ({potencial_courses}) => potencial_courses
+    );
 
     return (
         <div className="potencial-courses-block">
@@ -19,15 +22,10 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                 <span className="subtitle__mb potencial-courses-block-text__subtitle">
                     1 этап
                 </span>
+
                 <h2 className="potencial-courses-block-text__title">
                     Информация о курсе
                 </h2>
-                <a
-                    href="/course-regulations/theme-course"
-                    className="potencial-courses-block-text__link"
-                >
-                    Рекомендации по созданию курса
-                </a>
             </div>
 
             <div className="potencial-courses-block-form">
@@ -38,7 +36,6 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                             type="text"
                             name="title"
                             label="Название"
-                            onBlur={sendUpdateDraftOnDirty}
                         />
                     </div>
 
@@ -48,7 +45,6 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                             type="text"
                             name="description"
                             label="Описание"
-                            onBlur={sendUpdateDraftOnDirty}
                         />
                     </div>
 
@@ -58,9 +54,6 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                             name="category"
                             label="Направление"
                             choise={categories}
-                            onFunc={(value) =>
-                                sendUpdateDraftOn(null, null, null, value)
-                            }
                         />
                     </div>
 
@@ -69,8 +62,7 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                             component={RenderImageInput}
                             name="image"
                             label="Фото курса"
-                            defaultValue={itemById.image}
-                            onFunc={(file) => sendUpdateDraftOn(file)}
+                            defaultValue={moderationCourseById.image}
                         />
                     </div>
                 </div>
@@ -79,4 +71,4 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
     );
 };
 
-export default DraftEditInfoForm;
+export default EditRejectModerationCoursesInfoForm;

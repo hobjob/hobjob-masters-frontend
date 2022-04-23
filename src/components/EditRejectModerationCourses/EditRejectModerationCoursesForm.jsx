@@ -4,13 +4,13 @@ import {reduxForm} from "redux-form";
 import {useSelector} from "react-redux";
 
 import {
-    EditPotencialCoursesInfoForm,
-    EditPotencialCoursesLessonsForm,
+    EditRejectModerationCoursesInfoForm,
+    EditRejectModerationCoursesLessonsForm,
 } from "../";
 
 import validate from "./validate";
 
-let EditPotencialCoursesForm = ({
+let EditRejectModerationCoursesForm = ({
     handleSubmit,
     invalid,
     submitting,
@@ -27,18 +27,18 @@ let EditPotencialCoursesForm = ({
 
     return (
         <form onSubmit={handleSubmit}>
-            <EditPotencialCoursesInfoForm />
+            <EditRejectModerationCoursesInfoForm />
 
-            <EditPotencialCoursesLessonsForm
+            <EditRejectModerationCoursesLessonsForm
                 valid={invalid || submitting || pristine}
             />
         </form>
     );
 };
 
-EditPotencialCoursesForm = reduxForm({
+EditRejectModerationCoursesForm = reduxForm({
     form: "edit-potencial-courses-info-form",
     validate,
-})(EditPotencialCoursesForm);
+})(EditRejectModerationCoursesForm);
 
-export default EditPotencialCoursesForm;
+export default EditRejectModerationCoursesForm;

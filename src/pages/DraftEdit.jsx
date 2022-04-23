@@ -1,9 +1,12 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector, connect} from "react-redux";
+import {getFormValues, getFormSyncErrors} from "redux-form";
+
 import {Helmet} from "react-helmet";
 
 import {
-    DraftEditInfoMessage,
+    DraftNotificationUpdate,
+    PotencialCoursesInfoMessage,
     DraftEditForm,
     Loader,
     ConfirmedEmail,
@@ -11,19 +14,33 @@ import {
 
 import {sendSubmitModerationCourse} from "../redux/actions/potencial_courses";
 import {fetchDraftById, sendUpdateDraft} from "../redux/actions/draft";
+import {Redirect} from "react-router-dom";
 
 const DraftEdit = ({
     match: {
         params: {id},
     },
+    values,
+    syncErrors,
 }) => {
+	console.log(syncErrors);
+
     const dispatch = useDispatch();
 
     const {isLoadedAllCategories, itemsArray} = useSelector(
         ({categories}) => categories
     );
     const {masterInfo, isLoadedMasterInfo} = useSelector(({master}) => master);
-    const {isLoadedById, itemById} = useSelector(({draft}) => draft);
+    const {isSendUpdateDraft, isLoadedById, itemById} = useSelector(
+        ({draft}) => draft
+    );
+
+    const [visibleNotificationUpdate, setVisibleNotificationUpdate] =
+        React.useState(false);
+    const [
+        animationVisibleNotificationUpdate,
+        setAnimationVisibleNotificationUpdate,
+    ] = React.useState(false);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -33,49 +50,24 @@ const DraftEdit = ({
         dispatch(fetchDraftById(id));
     }, [id]);
 
+    React.useEffect(() => {
+        if (isSendUpdateDraft) {
+            setVisibleNotificationUpdate(true);
+        } else {
+            setTimeout(() => {
+                setAnimationVisibleNotificationUpdate(true);
+
+                setTimeout(() => {
+                    setVisibleNotificationUpdate(false);
+                    setAnimationVisibleNotificationUpdate(false);
+                }, 200);
+            }, 500);
+        }
+    }, [isSendUpdateDraft]);
+
     const onSubmit = (data) => {
         const {name, numberCard} = data;
 
-		const formData = new FormData();
-		
-        Object.keys(data).map((key) => {
-            if (key === "lessons") {
-                data[key].map((lesson, index_lesson) => {
-                    if (lesson.image) {
-                        formData.append(
-                            `lessons-${index_lesson + 1}-image`,
-                            lesson.image
-                        );
-                    }
-                    if (lesson.materials) {
-                        lesson.materials.map((material, material_index) => {
-                            formData.append(
-                                `lessons-${index_lesson + 1}-materials-${
-                                    material_index + 1
-                                }`,
-                                material.file
-                            );
-                        });
-                    }
-                });
-                formData.append(key, JSON.stringify(data[key]));
-            } else {
-                formData.append(key, data[key]);
-            }
-		});
-		
-        if (!data["category"]) {
-            formData.append(`category`, itemsArray[0].transfer);
-        }
-
-        dispatch(
-            sendUpdateDraft(formData, false, false, () => {
-                dispatch(sendSubmitModerationCourse(id, {name, numberCard}));
-            })
-        );
-    };
-
-    const sendUpdateDraftClick = (data) => {
         const formData = new FormData();
 
         Object.keys(data).map((key) => {
@@ -87,7 +79,6 @@ const DraftEdit = ({
                             lesson.image
                         );
                     }
-
                     if (lesson.materials) {
                         lesson.materials.map((material, material_index) => {
                             formData.append(
@@ -99,7 +90,6 @@ const DraftEdit = ({
                         });
                     }
                 });
-
                 formData.append(key, JSON.stringify(data[key]));
             } else {
                 formData.append(key, data[key]);
@@ -110,7 +100,110 @@ const DraftEdit = ({
             formData.append(`category`, itemsArray[0].transfer);
         }
 
-        dispatch(sendUpdateDraft(formData, true, true));
+        dispatch(
+            sendUpdateDraft(formData, false, () => {
+                dispatch(sendSubmitModerationCourse(id, {name, numberCard}));
+            })
+        );
+    };
+
+    const sendUpdateDraftOn = (
+        valuesFile,
+        ignoreLessonIndex,
+        ignoreLessonMaterialsIndex,
+        category
+    ) => {
+        const formData = new FormData();
+
+        if (valuesFile) {
+            if (typeof valuesFile[Object.keys(valuesFile)[0]] === "object") {
+                const value = valuesFile[Object.keys(valuesFile)[0]];
+                const key = Object.keys(valuesFile)[0];
+                const keySplit = key.split(".");
+
+                const keySplit1_type = keySplit[0].split("[")[0];
+                const keySplit1_number =
+                    keySplit.length >= 2
+                        ? keySplit[0].split("[")[1].replace(/[^0-9]/g, "")
+                        : null;
+
+                if (keySplit.length === 1) {
+                    values[keySplit1_type] = value;
+                }
+
+                if (keySplit.length === 2) {
+                    const keySplit_type = keySplit[1];
+
+                    values[keySplit1_type][keySplit1_number][keySplit_type] =
+                        value;
+                }
+
+                if (keySplit.length === 3) {
+                    const keySplit2_type = keySplit[1].split("[")[0];
+                    const keySplit2_number = keySplit[1]
+                        .split("[")[1]
+                        .replace(/[^0-9]/g, "");
+
+                    const keySplit_type = keySplit[2];
+
+                    values[keySplit1_type][keySplit1_number][keySplit2_type][
+                        keySplit2_number
+                    ][keySplit_type] = value;
+                }
+            }
+        }
+
+        if (category) {
+            values.category = category;
+        }
+
+        Object.keys(values).map((key) => {
+            if (key === "lessons") {
+                const newLessons = [];
+
+                values[key].map((lesson, index_lesson) => {
+                    if (ignoreLessonIndex !== index_lesson) {
+                        if (lesson.image) {
+                            formData.append(
+                                `lessons-${index_lesson + 1}-image`,
+                                lesson.image
+                            );
+                        }
+                        if (lesson.materials) {
+                            const newLessonsMaterials = [];
+
+                            lesson.materials.map((material, material_index) => {
+                                if (
+                                    ignoreLessonMaterialsIndex !==
+                                    material_index
+                                ) {
+                                    formData.append(
+                                        `lessons-${
+                                            index_lesson + 1
+                                        }-materials-${material_index + 1}`,
+                                        material.file
+                                    );
+
+                                    newLessonsMaterials.push(material);
+                                }
+                            });
+
+                            lesson.materials = newLessonsMaterials;
+                        }
+
+                        newLessons.push(lesson);
+                    }
+                });
+
+                values.lessons = newLessons;
+
+                formData.append(key, JSON.stringify(values[key]));
+            } else {
+                formData.append(key, values[key]);
+            }
+        });
+
+        dispatch(sendUpdateDraft(formData, true));
     };
 
     return (
@@ -132,13 +225,21 @@ const DraftEdit = ({
                                         </title>
                                     </Helmet>
                                     <section className="potencial-courses">
+                                        {visibleNotificationUpdate ? (
+                                            <DraftNotificationUpdate
+                                                animationVisibleNotificationUpdate={
+                                                    animationVisibleNotificationUpdate
+                                                }
+                                            />
+                                        ) : null}
+
                                         <div className="container">
                                             <div className="potencial-courses-wrapper">
-                                                <DraftEditInfoMessage />
+                                                <PotencialCoursesInfoMessage />
 
                                                 <DraftEditForm
-                                                    sendUpdateDraft={
-                                                        sendUpdateDraftClick
+                                                    sendUpdateDraftOn={
+                                                        sendUpdateDraftOn
                                                     }
                                                     onSubmit={onSubmit}
                                                 />
@@ -147,7 +248,7 @@ const DraftEdit = ({
                                     </section>
                                 </>
                             ) : (
-                                (window.location.href = "/go/drafts")
+                                <Redirect to="/go/drafts" />
                             )
                         ) : (
                             <ConfirmedEmail />
@@ -163,4 +264,7 @@ const DraftEdit = ({
     );
 };
 
-export default DraftEdit;
+export default connect((state) => ({
+    values: getFormValues("potencial-courses-info-form")(state),
+    syncErrors: getFormSyncErrors("potencial-courses-info-form")(state),
+}))(DraftEdit);

@@ -7,7 +7,7 @@ import {
     RenderInputAutoSize,
     RenderImageInput,
     RenderVideoInput,
-    EditPotencialCoursesLessonsFormItemsMaterials,
+    EditRejectModerationCoursesLessonsFormItemsMaterials,
 } from "../";
 
 const AddPotencialCoursesLessonsFormItems = ({fields}) => {
@@ -96,7 +96,7 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
                         <div className="potencial-courses-block-form-block-input">
                             <FieldArray
                                 component={
-                                    EditPotencialCoursesLessonsFormItemsMaterials
+                                    EditRejectModerationCoursesLessonsFormItemsMaterials
                                 }
                                 name={`${lesson}.materials`}
                                 materialsValue={
@@ -127,6 +127,7 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
                                 url={`/potencial-courses/moderation/upload-video/${
                                     moderationCourseById._id
                                 }/${index + 1}`}
+                                lessonIndex={index}
                             />
                         </div>
                     </div>

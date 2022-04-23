@@ -6,7 +6,23 @@ import {
     CourseRegulationsContentItem,
 } from "../components/";
 
-const CourseRegulations = () => {
+const CourseRegulations = ({
+    match: {
+        params: {blockId},
+    },
+}) => {
+    React.useEffect(() => {
+        if (blockId) {
+            const element = document.getElementById(blockId);
+
+            if (element) {
+                window.scrollTo(0, element.getBoundingClientRect().top - 200);
+            }
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [blockId]);
+
     const regulationsBlocks = [
         {
             title: "С чего начать?",
@@ -480,10 +496,6 @@ const CourseRegulations = () => {
             ],
         },
     ];
-
-    React.useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
     return (
         <>

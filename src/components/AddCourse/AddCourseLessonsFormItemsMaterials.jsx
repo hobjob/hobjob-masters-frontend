@@ -3,19 +3,13 @@ import {Field} from "redux-form";
 
 import {RenderInput, RenderFileInput} from "../";
 
-const DraftEditLessonsFormItemsMaterials = ({
-    fields,
-    materialsValue,
-    sendUpdateDraftOnDirty,
-    sendUpdateDraftOn,
-}) => {
+const AddCourseLessonsFormItemsMaterials = ({fields, materialsValue}) => {
     const addMaterial = () => {
         fields.push({});
     };
 
     const removeMaterial = (index) => {
         fields.remove(index);
-        sendUpdateDraftOn(null, null, index);
     };
 
     return (
@@ -55,7 +49,6 @@ const DraftEditLessonsFormItemsMaterials = ({
                             type="text"
                             name={`${material}.title`}
                             label="Заголовок"
-                            onBlur={sendUpdateDraftOnDirty}
                         />
                     </div>
 
@@ -67,14 +60,11 @@ const DraftEditLessonsFormItemsMaterials = ({
                             defaultValue={
                                 materialsValue &&
                                 materialsValue[index] &&
-                                typeof materialsValue[index].file ===
-                                    "string" &&
                                 materialsValue[index].file.split("/")[
                                     materialsValue[index].file.split("/")
                                         .length - 1
                                 ]
                             }
-                            onFunc={(file) => sendUpdateDraftOn(file)}
                         />
                     </div>
                 </div>
@@ -101,4 +91,4 @@ const DraftEditLessonsFormItemsMaterials = ({
     );
 };
 
-export default DraftEditLessonsFormItemsMaterials;
+export default AddCourseLessonsFormItemsMaterials;
