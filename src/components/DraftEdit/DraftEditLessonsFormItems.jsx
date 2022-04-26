@@ -91,9 +91,7 @@ const DraftEditLessonsFormItems = ({
                                     itemById.lessons[index] &&
                                     itemById.lessons[index].image
                                 }
-                                onFunc={(file) =>
-                                    sendUpdateDraftOn(file)
-                                }
+                                onFunc={(file) => sendUpdateDraftOn(file)}
                             />
                         </div>
                     </div>
@@ -112,9 +110,7 @@ const DraftEditLessonsFormItems = ({
                                     itemById.lessons[index].materials
                                 }
                                 sendUpdateDraftOnDirty={sendUpdateDraftOnDirty}
-                                sendUpdateDraftOn={
-                                    sendUpdateDraftOn
-                                }
+                                sendUpdateDraftOn={sendUpdateDraftOn}
                             />
                         </div>
                     </div>

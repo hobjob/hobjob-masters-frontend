@@ -33,7 +33,7 @@ const Home = () => {
                             один раз запишите курс и зарабатывайте на нём, не
                             тратя деньги на рекламу.{" "}
                             {isLoadedMasterInfo ? (
-                                <Link to="/go/drafts">Добавить курс</Link>
+                                <Link to="/go/add/course">Добавить курс</Link>
                             ) : (
                                 <a href="/go/register">Стать мастером</a>
                             )}
@@ -214,7 +214,7 @@ const Home = () => {
                             </p>
                             {isLoadedMasterInfo ? (
                                 <Link
-                                    to="/go/drafts"
+                                    to="/go/add/course"
                                     className="btn main-footer-block__btn"
                                 >
                                     Добавить курс

@@ -20,17 +20,11 @@ let DraftEditForm = ({
     dirty,
 }) => {
     const {masterInfo} = useSelector(({master}) => master);
-    const {itemById, isLoadedByIdAndUpdate} = useSelector(({draft}) => draft);
+    const {itemById} = useSelector(({draft}) => draft);
 
     React.useEffect(() => {
         initialize(itemById);
     }, []);
-
-    React.useEffect(() => {
-        if (isLoadedByIdAndUpdate) {
-            initialize(itemById);
-        }
-    }, [isLoadedByIdAndUpdate]);
 
     const sendUpdateDraftOnDirty = (
         valuesFile,

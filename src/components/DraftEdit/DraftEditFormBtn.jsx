@@ -8,12 +8,14 @@ const DraftEditFormBtn = ({valid}) => {
         ({potencial_courses}) => potencial_courses
     );
     const {itemById} = useSelector(({draft}) => draft);
+    const {isLoadsGlobal} = useSelector(({video}) => video);
 
     return (
         <div className="potencial-courses-block-btn">
             <div className="potencial-courses-block-btn-status-draft">
                 <p className="potencial-courses-block-btn-status-draft__title">
-                    Все хорошо, мы сохранили ваш черновик в {itemById.updateDate}
+                    Все хорошо, мы сохранили ваш черновик в{" "}
+                    {itemById.updateDate}
                 </p>
             </div>
 
@@ -27,9 +29,9 @@ const DraftEditFormBtn = ({valid}) => {
             ) : (
                 <button
                     className={`btn ${
-                        valid ? "disabled" : ""
+                        valid || isLoadsGlobal ? "disabled" : ""
                     } potencial-courses-block-btn__btn`}
-                    disabled={valid}
+                    disabled={valid || isLoadsGlobal}
                 >
                     Отправить курс на модерацию
                 </button>

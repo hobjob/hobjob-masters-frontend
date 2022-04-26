@@ -13,6 +13,7 @@ const RenderVideoInput = ({
     defaultValue,
     url,
     lessonIndex,
+    warningMessage,
     ...props
 }) => {
     const dispatch = useDispatch();

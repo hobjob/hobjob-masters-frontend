@@ -1,6 +1,7 @@
 import React from "react";
+import {Prompt} from "react-router-dom";
 import {useDispatch, useSelector, connect} from "react-redux";
-import {getFormValues, getFormSyncErrors} from "redux-form";
+import {getFormValues} from "redux-form";
 
 import {Helmet} from "react-helmet";
 
@@ -21,10 +22,7 @@ const DraftEdit = ({
         params: {id},
     },
     values,
-    syncErrors,
 }) => {
-	console.log(syncErrors);
-
     const dispatch = useDispatch();
 
     const {isLoadedAllCategories, itemsArray} = useSelector(
@@ -34,6 +32,7 @@ const DraftEdit = ({
     const {isSendUpdateDraft, isLoadedById, itemById} = useSelector(
         ({draft}) => draft
     );
+    const {isLoadsGlobal} = useSelector(({video}) => video);
 
     const [visibleNotificationUpdate, setVisibleNotificationUpdate] =
         React.useState(false);
@@ -49,6 +48,14 @@ const DraftEdit = ({
     React.useEffect(() => {
         dispatch(fetchDraftById(id));
     }, [id]);
+
+    React.useEffect(() => {
+        if (isLoadsGlobal) {
+            window.onbeforeunload = () => true;
+        } else {
+            window.onbeforeunload = undefined;
+        }
+    }, [isLoadsGlobal]);
 
     React.useEffect(() => {
         if (isSendUpdateDraft) {
@@ -216,6 +223,13 @@ const DraftEdit = ({
                         masterInfo.confirmedEmail ? (
                             Object.keys(itemById).length ? (
                                 <>
+                                    <Prompt
+                                        when={isLoadsGlobal}
+                                        message={() =>
+                                            "У вас есть не сохраненные данные курса. Если вы перейдете на другую страницу данные не сохранятся."
+                                        }
+                                    />
+
                                     <Helmet>
                                         <title>
                                             {itemById.title !== ""
@@ -224,6 +238,7 @@ const DraftEdit = ({
                                             (черновик) - HobJob для мастеров
                                         </title>
                                     </Helmet>
+
                                     <section className="potencial-courses">
                                         {visibleNotificationUpdate ? (
                                             <DraftNotificationUpdate
@@ -266,5 +281,4 @@ const DraftEdit = ({
 
 export default connect((state) => ({
     values: getFormValues("potencial-courses-info-form")(state),
-    syncErrors: getFormSyncErrors("potencial-courses-info-form")(state),
 }))(DraftEdit);
