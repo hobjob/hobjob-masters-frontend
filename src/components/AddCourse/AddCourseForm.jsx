@@ -33,7 +33,7 @@ let AddCourseForm = ({handleSubmit, invalid, submitting, sendCreateDraft}) => {
 };
 
 AddCourseForm = reduxForm({
-    form: "potencial-courses-info-form",
+    form: "add-potencial-courses-info-form",
     validate,
 })(AddCourseForm);
 

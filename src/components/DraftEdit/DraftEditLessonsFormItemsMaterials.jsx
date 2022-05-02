@@ -15,7 +15,7 @@ const DraftEditLessonsFormItemsMaterials = ({
 
     const removeMaterial = (index) => {
         fields.remove(index);
-        sendUpdateDraftOn(null, null, index);
+        sendUpdateDraftOn(null, index);
     };
 
     return (
@@ -54,7 +54,7 @@ const DraftEditLessonsFormItemsMaterials = ({
                             component={RenderInput}
                             type="text"
                             name={`${material}.title`}
-                            label="Заголовок"
+                            label="Название"
                             onBlur={sendUpdateDraftOnDirty}
                         />
                     </div>
@@ -74,7 +74,7 @@ const DraftEditLessonsFormItemsMaterials = ({
                                         .length - 1
                                 ]
                             }
-                            onFunc={(file) => sendUpdateDraftOn(file)}
+                            onFunc={sendUpdateDraftOn}
                         />
                     </div>
                 </div>

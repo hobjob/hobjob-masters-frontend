@@ -14,7 +14,6 @@ let EditRejectModerationCoursesForm = ({
     handleSubmit,
     invalid,
     submitting,
-    pristine,
     initialize,
 }) => {
     const {moderationCourseById} = useSelector(
@@ -30,7 +29,7 @@ let EditRejectModerationCoursesForm = ({
             <EditRejectModerationCoursesInfoForm />
 
             <EditRejectModerationCoursesLessonsForm
-                valid={invalid || submitting || pristine}
+                valid={invalid || submitting}
             />
         </form>
     );

@@ -48,7 +48,7 @@ const AddCourseLessonsFormItemsMaterials = ({fields, materialsValue}) => {
                             component={RenderInput}
                             type="text"
                             name={`${material}.title`}
-                            label="Заголовок"
+                            label="Название"
                         />
                     </div>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {Prompt} from "react-router-dom";
 import {useDispatch, useSelector, connect} from "react-redux";
-import {getFormValues} from "redux-form";
+import {getFormValues, getFormMeta} from "redux-form";
 
 import {Helmet} from "react-helmet";
 
@@ -22,6 +22,7 @@ const DraftEdit = ({
         params: {id},
     },
     values,
+    fields,
 }) => {
     const dispatch = useDispatch();
 
@@ -40,6 +41,8 @@ const DraftEdit = ({
         animationVisibleNotificationUpdate,
         setAnimationVisibleNotificationUpdate,
     ] = React.useState(false);
+
+    const [update, setUpdate] = React.useState(false);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -71,6 +74,10 @@ const DraftEdit = ({
             }, 500);
         }
     }, [isSendUpdateDraft]);
+
+    const createUpdate = () => {
+        setUpdate(true);
+    };
 
     const onSubmit = (data) => {
         const {name, numberCard} = data;
@@ -115,54 +122,10 @@ const DraftEdit = ({
     };
 
     const sendUpdateDraftOn = (
-        valuesFile,
         ignoreLessonIndex,
-        ignoreLessonMaterialsIndex,
-        category
+        ignoreLessonMaterialsIndex
     ) => {
         const formData = new FormData();
-
-        if (valuesFile) {
-            if (typeof valuesFile[Object.keys(valuesFile)[0]] === "object") {
-                const value = valuesFile[Object.keys(valuesFile)[0]];
-                const key = Object.keys(valuesFile)[0];
-                const keySplit = key.split(".");
-
-                const keySplit1_type = keySplit[0].split("[")[0];
-                const keySplit1_number =
-                    keySplit.length >= 2
-                        ? keySplit[0].split("[")[1].replace(/[^0-9]/g, "")
-                        : null;
-
-                if (keySplit.length === 1) {
-                    values[keySplit1_type] = value;
-                }
-
-                if (keySplit.length === 2) {
-                    const keySplit_type = keySplit[1];
-
-                    values[keySplit1_type][keySplit1_number][keySplit_type] =
-                        value;
-                }
-
-                if (keySplit.length === 3) {
-                    const keySplit2_type = keySplit[1].split("[")[0];
-                    const keySplit2_number = keySplit[1]
-                        .split("[")[1]
-                        .replace(/[^0-9]/g, "");
-
-                    const keySplit_type = keySplit[2];
-
-                    values[keySplit1_type][keySplit1_number][keySplit2_type][
-                        keySplit2_number
-                    ][keySplit_type] = value;
-                }
-            }
-        }
-
-        if (category) {
-            values.category = category;
-        }
 
         Object.keys(values).map((key) => {
             if (key === "lessons") {
@@ -213,6 +176,14 @@ const DraftEdit = ({
         dispatch(sendUpdateDraft(formData, true));
     };
 
+	React.useEffect(() => {
+        if (values && update) {
+            sendUpdateDraftOn();
+
+            setUpdate(false);
+        }
+    }, [update]);
+
     return (
         <>
             {localStorage.getItem("accessToken") ? (
@@ -254,7 +225,7 @@ const DraftEdit = ({
 
                                                 <DraftEditForm
                                                     sendUpdateDraftOn={
-                                                        sendUpdateDraftOn
+                                                        createUpdate
                                                     }
                                                     onSubmit={onSubmit}
                                                 />
@@ -280,5 +251,6 @@ const DraftEdit = ({
 };
 
 export default connect((state) => ({
-    values: getFormValues("potencial-courses-info-form")(state),
+    values: getFormValues("draft-potencial-courses-info-form")(state),
+    fields: getFormMeta("draft-potencial-courses-info-form")(state),
 }))(DraftEdit);

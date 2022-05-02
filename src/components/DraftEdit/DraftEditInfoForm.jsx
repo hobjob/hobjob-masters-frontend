@@ -58,9 +58,7 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                             name="category"
                             label="Направление"
                             choise={categories}
-                            onFunc={(value) =>
-                                sendUpdateDraftOn(null, null, null, value)
-                            }
+                            onFunc={sendUpdateDraftOn}
                         />
                     </div>
 
@@ -70,7 +68,7 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                             name="image"
                             label="Фото курса"
                             defaultValue={itemById.image}
-                            onFunc={(file) => sendUpdateDraftOn(file)}
+                            onFunc={sendUpdateDraftOn}
                         />
                     </div>
                 </div>

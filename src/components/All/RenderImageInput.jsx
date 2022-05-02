@@ -10,21 +10,18 @@ const RenderImageInput = ({
 }) => {
     const [imageAvatar, setImageAvatar] = React.useState("");
 
-    const adaptFileEventToValue = (e) => {
+    const adaptFileEventToValue = (delegate) => (e) => {
         if (e.target.files[0]) {
             const type = e.target.files[0].type;
             const size = e.target.files[0].size;
 
             if (type === "image/jpeg" || type === "image/png") {
                 if (size < 5500000) {
-                    onChange(e.target.files[0]);
+                    delegate(e.target.files[0]);
 
-                    if (onFunc) {
-                        const file = {};
-                        file[inputProps.name] = e.target.files[0];
-
-                        onFunc(file);
-                    }
+					if (onFunc) {
+						onFunc();
+					}
 
                     let reader = new FileReader();
 
@@ -54,11 +51,11 @@ const RenderImageInput = ({
                 <label className="input-file-block__label">
                     <input
                         className="input-file-block__field"
-                        onChange={adaptFileEventToValue}
+                        onChange={adaptFileEventToValue(onChange)}
                         type="file"
                         multiple={false}
                         accept=".jpg, .jpeg, .png"
-                        {...props.input}
+                        {...props}
                     />
 
                     <div className="btn__gray input-file-block__btn">

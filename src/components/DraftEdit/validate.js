@@ -83,24 +83,21 @@ const validate = (values) => {
 						materialErrors.title = 'Для модерации поле не может быть пустым';
 						materialsArrayErrors[materialIndex] = materialErrors
 
-					} else if (material.length > defaultMax) {
+					} else if (material.title.length > defaultMax) {
 						materialErrors.title = `Для модерации не более ${defaultMax} символов`;
 						materialsArrayErrors[materialIndex] = materialErrors
 
-					} else if (material.length < defaultMin) {
+					} else if (material.title.length < defaultMin) {
 						materialErrors.title = `Для модерации не менее ${defaultMin} символов`;
 						materialsArrayErrors[materialIndex] = materialErrors
 
 					}
 
-					if (material.file && typeof material.file !== "string") {
-						if (material.file.size > 10000000) {
-							materialErrors.file = `Ваш файл слишком большой. Максимальный вес 10мб`;
-							materialsArrayErrors[materialIndex] = materialErrors
-
-						}
-					} else if (!material.file) {
-						materialErrors.file = 'Поле не может быть путсым'
+					if (!material.file) {
+						materialErrors.file = 'Для модерации поле не может быть пустым';
+						materialsArrayErrors[materialIndex] = materialErrors
+					} else if (material.file.size > 10000000 && typeof material.file !== "string") {
+						materialErrors.file = `Ваш файл слишком большой. Максимальный вес 10мб`;
 						materialsArrayErrors[materialIndex] = materialErrors
 					}
 				})

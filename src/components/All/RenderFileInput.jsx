@@ -10,18 +10,15 @@ const RenderFileInput = ({
 }) => {
     const [title, setTitle] = React.useState("");
 
-    const adaptFileEventToValue = (e) => {
+    const adaptFileEventToValue = (delegate) => (e) => {
         if (e.target.files[0]) {
             const size = e.target.files[0].size;
 
             if (size < 15000000) {
-                onChange(e.target.files[0]);
+                delegate(e.target.files[0]);
 
                 if (onFunc) {
-                    const file = {};
-                    file[inputProps.name] = e.target.files[0];
-
-                    onFunc(file);
+                    onFunc();
                 }
 
                 setTitle(e.target.files[0].name);
@@ -35,18 +32,20 @@ const RenderFileInput = ({
         <>
             <span className="input-file-block__subtitle">{label}</span>
 
-            {touched && error && error !== "Поле не может быть пустым" && (
-                <span className="input-file-block__error">{error}</span>
-            )}
+            {touched &&
+                error &&
+                error !== "Для модерации поле не может быть пустым" && (
+                    <span className="input-file-block__error">{error}</span>
+                )}
 
             <div className="input-file-block">
                 <label className="input-file-block__label">
                     <input
                         className="input-file-block__field"
-                        onChange={adaptFileEventToValue}
+                        onChange={adaptFileEventToValue(onChange)}
                         type="file"
                         multiple={false}
-                        {...props.input}
+                        {...props}
                     />
                     <div className="btn__gray input-file-block__btn">
                         Выбрать файл

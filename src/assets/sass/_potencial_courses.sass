@@ -223,10 +223,41 @@
 					+openAnimation
 					+borderRadiusBlock
 
+			&-btn
+				position: relative
+
 			&__btn
 				width: 100%
 
+			&__btn-moderation
+				pointer-events: auto !important
+
+				&:hover
+					color: $black
+
+				&:hover span
+					border: 1px solid $black
+
+			&__btn-moderation span
+				display: flex
+				justify-content: center
+				align-items: center
+
+				font-size: 14px
+
+				width: 25px
+				height: 25px
+
+				margin-left: 10px
+
+				border: 1px solid $gray
+				border-radius: 50%
+
+				transition: border .3s ease
+
 		&-btn
+			position: relative
+
 			display: flex
 			justify-content: space-between
 
@@ -245,3 +276,170 @@
 
 			&-status-draft, &__btn
 				width: 49%
+
+			&__btn-moderation
+				pointer-events: auto !important
+
+				&:hover
+					color: $black
+
+				&:hover span
+					border: 1px solid $black
+
+			&__btn-moderation span
+				display: flex
+				justify-content: center
+				align-items: center
+
+				font-size: 14px
+
+				width: 25px
+				height: 25px
+
+				margin-left: 10px
+
+				border: 1px solid $gray
+				border-radius: 50%
+
+				transition: border .3s ease
+
+			&-validate-message-wrapper
+				width: 100%
+				height: 450px
+
+				top: -465px
+				left: 0
+				position: absolute
+				z-index: 5
+
+				overflow: hidden
+
+				padding: 15px
+
+				background-color: $backgroundGray
+
+				+borderRadiusBlock
+				+boxShadow
+				+openPopup
+
+				&.close
+					+closePopup
+
+			&-validate-message
+				width: 100%
+				height: 100%
+
+				padding-right: 15px
+
+				overflow-y: auto
+				overflow-x: hidden
+
+				&::-webkit-scrollbar
+					width: 4px
+					height: 7px
+					background-color: #F0F0F0
+
+				&::-webkit-scrollbar-thumb
+					background-color: #E2E2E2
+					border-radius: 3px
+
+				&::-webkit-scrollbar-thumb:hover
+					background-color: #E2E2E2
+
+				&::-ms-scrollbar
+					width: 4px
+					height: 8px
+					background-color: #F0F0F0
+
+				&::-ms-scrollbar-thumb
+					background-color: #E2E2E2
+					border-radius: 3px
+
+				&::-ms-scrollbar-thumb:hover
+					background-color: #E2E2E2
+
+				&-top
+					display: flex
+					align-items: center
+					margin-bottom: 10px
+
+					&__title
+						font-size: 21px
+						color: $black
+
+					&-info
+						display: flex
+						align-items: center
+
+						margin-left: 15px
+
+						&-circle
+							width: 17px
+							height: 17px
+
+							border-radius: 50px
+							background-color: $mainColor
+
+						&__title
+							margin-left: 4px
+
+				&-block
+					margin-bottom: 10px
+
+					padding: 15px 20px
+
+					display: block
+					background-color: $white
+
+					+borderRadiusBlock
+
+					&:last-child
+						margin-bottom: 0
+
+					&-subblock
+						margin-bottom: 10px
+
+						padding: 15px 20px
+
+						display: block
+						background-color: $backgroundGray
+						+borderRadiusBlock
+
+						&__subtitle
+							color: $black
+							font-size: 21px
+							margin-bottom: 10px
+
+						&__item
+							font-size: 18px
+							margin-bottom: 5px
+							color: $gray
+
+							+transition
+
+							&.active
+								color: $mainColor
+
+							&:last-child
+								margin-bottom: 0
+
+					&__subtitle
+						color: $black
+						font-size: 21px
+						margin-bottom: 10px
+
+					&__item
+						font-size: 18px
+						margin-bottom: 10px
+						color: $gray
+
+						+transition
+
+						&.loaded
+							color: $black
+
+						&.active
+							color: $mainColor
+
+						&:last-child
+							margin-bottom: 0

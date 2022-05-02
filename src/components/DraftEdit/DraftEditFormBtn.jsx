@@ -1,17 +1,67 @@
 import React from "react";
-import {useSelector} from "react-redux";
+import {useSelector, connect} from "react-redux";
+import {getFormSyncErrors, getFormValues} from "redux-form";
 
-import {BtnLoader} from "../";
+import {BtnLoader, PotencialCoursesValidateMessage} from "../";
 
-const DraftEditFormBtn = ({valid}) => {
+const DraftEditFormBtn = ({valid, errors, values}) => {
+    const [stateErrorsMessage, setStateErrorsMessage] = React.useState(false);
+    const [
+        stateErrorsMessageAnimationClose,
+        setStateErrorsMessageAnimationClose,
+    ] = React.useState(false);
+
     const {isSendSubmitModerationCourse} = useSelector(
         ({potencial_courses}) => potencial_courses
     );
     const {itemById} = useSelector(({draft}) => draft);
-    const {isLoadsGlobal} = useSelector(({video}) => video);
+    const {files, isLoadsGlobal} = useSelector(({video}) => video);
+    const {masterInfo} = useSelector(({master}) => master);
+
+    const ErrorMessageRef = React.useRef();
+
+    React.useEffect(() => {
+        document.body.addEventListener("click", clickEventStateErrorsMessage);
+    }, []);
+
+    const toggleStateErrorsMessage = () => {
+        setStateErrorsMessageAnimationClose(true);
+
+        setTimeout(() => {
+            setStateErrorsMessageAnimationClose(false);
+            setStateErrorsMessage(!stateErrorsMessage);
+        }, 200);
+    };
+
+    const clickEventStateErrorsMessage = (e) => {
+        if (
+            ErrorMessageRef.current &&
+            !e.composedPath().includes(ErrorMessageRef.current)
+        ) {
+            setStateErrorsMessageAnimationClose(true);
+
+            setTimeout(() => {
+                setStateErrorsMessageAnimationClose(false);
+                setStateErrorsMessage(false);
+            }, 200);
+        }
+    };
 
     return (
         <div className="potencial-courses-block-btn">
+            {stateErrorsMessage ? (
+                <PotencialCoursesValidateMessage
+                    errors={errors}
+                    values={values}
+                    isPayment={masterInfo.paymentInfo.name === ""}
+                    stateErrorsMessageAnimationClose={
+                        stateErrorsMessageAnimationClose
+                    }
+                    ErrorMessageRef={ErrorMessageRef}
+                    files={files}
+                />
+            ) : null}
+
             <div className="potencial-courses-block-btn-status-draft">
                 <p className="potencial-courses-block-btn-status-draft__title">
                     Все хорошо, мы сохранили ваш черновик в{" "}
@@ -21,17 +71,24 @@ const DraftEditFormBtn = ({valid}) => {
 
             {isSendSubmitModerationCourse ? (
                 <button
-                    className="btn potencial-courses-block-btn__btn disabled"
+                    className="btn disabled potencial-courses-block-btn__btn"
                     disabled
                 >
                     <BtnLoader />
                 </button>
+            ) : valid || isLoadsGlobal ? (
+                <button
+                    className="btn disabled potencial-courses-block-btn__btn potencial-courses-block-btn__btn-moderation"
+                    type="button"
+                    onClick={toggleStateErrorsMessage}
+                >
+                    Отправить курс на модерацию{" "}
+                    {valid || isLoadsGlobal ? <span>?</span> : null}
+                </button>
             ) : (
                 <button
-                    className={`btn ${
-                        valid || isLoadsGlobal ? "disabled" : ""
-                    } potencial-courses-block-btn__btn`}
-                    disabled={valid || isLoadsGlobal}
+                    className="btn potencial-courses-block-btn__btn"
+                    type="submit"
                 >
                     Отправить курс на модерацию
                 </button>
@@ -40,4 +97,7 @@ const DraftEditFormBtn = ({valid}) => {
     );
 };
 
-export default DraftEditFormBtn;
+export default connect((state) => ({
+    errors: getFormSyncErrors("draft-potencial-courses-info-form")(state),
+    values: getFormValues("draft-potencial-courses-info-form")(state),
+}))(DraftEditFormBtn);

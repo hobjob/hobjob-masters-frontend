@@ -62,7 +62,7 @@ let DraftEditForm = ({
 };
 
 DraftEditForm = reduxForm({
-    form: "potencial-courses-info-form",
+    form: "draft-potencial-courses-info-form",
     validate,
 })(DraftEditForm);
 

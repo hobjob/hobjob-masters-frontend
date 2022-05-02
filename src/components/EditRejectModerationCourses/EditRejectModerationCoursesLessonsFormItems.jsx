@@ -20,7 +20,9 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
     };
 
     const removeLesson = (index) => {
-        if (index) fields.remove(index);
+        if (index !== 0 && index !== 1) {
+            fields.remove(index);
+        }
     };
 
     return (
@@ -39,7 +41,7 @@ const AddPotencialCoursesLessonsFormItems = ({fields}) => {
                                 )}
                             </h3>
 
-                            {index !== 0 ? (
+                            {index !== 0 && index !== 1 ? (
                                 <div
                                     className="potencial-courses-block-form-block-top-close"
                                     onClick={() => removeLesson(index)}

@@ -8,6 +8,11 @@ const RenderSelect = ({
     meta: {touched, error},
     onFunc,
 }) => {
+    const adaptEventToValue = (delegate) => (e) => {
+        delegate(e.target.value);
+        onFunc();
+    };
+
     return (
         <div className="select">
             <label
@@ -22,7 +27,7 @@ const RenderSelect = ({
                         touched && error ? "error" : ""
                     }`}
                     disabled={disabled ? true : false}
-                    onChange={(e) => onFunc(e.target.value)}
+                    onChange={adaptEventToValue(input.onChange)}
                 >
                     {typeof choise[0] == "object"
                         ? choise.map((item, index) => (

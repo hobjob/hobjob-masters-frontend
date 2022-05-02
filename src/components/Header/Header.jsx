@@ -59,17 +59,17 @@ const Header = React.memo(() => {
         setTimeout(() => {
             setHeaderUserMenuAnimateClose(false);
             setHeaderUserMenu(!headerUserMenu);
-        }, 190);
+        }, 200);
     };
 
     const handHeaderUserMenu = (e) => {
-        if (e.target !== headerUserMenuRef.current) {
+        if (!e.composedPath().includes(headerUserMenuRef.current)) {
             setHeaderUserMenuAnimateClose(true);
 
             setTimeout(() => {
                 setHeaderUserMenuAnimateClose(false);
                 setHeaderUserMenu(false);
-            }, 190);
+            }, 200);
         }
     };
 

@@ -3,6 +3,8 @@ import { SubmissionError } from 'redux-form'
 import $api from '../../http/';
 
 export const sendPasswordRecoveryEmail = (data) => (dispatch) => {
+	localStorage.removeItem("accessToken")
+
 	dispatch({
 		type: "SET_SEND_PASSWORD_RECOVERY",
 		payload: true

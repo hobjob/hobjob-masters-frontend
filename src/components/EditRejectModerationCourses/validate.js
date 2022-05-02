@@ -84,27 +84,24 @@ const validate = (values) => {
 					const materialErrors = {}
 
 					if (!material.title) {
-						materialErrors.title = 'Поле не может быть пустым';
+						materialErrors.title = 'Для модерации поле не может быть пустым';
 						materialsArrayErrors[materialIndex] = materialErrors
 
-					} else if (material.length > defaultMax) {
-						materialErrors.title = `Не более ${defaultMax} символов`;
+					} else if (material.title.length > defaultMax) {
+						materialErrors.title = `Для модерации не более ${defaultMax} символов`;
 						materialsArrayErrors[materialIndex] = materialErrors
 
-					} else if (material.length < defaultMin) {
-						materialErrors.title = `Не менее ${defaultMin} символов`;
+					} else if (material.title.length < defaultMin) {
+						materialErrors.title = `Для модерации не менее ${defaultMin} символов`;
 						materialsArrayErrors[materialIndex] = materialErrors
 
 					}
 
-					if (material.file && typeof material.file !== "string") {
-						if (material.file.size > 10000000) {
-							materialErrors.file = `Ваш файл слишком большой. Максимальный вес 10мб`;
-							materialsArrayErrors[materialIndex] = materialErrors
-
-						}
-					} else if (!material.file) {
-						materialErrors.file = 'Поле не может быть путсым'
+					if (!material.file) {
+						materialErrors.file = 'Для модерации поле не может быть пустым';
+						materialsArrayErrors[materialIndex] = materialErrors
+					} else if (material.file.size > 10000000 && typeof material.file !== "string") {
+						materialErrors.file = `Ваш файл слишком большой. Максимальный вес 10мб`;
 						materialsArrayErrors[materialIndex] = materialErrors
 					}
 				})
@@ -116,32 +113,27 @@ const validate = (values) => {
 
 			}
 
-			if (lesson.video && !lesson.video.indexFile) {
-				if (!lesson.video) {
-					lessonErrors.video = 'Поле не может быть пустым';
-					lessonsArrayErrors[index] = lessonErrors
-
-				} else if (
-					lesson.video.type !== "video/mp4" &&
-					lesson.video.type !== "video/avi" &&
-					lesson.video.type !== "video/mov" &&
-					lesson.video.type !== "video/mpeg" &&
-					lesson.video.type !== "video/webm" &&
-					lesson.video.type !== "video/quicktime" &&
-					lesson.video.type !== "video/heif" &&
-					lesson.video.type !== "video/hevc"
-				) {
-					lessonErrors.video = 'Ваше видео неверного расширения. Доступные расширения: .mp4, .avi, .mov, .mpeg, .webm';
-					lessonsArrayErrors[index] = lessonErrors
-
-				} else if (lesson.video.size > 2500000000) {
-					lessonErrors.video = `Ваше видео слишком большое. Максимальный вес 2гб`;
-					lessonsArrayErrors[index] = lessonErrors
-
-				}
-			} else if (!lesson.video) {
-				lessonErrors.video = 'Поле не может быть путсым'
+			if (!lesson.video) {
+				lessonErrors.video = 'Для модерации поле не может быть пустым';
 				lessonsArrayErrors[index] = lessonErrors
+
+			} else if (
+				lesson.video.type !== "video/mp4" &&
+				lesson.video.type !== "video/avi" &&
+				lesson.video.type !== "video/mov" &&
+				lesson.video.type !== "video/mpeg" &&
+				lesson.video.type !== "video/webm" &&
+				lesson.video.type !== "video/quicktime" &&
+				lesson.video.type !== "video/heif" &&
+				lesson.video.type !== "video/hevc" && !lesson.video.fileNameUser
+			) {
+				lessonErrors.video = 'Ваше видео неверного расширения. Доступные расширения: .mp4, .avi, .mov, .mpeg, .webm';
+				lessonsArrayErrors[index] = lessonErrors
+
+			} else if (lesson.video.size > 2500000000 && !lesson.video.fileNameUser) {
+				lessonErrors.video = `Ваше видео слишком большое. Максимальный вес 2гб`;
+				lessonsArrayErrors[index] = lessonErrors
+
 			}
 
 			if (lessonsArrayErrors.length) {

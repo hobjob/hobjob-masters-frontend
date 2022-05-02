@@ -1,14 +1,54 @@
 import React from "react";
-import {useSelector} from "react-redux";
-import {FieldArray} from "redux-form";
+import {useSelector, connect} from "react-redux";
+import {FieldArray, getFormSyncErrors, getFormValues} from "redux-form";
 
-import {EditRejectModerationCoursesLessonsFormItems, BtnLoader} from "../";
+import {
+    EditRejectModerationCoursesLessonsFormItems,
+    BtnLoader,
+    PotencialCoursesValidateMessage,
+} from "../";
 
-const EditRejectModerationCoursesLessonsForm = ({valid}) => {
+const EditRejectModerationCoursesLessonsForm = ({valid, errors, values}) => {
+    const [stateErrorsMessage, setStateErrorsMessage] = React.useState(false);
+    const [
+        stateErrorsMessageAnimationClose,
+        setStateErrorsMessageAnimationClose,
+    ] = React.useState(false);
+
     const {isSendSubmitModerationCourse} = useSelector(
         ({potencial_courses}) => potencial_courses
     );
-    const {isLoadsGlobal} = useSelector(({video}) => video);
+    const {files, isLoadsGlobal} = useSelector(({video}) => video);
+    const {masterInfo} = useSelector(({master}) => master);
+
+    const ErrorMessageRef = React.useRef();
+
+    React.useEffect(() => {
+        document.body.addEventListener("click", clickEventStateErrorsMessage);
+    }, []);
+
+	const toggleStateErrorsMessage = () => {
+        setStateErrorsMessageAnimationClose(true);
+
+        setTimeout(() => {
+            setStateErrorsMessageAnimationClose(false);
+            setStateErrorsMessage(!stateErrorsMessage);
+        }, 200);
+    };
+
+    const clickEventStateErrorsMessage = (e) => {
+        if (
+            ErrorMessageRef.current &&
+            !e.composedPath().includes(ErrorMessageRef.current)
+        ) {
+            setStateErrorsMessageAnimationClose(true);
+
+            setTimeout(() => {
+                setStateErrorsMessageAnimationClose(false);
+                setStateErrorsMessage(false);
+            }, 200);
+        }
+    };
 
     return (
         <div className="potencial-courses-block">
@@ -29,27 +69,51 @@ const EditRejectModerationCoursesLessonsForm = ({valid}) => {
                         name="lessons"
                     />
                 </div>
+                <div className="potencial-courses-block-form-btn">
+                    {stateErrorsMessage ? (
+                        <PotencialCoursesValidateMessage
+                            errors={errors}
+                            values={values}
+                            isPayment={masterInfo.paymentInfo.name === ""}
+                            stateErrorsMessageAnimationClose={
+                                stateErrorsMessageAnimationClose
+                            }
+                            ErrorMessageRef={ErrorMessageRef}
+                            files={files}
+                        />
+                    ) : null}
 
-                {isSendSubmitModerationCourse ? (
-                    <button
-                        className="btn potencial-courses-block-form__btn disabled"
-                        disabled
-                    >
-                        <BtnLoader />
-                    </button>
-                ) : (
-                    <button
-                        className={`btn ${
-                            valid || isLoadsGlobal ? "disabled" : ""
-                        } potencial-courses-block-form__btn`}
-                        disabled={valid || isLoadsGlobal}
-                    >
-                        Отправить курс на модерацию
-                    </button>
-                )}
+                    {isSendSubmitModerationCourse ? (
+                        <button
+                            className="btn disabled potencial-courses-block-form__btn"
+                            disabled
+                        >
+                            <BtnLoader />
+                        </button>
+                    ) : valid || isLoadsGlobal ? (
+                        <button
+                            className="btn disabled potencial-courses-block-form__btn potencial-courses-block-form__btn-moderation"
+                            type="button"
+                            onClick={toggleStateErrorsMessage}
+                        >
+                            Отправить курс на модерацию{" "}
+                            {valid || isLoadsGlobal ? <span>?</span> : null}
+                        </button>
+                    ) : (
+                        <button
+                            className="btn potencial-courses-block-form__btn"
+                            type="submit"
+                        >
+                            Отправить курс на модерацию
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );
 };
 
-export default EditRejectModerationCoursesLessonsForm;
+export default connect((state) => ({
+    errors: getFormSyncErrors("edit-potencial-courses-info-form")(state),
+    values: getFormValues("edit-potencial-courses-info-form")(state),
+}))(EditRejectModerationCoursesLessonsForm);

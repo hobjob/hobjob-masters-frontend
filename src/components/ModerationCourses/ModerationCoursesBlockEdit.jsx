@@ -9,7 +9,6 @@ const ModerationCoursesBlockEdit = ({
     category,
     days,
 }) => {
-    console.log(days);
     return (
         <Link
             to={`/go/moderations-courses/edit/${_id}`}

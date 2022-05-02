@@ -48,6 +48,7 @@ export { default as ConfirmedEmail } from "./ConfirmedEmail/ConfirmedEmail"
 
 // PotencialCourses
 export { default as PotencialCoursesInfoMessage } from "./PotencialCourses/PotencialCoursesInfoMessage"
+export { default as PotencialCoursesValidateMessage } from "./PotencialCourses/PotencialCoursesValidateMessage"
 
 // AddCourse
 export { default as AddCourseForm } from "./AddCourse/AddCourseForm"

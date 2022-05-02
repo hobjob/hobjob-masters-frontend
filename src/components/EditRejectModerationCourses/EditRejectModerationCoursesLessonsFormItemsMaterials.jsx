@@ -50,7 +50,7 @@ const EditRejectModerationCoursesLessonsFormItemsMaterials = ({
                             component={RenderInput}
                             type="text"
                             name={`${material}.title`}
-                            label="Заголовок"
+                            label="Название"
                         />
                     </div>
 

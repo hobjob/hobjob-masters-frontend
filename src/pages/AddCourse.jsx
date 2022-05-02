@@ -111,8 +111,6 @@ const AddCourse = ({values}) => {
     };
 
     React.useEffect(() => {
-        console.log(isSendCreateDraft, isSendSubmitModerationCourse);
-
         if (!isSendCreateDraft && !isSendSubmitModerationCourse) {
             window.onbeforeunload = () => true;
         } else {

@@ -24,7 +24,7 @@ const DraftEditLessonsFormItems = ({
     const removeLesson = (index) => {
         if (index !== 0 && index !== 1) {
             fields.remove(index);
-            sendUpdateDraftOn(null, index);
+            sendUpdateDraftOn(index);
         }
     };
 
@@ -91,7 +91,7 @@ const DraftEditLessonsFormItems = ({
                                     itemById.lessons[index] &&
                                     itemById.lessons[index].image
                                 }
-                                onFunc={(file) => sendUpdateDraftOn(file)}
+                                onFunc={sendUpdateDraftOn}
                             />
                         </div>
                     </div>

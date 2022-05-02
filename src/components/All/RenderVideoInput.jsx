@@ -1,5 +1,6 @@
 import React from "react";
 import {useDispatch} from "react-redux";
+import * as uuid from "uuid";
 
 import $api from "../../http/";
 
@@ -22,6 +23,7 @@ const RenderVideoInput = ({
 
     const [currentChunkIndex, setCurrentChunkIndex] = React.useState(0);
     const [title, setTitle] = React.useState("");
+    const [fileId, setFileId] = React.useState("");
     const [file, setFile] = React.useState(null);
     const [progress, setProgress] = React.useState(0);
 
@@ -43,6 +45,7 @@ const RenderVideoInput = ({
                 if (size < 2500000000) {
                     setFile(e.target.files[0]);
                     setProgress(1);
+                    setFileId(uuid.v4());
 
                     dispatch(setStatusFile({lessonIndex, isLoad: true}));
                 }
@@ -100,6 +103,7 @@ const RenderVideoInput = ({
         params.set("size", file.size);
         params.set("currentChunkIndex", currentChunkIndex);
         params.set("totalChunks", Math.ceil(file.size / chunkSize));
+        params.set("fileId", fileId);
 
         setTitle(file.name);
 
