@@ -33,9 +33,7 @@
 			color: $gray
 
 	&-item
-		display: flex
-		justify-content: space-between
-		align-items: flex-start
+		position: relative
 
 		padding: 15px 20px
 
@@ -48,7 +46,11 @@
 		+transition
 
 		&:hover
-			transform: scale(0.99)
+			+transformScale
+
+		&:hover &__delete
+			color: $white
+			background-color: $red
 
 		&:last-child
 			margin-bottom: 0
@@ -90,6 +92,11 @@
 					-webkit-box-orient: vertical
 
 		&__delete
+			position: absolute
+
+			top: 15px
+			right: 15px
+
 			user-select: none
 			cursor: pointer
 			text-align: center
@@ -97,8 +104,7 @@
 			font-size: 16px
 			padding: 5px 10px
 			border-radius: 100px
-			color: $white
-			background-color: $red
+			color: $black
 			+transition
 
 			&:active

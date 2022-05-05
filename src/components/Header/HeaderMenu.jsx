@@ -28,7 +28,7 @@ const HeaderMenu = React.memo(() => {
             </NavLink>
             <a
                 href={process.env.REACT_APP_HOBJOB_DOMEN}
-                className="header-nav__link nobg"
+                className="header-nav__link"
             >
                 Платформа HobJob
             </a>

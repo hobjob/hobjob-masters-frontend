@@ -24,29 +24,30 @@
 		align-items: center
 
 	&-nav
-		margin-left: 50px
+		margin-left: 75px
 
 		&__link
 			display: inline-block
 
 			border-radius: 100px
-			padding: 15px 25px
-			background-color: #F3F3F3
+			padding: 15px 30px
+			background-color: $backgroundGray
 
-			margin: 0 10px
+			margin: 0 5px
 			+transition
+
+			&.active
+				background-color: $mainColor
+				color: $white
+
+				&:hover
+					background-color: $mainColor
 
 			&:active
 				+transformScale
 
 			&:hover
-				background-color: #F7F7F7
-
-			&.nobg
-				background-color: transparent
-
-				&:hover
-					color: $mainColor
+				background-color: #F6F6F6
 
 	&-login
 		&__link
@@ -84,8 +85,8 @@
 				user-select: none
 
 				border-radius: 100px
-				padding: 15px 25px
-				background-color: #F3F3F3
+				padding: 15px 30px
+				background-color: $backgroundGray
 
 				margin-right: 10px
 
@@ -103,14 +104,14 @@
 				&.active
 					background-color: $mainColor
 					color: $white
-					
+
 					&:hover
-						background-color: #e2ab74
+						background-color: $mainColor
 
 		&-avatar
 			cursor: pointer
-			width: 50px
-			height: 50px
+			width: 55px
+			height: 55px
 			border-radius: 50%
 			+backgroundSetting
 			+transition
@@ -214,11 +215,6 @@
 			font-size: 24px
 			margin-bottom: 25px
 			+transition
-
-			&.disabled
-				cursor: auto
-				pointer-events: none
-				color: $gray
 
 			&.active
 				color: $mainColor

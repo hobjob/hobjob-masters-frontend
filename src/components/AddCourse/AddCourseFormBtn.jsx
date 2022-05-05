@@ -24,12 +24,18 @@ const AddCourseFormBtn = ({valid, sendCreateDraft, errors, values}) => {
         document.body.addEventListener("click", clickEventStateErrorsMessage);
     }, []);
 
-    const toggleStateErrorsMessage = () => {
+    const openStateErrorsMessage = () => {
+        setTimeout(() => {
+            setStateErrorsMessage(true);
+        }, 1);
+    };
+
+    const closeStateErrorsMessage = () => {
         setStateErrorsMessageAnimationClose(true);
 
         setTimeout(() => {
             setStateErrorsMessageAnimationClose(false);
-            setStateErrorsMessage(!stateErrorsMessage);
+            setStateErrorsMessage(false);
         }, 200);
     };
 
@@ -38,12 +44,7 @@ const AddCourseFormBtn = ({valid, sendCreateDraft, errors, values}) => {
             ErrorMessageRef.current &&
             !e.composedPath().includes(ErrorMessageRef.current)
         ) {
-            setStateErrorsMessageAnimationClose(true);
-
-            setTimeout(() => {
-                setStateErrorsMessageAnimationClose(false);
-                setStateErrorsMessage(false);
-            }, 200);
+            closeStateErrorsMessage();
         }
     };
 
@@ -99,7 +100,7 @@ const AddCourseFormBtn = ({valid, sendCreateDraft, errors, values}) => {
                 <button
                     className="btn disabled potencial-courses-block-btn__btn potencial-courses-block-btn__btn-moderation"
                     type="button"
-                    onClick={toggleStateErrorsMessage}
+                    onClick={openStateErrorsMessage}
                 >
                     Отправить курс на модерацию{" "}
                     {valid || isLoadsGlobal ? <span>?</span> : null}

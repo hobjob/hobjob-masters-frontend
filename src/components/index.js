@@ -9,8 +9,6 @@ export { default as RenderInputAutoSize } from "./All/RenderInputAutoSize"
 export { default as RenderSelect } from "./All/RenderSelect"
 export { default as FileInput } from "./All/FileInput"
 export { default as BtnLoader } from "./All/BtnLoader"
-export { default as ImageBox } from "./All/ImageBox"
-export { default as ModalWindow } from "./All/ModalWindow"
 
 // Login
 export { default as LoginForm } from "./Login/LoginForm"

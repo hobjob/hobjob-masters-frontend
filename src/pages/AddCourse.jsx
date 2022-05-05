@@ -73,6 +73,8 @@ const AddCourse = ({values}) => {
     const sendCreateDraftClick = () => {
         const formData = new FormData();
 
+		console.log(values);
+
         if (values) {
             Object.keys(values).map((key) => {
                 if (key === "lessons") {
@@ -166,5 +168,5 @@ const AddCourse = ({values}) => {
 };
 
 export default connect((state) => ({
-    values: getFormValues("potencial-courses-info-form")(state),
+    values: getFormValues("add-potencial-courses-info-form")(state),
 }))(AddCourse);

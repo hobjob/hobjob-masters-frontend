@@ -53,23 +53,22 @@ const Header = React.memo(() => {
         }
     }, []);
 
-    const toggleUserMenu = () => {
+    const openUserMenu = () => {
+        setHeaderUserMenu(true);
+    };
+
+    const closeUserMenu = () => {
         setHeaderUserMenuAnimateClose(true);
 
         setTimeout(() => {
             setHeaderUserMenuAnimateClose(false);
-            setHeaderUserMenu(!headerUserMenu);
+            setHeaderUserMenu(false);
         }, 200);
     };
 
     const handHeaderUserMenu = (e) => {
-        if (!e.composedPath().includes(headerUserMenuRef.current)) {
-            setHeaderUserMenuAnimateClose(true);
-
-            setTimeout(() => {
-                setHeaderUserMenuAnimateClose(false);
-                setHeaderUserMenu(false);
-            }, 200);
+        if (e.target !== headerUserMenuRef.current) {
+            closeUserMenu();
         }
     };
 
@@ -77,12 +76,12 @@ const Header = React.memo(() => {
         dispatch(sendLogout());
     };
 
-    const onClickModalMenu = () => {
+    const openModalMenu = () => {
         document.body.style.overflow = "hidden";
-        setModalMenuState(!modalMenuState);
+        setModalMenuState(true);
     };
 
-    const onClickCloseModalMenu = () => {
+    const closeModalMenu = () => {
         setModalMenuAnimationState(true);
         document.body.style.overflow = "visible";
 
@@ -94,7 +93,7 @@ const Header = React.memo(() => {
 
     const handHeaderModalMenu = (e) => {
         if (e.target === HeaderModalMenuRef.current) {
-            onClickCloseModalMenu();
+            closeModalMenu();
         }
     };
 
@@ -108,7 +107,7 @@ const Header = React.memo(() => {
             {modalMenuState ? (
                 <HeaderModalMenu
                     HeaderModalMenuRef={HeaderModalMenuRef}
-                    onClickCloseModalMenu={onClickCloseModalMenu}
+                    closeModalMenu={closeModalMenu}
                     modalMenuAnimationState={modalMenuAnimationState}
                     clickLogout={clickLogout}
                 />
@@ -156,7 +155,7 @@ const Header = React.memo(() => {
                                         <NavLink
                                             to="/go/moderations-courses"
                                             className="header-user-nav__link"
-                                            activeClassName="header-user-nav__link"
+                                            activeClassName="header-user-nav__link active"
                                         >
                                             Курсы на модерации
                                         </NavLink>
@@ -165,7 +164,7 @@ const Header = React.memo(() => {
                                     {document.documentElement.clientWidth >
                                     1400 ? (
                                         <div
-                                            onClick={toggleUserMenu}
+                                            onClick={openUserMenu}
                                             ref={headerUserMenuRef}
                                             className={`header-user-avatar ${
                                                 headerUserMenu ? "active" : ""
@@ -180,7 +179,7 @@ const Header = React.memo(() => {
                                             style={{
                                                 backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar}")`,
                                             }}
-                                            onClick={onClickModalMenu}
+                                            onClick={openModalMenu}
                                         ></div>
                                     )}
 
@@ -250,7 +249,7 @@ const Header = React.memo(() => {
 
                             <div
                                 className="header-menu-button"
-                                onClick={onClickModalMenu}
+                                onClick={openModalMenu}
                             >
                                 <svg
                                     width="25"
