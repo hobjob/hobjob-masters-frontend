@@ -153,11 +153,11 @@ const Header = React.memo(() => {
                                             Добавить курс
                                         </Link>
                                         <NavLink
-                                            to="/go/moderations-courses"
+                                            to="/go/statistics"
                                             className="header-user-nav__link"
                                             activeClassName="header-user-nav__link active"
                                         >
-                                            Курсы на модерации
+                                            Статистика
                                         </NavLink>
                                     </div>
 
@@ -192,10 +192,10 @@ const Header = React.memo(() => {
                                             }`}
                                         >
                                             <NavLink
-                                                to="/go/statistics"
+                                                to="/go/moderations-courses"
                                                 className="header-user-menu__link"
                                             >
-                                                Статистика
+                                                Курсы на модерации
                                             </NavLink>
 
                                             <NavLink
