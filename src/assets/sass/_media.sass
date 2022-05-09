@@ -191,6 +191,15 @@
 				font-size: 24px
 				width: 100%
 
+	// referrals
+	.referrals
+		&-top
+			&-img
+				display: none
+
+			&-text
+				width: 100%
+
 	// cabinet
 	.cabinet
 		&-block
@@ -347,6 +356,13 @@
 				&-status-draft, &__btn
 					width: 100%
 
+	// referrals
+	.referrals
+		&-top
+			&-text
+				&__btn
+					margin-top: 25px
+
 	// cabinet
 	.cabinet
 		&-message
@@ -417,6 +433,24 @@
 		&-modal-menu
 			&-content
 				width: 75%
+
+	// referrals
+	.referrals
+		&-partners
+			&-subinfo
+				display: none
+
+			&-item
+				flex-direction: column
+
+			&-col
+				display: flex
+				justify-content: center
+				margin-bottom: 25px
+				width: 100%
+
+				&:last-child
+					margin-bottom: 0
 
 @media screen and ( max-width: 750px )
 	// potencial-courses
@@ -563,6 +597,43 @@
 	// moderations-courses
 	.moderations-courses
 		margin: 25px 0
+
+	// referrals
+	.referrals
+		margin: 25px 0
+
+		&-top-text-wrapper
+			margin-bottom: 25px
+			padding-bottom: 25px
+
+		&-top-text
+			&__btn
+				width: 100%
+
+		&-info-block-wrapper
+			margin-top: 25px
+
+		&-info-block
+			padding: 25px
+
+			&-link
+				&-select
+					max-width: 100%
+
+					&-list-wrapper
+						width: 100%
+
+		&-partners
+			&__title
+				font-size: 24px
+				margin-bottom: 25px
+
+		&-info-block-link
+			&__title
+				font-size: 21px
+
+			&__subtitle
+				font-size: 18px
 
 	// cabinet
 	.cabinet

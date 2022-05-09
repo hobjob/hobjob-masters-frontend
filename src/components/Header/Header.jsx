@@ -148,7 +148,7 @@ const Header = React.memo(() => {
                                     <div className="header-user-nav">
                                         <Link
                                             to="/go/add/course"
-                                            className="header-user-nav__link active"
+                                            className="header-user-nav__link"
                                         >
                                             Добавить курс
                                         </Link>
@@ -208,6 +208,13 @@ const Header = React.memo(() => {
                                                         ({draftsCourses.length})
                                                     </span>
                                                 ) : null}
+                                            </NavLink>
+
+                                            <NavLink
+                                                to="/go/referrals"
+                                                className="header-user-menu__link"
+                                            >
+                                                Реферальная программа
                                             </NavLink>
 
                                             <NavLink

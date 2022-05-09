@@ -31,6 +31,12 @@ export const fetchMasterStatistics = () => (dispatch) => {
 	})
 }
 
+export const fetchMasterReferrals = () => (dispatch) => {
+	$api.get("/masters/my/referrals").then(({ data }) => {
+		dispatch(setMasterReferrals(data))
+	})
+}
+
 export const fetchUpdateMaster = (data) => (dispatch) => {
 	dispatch({
 		type: "SET_SEND_UPDATE_MASTER_INFO",
@@ -103,4 +109,9 @@ const setMasterDraftsCourses = (items) => ({
 const setMasterStatistics = (statistics) => ({
 	type: "SET_MASTER_STATISTICS",
 	payload: statistics
+})
+
+const setMasterReferrals = (referrals) => ({
+	type: "SET_MASTER_REFERRALS",
+	payload: referrals
 })

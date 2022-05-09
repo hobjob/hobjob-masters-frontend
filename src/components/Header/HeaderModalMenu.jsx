@@ -153,6 +153,15 @@ const HeaderModalMenu = React.memo(
                                 </NavLink>
 
                                 <NavLink
+                                    to="/go/referrals"
+                                    className="header-modal-menu-nav__link"
+                                    activeClassName="header-modal-menu-nav__link active"
+                                    onClick={onClickCloseModalMenu}
+                                >
+                                    Реферальная программа
+                                </NavLink>
+
+                                <NavLink
                                     to="/go/cabinet"
                                     className="header-modal-menu-nav__link"
                                     activeClassName="header-modal-menu-nav__link active"

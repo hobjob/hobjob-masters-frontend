@@ -1,6 +1,7 @@
 const initialState = {
 	masterInfo: {},
 	statistics: {},
+	referrals: [],
 
 	moderationCourses: [],
 	moderationCoursesReject: [],
@@ -11,6 +12,7 @@ const initialState = {
 	isLoadedDraftsCourses: false,
 	isLoadedMasterInfo: false,
 	isLoadedMasterStatistics: false,
+	isLoadedMasterReferrals: false,
 
 	isSendUpdateMasterInfo: false,
 	isSendUpdateMasterPayment: false,
@@ -71,6 +73,14 @@ const master = (state = initialState, action) => {
 			...state,
 			statistics: action.payload,
 			isLoadedMasterStatistics: true
+		}
+	}
+
+	if (action.type === "SET_MASTER_REFERRALS") {
+		return {
+			...state,
+			referrals: action.payload,
+			isLoadedMasterReferrals: true
 		}
 	}
 

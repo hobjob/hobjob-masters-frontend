@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import { Header, Footer } from './components/';
 
-import { Home, Login, Register, PasswordRecoveryEmail, PasswordRecoveryNewPassword, Cabinet, ModerationCourses, AddCourse, DraftEdit, Drafts, EditRejectModerationCourses, Statistics, Policy, PublicOffer, Regulations, EngineeringWorks, CourseRegulations, ConfirmedEmail } from './pages/';
+import { Home, Login, Register, PasswordRecoveryEmail, PasswordRecoveryNewPassword, Referrals, ReferralsPolicy, Cabinet, ModerationCourses, AddCourse, DraftEdit, Drafts, EditRejectModerationCourses, Statistics, Policy, PublicOffer, Regulations, EngineeringWorks, CourseRegulations, ConfirmedEmail } from './pages/';
 
 dotenv.config()
 
@@ -35,6 +35,9 @@ const App = () => {
 						<Route path="/go/password-recovery/:hash" render={(props) => <PasswordRecoveryNewPassword {...props} />} exact />
 
 						<Route path="/go/confirmed/:hash" render={(props) => <ConfirmedEmail {...props} />} exact />
+
+						<Route path="/go/referrals" render={() => <Referrals />} exact />
+						<Route path="/go/referrals/policy" render={() => <ReferralsPolicy />} exact />
 
 						<Route path="/go/cabinet" render={() => <Cabinet />} exact />
 

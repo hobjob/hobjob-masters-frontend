@@ -11,6 +11,12 @@ export { default as PasswordRecoveryNewPassword } from "./PasswordRecoveryNewPas
 // Home
 export { default as Home } from "./Home"
 
+// Referrals
+export { default as Referrals } from "./Referrals"
+
+// ReferralsPolicy
+export { default as ReferralsPolicy } from "./ReferralsPolicy"
+
 // Cabinet
 export { default as Cabinet } from "./Cabinet"
 

@@ -61,8 +61,8 @@ const StatisticsCoursesBlock = ({
                     thousandSeparator={" "}
                     renderText={(value, props) => (
                         <p
-                            {...props}
                             className="statistics-courses-block__info__number"
+                            {...props}
                         >
                             {value}{" "}
                             {

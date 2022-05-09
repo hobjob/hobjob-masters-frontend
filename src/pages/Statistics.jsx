@@ -1,5 +1,5 @@
 import React from "react";
-import {Redirect, useHistory} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -9,11 +9,9 @@ import {fetchMasterStatistics} from "../redux/actions/master";
 import {fetchCategories} from "../redux/actions/categories";
 
 const Statistics = () => {
-    const history = useHistory();
-
     const dispatch = useDispatch();
 
-    const {statistics, isLoadedMasterStatistics} = useSelector(
+    const {masterInfo, statistics, isLoadedMasterStatistics} = useSelector(
         ({master}) => master
     );
     const {isLoadedAllCategories} = useSelector(({categories}) => categories);
@@ -40,7 +38,7 @@ const Statistics = () => {
                 <div className="container">
                     <div className="statistics-wrapper">
                         {isLoadedMasterStatistics && isLoadedAllCategories ? (
-                            statistics.courses.length ? (
+                            masterInfo.courses.length ? (
                                 <>
                                     <StatisticsTopInfo />
 

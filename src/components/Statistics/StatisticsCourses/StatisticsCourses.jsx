@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {StatisticsCoursesBlock} from "../../";
 
 const StatisticsCourses = () => {
-    const {statistics} = useSelector(({master}) => master);
+    const {masterInfo} = useSelector(({master}) => master);
     const categories = useSelector(({categories}) => categories.items);
 
     return (
@@ -12,7 +12,7 @@ const StatisticsCourses = () => {
             <h3 className="statistics-courses__title">Ваши курсы</h3>
 
             <div className="statistics-courses-block-wrapper">
-                {statistics.courses.map((course, index) => (
+                {masterInfo.courses.map((course, index) => (
                     <StatisticsCoursesBlock
                         {...course}
                         category={categories[course.category].title}
