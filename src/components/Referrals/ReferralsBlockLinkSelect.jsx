@@ -34,7 +34,7 @@ const ReferralsBlockLinkSelect = ({
         if (index && choise[index]) {
             setStateListItemIndex(index);
             setStateLink(`hobjob.ru/course/${choise[index].url}?ref=${_id}`);
-		}
+        }
     }, [choise]);
 
     const openStateList = () => {
@@ -50,14 +50,14 @@ const ReferralsBlockLinkSelect = ({
             localStorage.setItem("referrals-select-index", index);
 
             setStateListItemIndex(index);
-			setStateLink(`hobjob.ru/course/${choise[index].url}?ref=${_id}`);
-			setIsPervInitStateLink(false);
+            setStateLink(`hobjob.ru/course/${choise[index].url}?ref=${_id}`);
+            setIsPervInitStateLink(false);
         } else {
             localStorage.setItem("referrals-select-index", 0);
 
             setStateListItemIndex(0);
-			setStateLink(`hobjob.ru?ref=${_id}`);
-			setIsPervInitStateLink(false);
+            setStateLink(`hobjob.ru?ref=${_id}`);
+            setIsPervInitStateLink(false);
         }
 
         setTimeout(() => {
@@ -71,7 +71,12 @@ const ReferralsBlockLinkSelect = ({
             stateListRef.current &&
             !e.composedPath().includes(stateListRef.current)
         ) {
-            closeStateList();
+            setStateListAnimationClose(true);
+          
+			setTimeout(() => {
+                setStateListAnimationClose(false);
+                setStateList(false);
+            }, 200);
         }
     };
 

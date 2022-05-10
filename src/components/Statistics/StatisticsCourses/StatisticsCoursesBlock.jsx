@@ -4,6 +4,7 @@ import moment from "moment";
 import "moment/locale/ru";
 
 import {checkDeclension} from "../../../Functions/checkDeclension";
+import { abbreviateNumber } from "../../../Functions/abbreviateNumber";
 
 const StatisticsCoursesBlock = ({
     image,
@@ -55,26 +56,10 @@ const StatisticsCoursesBlock = ({
             <p className="statistics-courses-block__info">
                 Просмотров за{" "}
                 <span>{moment().locale("ru").format("MMMM")}</span> -
-                <NumberFormat
-                    value={countViewingDuration}
-                    displayType={"text"}
-                    thousandSeparator={" "}
-                    renderText={(value, props) => (
-                        <p
-                            className="statistics-courses-block__info__number"
-                            {...props}
-                        >
-                            {value}{" "}
-                            {
-                                checkDeclension(countViewingDuration, [
-                                    "минута",
-                                    "минуты",
-                                    "минут",
-                                ]).text
-                            }
-                        </p>
-                    )}
-                />
+                <p className="statistics-courses-block__info__number">
+                    {abbreviateNumber(countViewingDuration)}{" "}
+                    {checkDeclension(countViewingDuration, ["минута", "минуты", "минут"]).text}
+                </p>
             </p>
         </div>
     );

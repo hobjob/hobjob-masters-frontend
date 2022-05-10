@@ -146,12 +146,13 @@ const Header = React.memo(() => {
                             {isLoadedMasterInfo && isLoadedDraftsCourses ? (
                                 <div className="header-user">
                                     <div className="header-user-nav">
-                                        <Link
+                                        <NavLink
                                             to="/go/add/course"
                                             className="header-user-nav__link"
+                                            activeClassName="header-user-nav__link active"
                                         >
                                             Добавить курс
-                                        </Link>
+                                        </NavLink>
                                         <NavLink
                                             to="/go/statistics"
                                             className="header-user-nav__link"

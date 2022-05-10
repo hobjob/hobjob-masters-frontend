@@ -41,9 +41,44 @@
 		+boxShadow
 
 		&-link
+			&-balance
+				display: flex
+				flex-direction: column
+				justify-content: center
+
+				padding-left: 25px
+				min-height: 150px
+
+				background-color: $backgroundGray
+
+				+borderRadiusBlock
+				+openAnimation
+
+				&__description
+					display: flex
+					align-items: center
+
+					font-size: 21px
+					margin-bottom: 5px
+
+					& span
+						display: inline-block
+						margin-left: 5px
+						font-size: 16px
+						padding: 5px 10px
+						border-radius: 100px
+						background-color: $mainColor
+						color: $white
+
+				&__number
+					font-size: 42px
+
 			&__title
+				border-top: 1px solid $borderGray
+				padding-top: 25px
+				margin: 25px 0
+
 				font-size: 28px
-				margin-bottom: 25px
 
 			&__subtitle
 				color: $gray

@@ -1,8 +1,16 @@
 import React from "react";
+import {useSelector} from "react-redux";
+
+import moment from "moment";
+import "moment/locale/ru";
+
+import NumberFormat from "react-number-format";
 
 import {ReferralsBlockLinkSelect} from "../";
 
 const ReferralsBlockLink = ({_id}) => {
+    const {masterInfo} = useSelector(({master}) => master);
+
     const [stateCopy, setStateCopy] = React.useState(false);
     const [stateLink, setStateLink] = React.useState(`hobjob.ru?ref=${_id}`);
     const [isPervInitStateLink, setIsPervInitStateLink] = React.useState(true);
@@ -23,6 +31,22 @@ const ReferralsBlockLink = ({_id}) => {
 
     return (
         <div className="referrals-info-block referrals-info-block-link">
+            <div className="referrals-info-block-link-balance">
+                <span className="referrals-info-block-link-balance__description">
+                    Заработано за{" "}
+                    <span>{moment().locale("ru").format("MMMM")}</span>
+                </span>
+
+                <h3 className="referrals-info-block-link-balance__number">
+                    <NumberFormat
+                        value={masterInfo.balance[0].sum.referrals}
+                        displayType={"text"}
+                        thousandSeparator={" "}
+                    />{" "}
+                    ₽
+                </h3>
+            </div>
+
             <h3 className="referrals-info-block-link__title">
                 Ваша реферальная ссылка
             </h3>

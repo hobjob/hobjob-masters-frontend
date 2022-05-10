@@ -9,11 +9,17 @@ import {
 } from "../../";
 
 const StatisticsTopInfo = () => {
-    const {statistics} = useSelector(({master}) => master);
+    const {masterInfo, statistics} = useSelector(({master}) => master);
 
     return (
         <div className="statistics-top-info">
-            <StatisticsTopInfoBlockBalance number={statistics.balance} />
+            <StatisticsTopInfoBlockBalance
+                number={
+                    masterInfo.balance[1]
+                        ? masterInfo.balance[1].sum.courseViews
+                        : 0
+                }
+            />
 
             <StatisticsTopInfoBlockCourses
                 number={statistics.totalCountCourses}

@@ -12,9 +12,13 @@ const ReferralsPartnersItem = ({name, surname, avatar}) => {
                         }}
                     ></div>
                     <h5 className="referrals-partners-item-partner__name">
-                        {name !== "" ?<>
-                            {name} {surname}
-                        </> : "Имя не указано"}
+                        {name !== "" ? (
+                            <>
+                                {name} {surname}
+                            </>
+                        ) : (
+                            "Имя не указано"
+                        )}
                     </h5>
                 </div>
             </div>
@@ -22,7 +26,7 @@ const ReferralsPartnersItem = ({name, surname, avatar}) => {
             <div className="referrals-partners-col">
                 <div className="referrals-partners-item-earnings">
                     <span className="referrals-partners-item-earnings__title">
-                        +1 месяц
+                        + 400 ₽
                     </span>
                 </div>
             </div>

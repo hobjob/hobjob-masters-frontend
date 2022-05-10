@@ -38,8 +38,9 @@ const Referrals = () => {
                                     <div className="referrals-top">
                                         <div className="referrals-top-text">
                                             <h2 className="title referrals-top-text__title">
-                                                Привлекайте новых клиентов и
-                                                зарабатывайте на этом
+                                                Зарабатывайте 400 руб с каждого
+                                                человека который, купит подписку
+                                                HobJob
                                             </h2>
                                             <p className="description referrals-top-text__description">
                                                 Поделитесь бесплатной неделей
