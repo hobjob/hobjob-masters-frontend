@@ -38,17 +38,15 @@ const Referrals = () => {
                                     <div className="referrals-top">
                                         <div className="referrals-top-text">
                                             <h2 className="title referrals-top-text__title">
-                                                Зарабатывайте 400 руб с каждого
-                                                человека который, купит подписку
-                                                HobJob
+                                                Делитесь своим курсом с
+                                                подписчиками
                                             </h2>
                                             <p className="description referrals-top-text__description">
-                                                Поделитесь бесплатной неделей
-                                                HobJob со своими друзьями и
-                                                получите бесплатный месяц за
-                                                каждого друга, как только он
-                                                совершит свой первый полный
-                                                платеж.
+                                                Поделитесь своей уникальной
+                                                ссылкой в соц.сетях и получите
+                                                400 рублей за каждого нового
+                                                пользователя на платформе, как
+                                                только он оплатит подписку.
                                             </p>
 
                                             <Link
@@ -59,11 +57,11 @@ const Referrals = () => {
                                             </Link>
                                         </div>
                                         <div className="referrals-top-img">
-                                            {/* <img
-                                                src={`${process.env.REACT_APP_IMAGE_DOMEN}/all/referral.svg`}
+                                            <img
+                                                src={`${process.env.REACT_APP_IMAGE_DOMEN}/all/referral-masters.svg`}
                                                 alt=""
                                                 className="referrals-top-img__img"
-                                            /> */}
+                                            />
                                         </div>
                                     </div>
                                 </div>

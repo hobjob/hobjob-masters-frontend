@@ -70,7 +70,7 @@ const DraftEdit = ({
                 setTimeout(() => {
                     setVisibleNotificationUpdate(false);
                     setAnimationVisibleNotificationUpdate(false);
-                }, 200);
+                }, 180);
             }, 500);
         }
     }, [isSendUpdateDraft]);

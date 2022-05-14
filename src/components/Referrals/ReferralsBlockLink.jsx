@@ -26,7 +26,7 @@ const ReferralsBlockLink = ({_id}) => {
 
         setTimeout(() => {
             setStateCopy(false);
-        }, 2000);
+        }, 1800);
     };
 
     return (

@@ -36,7 +36,7 @@ const AddCourseFormBtn = ({valid, sendCreateDraft, errors, values}) => {
         setTimeout(() => {
             setStateErrorsMessageAnimationClose(false);
             setStateErrorsMessage(false);
-        }, 200);
+        }, 180);
     };
 
     const clickEventStateErrorsMessage = (e) => {

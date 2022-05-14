@@ -63,7 +63,7 @@ const ReferralsBlockLinkSelect = ({
         setTimeout(() => {
             setStateListAnimationClose(false);
             setStateList(false);
-        }, 200);
+        }, 180);
     };
 
     const clickEventStateList = (e) => {
@@ -76,7 +76,7 @@ const ReferralsBlockLinkSelect = ({
 			setTimeout(() => {
                 setStateListAnimationClose(false);
                 setStateList(false);
-            }, 200);
+            }, 180);
         }
     };
 
