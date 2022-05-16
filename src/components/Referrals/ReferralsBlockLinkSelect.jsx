@@ -72,8 +72,8 @@ const ReferralsBlockLinkSelect = ({
             !e.composedPath().includes(stateListRef.current)
         ) {
             setStateListAnimationClose(true);
-          
-			setTimeout(() => {
+
+            setTimeout(() => {
                 setStateListAnimationClose(false);
                 setStateList(false);
             }, 180);
@@ -83,9 +83,6 @@ const ReferralsBlockLinkSelect = ({
     return (
         <>
             <div className="referrals-info-block-link-select-wrapper">
-                <span className="referrals-info-block-link-select__subtitle">
-                    Ссылаться на
-                </span>
                 <div
                     className="referrals-info-block-link-select"
                     onClick={openStateList}
@@ -101,6 +98,8 @@ const ReferralsBlockLinkSelect = ({
                     ) : null}
 
                     <p className="referrals-info-block-link-select__title">
+						<span>Ссылаться на</span>
+						
                         {choise[stateListItemIndex] &&
                             choise[stateListItemIndex].title}
                         <svg
