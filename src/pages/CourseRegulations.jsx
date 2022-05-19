@@ -482,6 +482,18 @@ const CourseRegulations = ({
                 },
 
                 {
+                    title: "Как пользоваться реферальной программой?",
+                    id: "how-to-use-the-referral-program?",
+                    blocksDescriptions: [
+                        {
+                            subtitle: "",
+                            description:
+                                "Поделитесь своей уникальной ссылкой в соц.сетях, чтобы 400 рублей за каждого нового пользователя на платформе, как только он оплатит подписку. Ссылку можно найти в личном кабинете.",
+                        },
+                    ],
+                },
+
+                {
                     title: "Нужно ли мне платить налог с доходов от HobJob?",
                     id: "do-need-pay-tax-on-HobJob-income?",
                     blocksDescriptions: [
@@ -505,7 +517,9 @@ const CourseRegulations = ({
             <section className="course-regulations">
                 <div className="container">
                     <div className="course-regulations-wrapper">
-                        <CourseRegulationsMenu />
+                        <CourseRegulationsMenu
+                            regulationsMenu={regulationsBlocks}
+                        />
 
                         <div className="course-regulations-content-wrapper">
                             {regulationsBlocks.map((item, index) => (

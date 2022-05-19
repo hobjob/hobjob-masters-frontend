@@ -5,7 +5,7 @@ import {Link, animateScroll as scroll} from "react-scroll";
 const CourseRegulationsMenuItem = ({
     index,
     title,
-    subtitle,
+    items,
     onClickMenuAdaptive,
 }) => {
     const [stateOpen, setStateOpen] = React.useState(
@@ -27,9 +27,9 @@ const CourseRegulationsMenuItem = ({
 
             <div
                 className={`course-regulations-menu-item-list`}
-                style={{height: stateOpen ? `${subtitle.length * 40}px` : 0}}
+                style={{height: stateOpen ? `${items.length * 40}px` : 0}}
             >
-                {subtitle.map((item, index) => (
+                {items.map((item, index) => (
                     <Link
                         to={item.id}
                         spy={true}

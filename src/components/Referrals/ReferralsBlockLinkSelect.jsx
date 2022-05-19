@@ -22,6 +22,10 @@ const ReferralsBlockLinkSelect = ({
                 title: "Главная страница HobJob",
                 image: "/all/referral-main-select.png",
             },
+            {
+                title: `${masterInfo.name} ${masterInfo.surname} (страница мастера)`,
+                image: `/${masterInfo.avatar}`,
+            },
             ...masterInfo.courses,
         ]);
 
@@ -31,9 +35,16 @@ const ReferralsBlockLinkSelect = ({
     React.useEffect(() => {
         const index = parseInt(localStorage.getItem("referrals-select-index"));
 
-        if (index && choise[index]) {
+        if (choise[index]) {
+            if (index !== 0 && index !== 1) {
+                setStateLink(
+                    `hobjob.ru/course/${choise[index].url}?ref=${_id}`
+                );
+            } else {
+                setStateLink(`hobjob.ru/master/${masterInfo._id}?ref=${_id}`);
+            }
+
             setStateListItemIndex(index);
-            setStateLink(`hobjob.ru/course/${choise[index].url}?ref=${_id}`);
         }
     }, [choise]);
 
@@ -46,19 +57,17 @@ const ReferralsBlockLinkSelect = ({
     const closeStateList = (index) => {
         setStateListAnimationClose(true);
 
-        if (index) {
-            localStorage.setItem("referrals-select-index", index);
-
-            setStateListItemIndex(index);
+        if (index !== 1 && index !== 0) {
             setStateLink(`hobjob.ru/course/${choise[index].url}?ref=${_id}`);
-            setIsPervInitStateLink(false);
+        } else if (index === 1) {
+            setStateLink(`hobjob.ru/master/${masterInfo._id}?ref=${_id}`);
         } else {
-            localStorage.setItem("referrals-select-index", 0);
-
-            setStateListItemIndex(0);
             setStateLink(`hobjob.ru?ref=${_id}`);
-            setIsPervInitStateLink(false);
         }
+
+        localStorage.setItem("referrals-select-index", index);
+        setStateListItemIndex(index);
+        setIsPervInitStateLink(false);
 
         setTimeout(() => {
             setStateListAnimationClose(false);
@@ -98,8 +107,8 @@ const ReferralsBlockLinkSelect = ({
                     ) : null}
 
                     <p className="referrals-info-block-link-select__title">
-						<span>Ссылаться на</span>
-						
+                        <span>Ссылаться на</span>
+
                         {choise[stateListItemIndex] &&
                             choise[stateListItemIndex].title}
                         <svg
