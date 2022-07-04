@@ -2,7 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 import {Field, reduxForm, formValueSelector} from "redux-form";
 
-import {RenderInput, RenderInputAutoSize, BtnLoader} from "../";
+import {RenderInput, BtnLoader} from "../";
 
 import {validateInfo as validate} from "./validateInfo";
 
@@ -12,8 +12,9 @@ let CabinetMasterInfoForm = ({
     name,
     surname,
     masterDescription,
+    socials,
     edit,
-    invalid,
+	invalid,
 }) => {
     const valid = !invalid;
 
@@ -21,29 +22,31 @@ let CabinetMasterInfoForm = ({
 
     const selector = formValueSelector("cabinet-master-info-form");
 
-    const {nameValue, surnameValue, masterDescriptionValue} = useSelector(
-        (state) => {
-            const {name, surname, masterDescription} = selector(
+    const {nameValue, surnameValue, masterDescriptionValue, socialsValue} =
+        useSelector((state) => {
+            const {name, surname, masterDescription, socials} = selector(
                 state,
                 "name",
                 "surname",
-                "masterDescription"
+                "masterDescription",
+                "socials"
             );
             return {
                 nameValue: name,
                 surnameValue: surname,
                 masterDescriptionValue: masterDescription,
+                socialsValue: socials,
             };
-        }
-    );
+        });
 
     React.useEffect(() => {
         initialize({
             name,
             surname,
             masterDescription,
+            socials,
         });
-    }, [name, surname, masterDescription]);
+    }, [name, surname, masterDescription, socials]);
 
     return (
         <form className="cabinet-block-form" onSubmit={handleSubmit}>
@@ -69,10 +72,51 @@ let CabinetMasterInfoForm = ({
 
             <div className="cabinet-block-form-input">
                 <Field
-                    component={RenderInputAutoSize}
+                    component={RenderInput}
                     type="text"
                     name="masterDescription"
                     label="О себе"
+                    disabled={!edit}
+                    autoSize
+                />
+            </div>
+
+            <div className="cabinet-block-form-input">
+                <Field
+                    component={RenderInput}
+                    type="text"
+                    name="socials[inst]"
+                    label="Instagram"
+                    disabled={!edit}
+                />
+            </div>
+
+            <div className="cabinet-block-form-input">
+                <Field
+                    component={RenderInput}
+                    type="text"
+                    name="socials[vk]"
+                    label="Вконтакте"
+                    disabled={!edit}
+                />
+            </div>
+
+            <div className="cabinet-block-form-input">
+                <Field
+                    component={RenderInput}
+                    type="text"
+                    name="socials[tiktok]"
+                    label="TikTok"
+                    disabled={!edit}
+                />
+            </div>
+
+            <div className="cabinet-block-form-input">
+                <Field
+                    component={RenderInput}
+                    type="text"
+                    name="socials[telegram]"
+                    label="Telegram"
                     disabled={!edit}
                 />
             </div>
@@ -89,13 +133,17 @@ let CabinetMasterInfoForm = ({
                     className={`btn ${
                         (nameValue !== name ||
                             surnameValue !== surname ||
-                            masterDescriptionValue !== masterDescription) &&
+                            masterDescriptionValue !== masterDescription ||
+                            socialsValue.inst !== socials.inst ||
+                            socialsValue.vk !== socials.vk ||
+                            socialsValue.tiktok !== socials.tiktok ||
+                            socialsValue.telegram !== socials.telegram) &&
                         valid
                             ? ""
                             : "disabled"
                     } cabinet-block-form-btn`}
                 >
-                    Обновить
+                    Сохранить
                 </button>
             )}
         </form>

@@ -31,28 +31,35 @@ const Statistics = () => {
 
     return (
         <>
-            <Helmet>
-                <title>Статистика - HobJob для мастеров</title>
-            </Helmet>
-            <section className="statistics">
-                <div className="container">
-                    <div className="statistics-wrapper">
-                        {isLoadedMasterStatistics && isLoadedAllCategories ? (
-                            masterInfo.courses.length ? (
-                                <>
-                                    <StatisticsTopInfo />
+            {localStorage.getItem("accessToken") ? (
+                <>
+                    <Helmet>
+                        <title>Статистика - HobJob для мастеров</title>
+                    </Helmet>
+                    <section className="statistics">
+                        <div className="container">
+                            <div className="statistics-wrapper">
+                                {isLoadedMasterStatistics &&
+                                isLoadedAllCategories ? (
+                                    masterInfo.courses.length ? (
+                                        <>
+                                            <StatisticsTopInfo />
 
-                                    <StatisticsCourses />
-                                </>
-                            ) : (
-                                <Redirect to="/go/moderations-courses" />
-                            )
-                        ) : (
-                            <Loader />
-                        )}
-                    </div>
-                </div>
-            </section>
+                                            <StatisticsCourses />
+                                        </>
+                                    ) : (
+                                        <Redirect to="/go/moderations-courses" />
+                                    )
+                                ) : (
+                                    <Loader />
+                                )}
+                            </div>
+                        </div>
+                    </section>
+                </>
+            ) : (
+                (window.location.href = "/go/login")
+            )}
         </>
     );
 };

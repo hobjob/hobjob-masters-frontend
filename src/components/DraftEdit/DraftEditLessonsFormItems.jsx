@@ -4,7 +4,6 @@ import {Field, FieldArray} from "redux-form";
 
 import {
     RenderInput,
-    RenderInputAutoSize,
     RenderImageInput,
     RenderVideoInput,
     DraftEditLessonsFormItemsMaterials,
@@ -75,11 +74,12 @@ const DraftEditLessonsFormItems = ({
                         </div>
                         <div className="potencial-courses-block-form-block-input">
                             <Field
-                                component={RenderInputAutoSize}
+                                component={RenderInput}
                                 type="text"
                                 name={`${lesson}.description`}
                                 label="Описание"
                                 onBlur={sendUpdateDraftOnDirty}
+                                autoSize
                             />
                         </div>
                         <div className="potencial-courses-block-form-block-input">

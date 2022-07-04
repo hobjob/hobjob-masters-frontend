@@ -26,7 +26,7 @@ const Referrals = () => {
     return (
         <>
             <Helmet>
-                <title>Пригласи друга - HobJob</title>
+                <title>Пригласи друга - HobJob для мастеров</title>
             </Helmet>
 
             {localStorage.getItem("accessToken") ? (

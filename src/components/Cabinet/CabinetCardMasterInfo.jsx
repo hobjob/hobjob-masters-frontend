@@ -1,11 +1,11 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 
-import {FileInput} from "../";
+import {Instagram, Vk, TikTok, Telegram, Youtube, FileInput} from "../";
 
 import {fetchUpdateMaster} from "../../redux/actions/master";
 
-const CabinetCardUserInfo = ({avatar, name, surname, email, edit}) => {
+const CabinetCardUserInfo = ({avatar, name, surname, email, socials, edit}) => {
     const dispatch = useDispatch();
 
     const [messageAvatare, setMessageAvatar] = React.useState("");
@@ -30,6 +30,7 @@ const CabinetCardUserInfo = ({avatar, name, surname, email, edit}) => {
                     <p className="cabinet-message__title">{messageAvatare}</p>
                 </div>
             ) : null}
+
             <div className="cabinet-card-user-info">
                 {edit ? (
                     <div className="cabinet-card-user-info-avatar">
@@ -83,17 +84,51 @@ const CabinetCardUserInfo = ({avatar, name, surname, email, edit}) => {
                         ></div>
                     </div>
                 )}
-
                 <div className="cabinet-card-user-info-text">
-                    <span className="cabinet-card-user-info-text__subtitle">
-                        мастер HobJob
-                    </span>
                     <h2 className="cabinet-card-user-info-text__name">
                         {name} {surname}
                     </h2>
                     <p className="cabinet-card-user-info-text__email">
                         {email}
                     </p>
+
+                    <div className="cabinet-card-user-info-text-socials">
+                        {socials.inst ? (
+                            <a
+                                href={socials.inst}
+                                className="cabinet-card-user-info-text-socials__link"
+                            >
+                                <Instagram />
+                            </a>
+                        ) : null}
+
+                        {socials.vk ? (
+                            <a
+                                href={socials.vk}
+                                className="cabinet-card-user-info-text-socials__link"
+                            >
+                                <Vk />
+                            </a>
+                        ) : null}
+
+                        {socials.tiktok ? (
+                            <a
+                                href={socials.tiktok}
+                                className="cabinet-card-user-info-text-socials__link"
+                            >
+                                <TikTok />
+                            </a>
+                        ) : null}
+
+                        {socials.telegram ? (
+                            <a
+                                href={socials.telegram}
+                                className="cabinet-card-user-info-text-socials__link"
+                            >
+                                <Telegram />
+                            </a>
+                        ) : null}
+                    </div>
                 </div>
             </div>
         </>

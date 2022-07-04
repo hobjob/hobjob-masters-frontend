@@ -30,6 +30,10 @@ const AddCourse = ({values}) => {
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
+
+        return () => {
+            window.onbeforeunload = undefined;
+        };
     }, []);
 
     const onSubmit = (data) => {
@@ -72,8 +76,6 @@ const AddCourse = ({values}) => {
 
     const sendCreateDraftClick = () => {
         const formData = new FormData();
-
-		console.log(values);
 
         if (values) {
             Object.keys(values).map((key) => {

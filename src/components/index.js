@@ -5,10 +5,15 @@ export { default as RenderInput } from "./All/RenderInput"
 export { default as RenderFileInput } from "./All/RenderFileInput"
 export { default as RenderImageInput } from "./All/RenderImageInput"
 export { default as RenderVideoInput } from "./All/RenderVideoInput"
-export { default as RenderInputAutoSize } from "./All/RenderInputAutoSize"
 export { default as RenderSelect } from "./All/RenderSelect"
 export { default as FileInput } from "./All/FileInput"
 export { default as BtnLoader } from "./All/BtnLoader"
+// Icons
+export { default as Instagram } from "./All/Icons/Instagram"
+export { default as Telegram } from "./All/Icons/Telegram"
+export { default as TikTok } from "./All/Icons/TikTok"
+export { default as Vk } from "./All/Icons/Vk"
+export { default as Youtube } from "./All/Icons/Youtube"
 
 // Login
 export { default as LoginForm } from "./Login/LoginForm"

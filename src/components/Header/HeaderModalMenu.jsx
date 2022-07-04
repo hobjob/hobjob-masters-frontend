@@ -183,7 +183,7 @@ const HeaderModalMenu = React.memo(
                     </nav>
                     <div className="header-modal-menu-social">
                         <a
-                            href="https://vk.com/hobjob"
+                            href={process.env.REACT_APP_SOCIALS_VK}
                             className="header-modal-menu-social__link"
                         >
                             <svg
@@ -200,7 +200,7 @@ const HeaderModalMenu = React.memo(
                             </svg>
                         </a>
                         <a
-                            href="https://www.youtube.com/channel/UCFEZn2Om4MucJT60ApT7y6w"
+                            href={process.env.REACT_APP_SOCIALS_YOUTUBE}
                             className="header-modal-menu-social__link"
                         >
                             <svg
@@ -218,7 +218,7 @@ const HeaderModalMenu = React.memo(
                         </a>
 
                         <a
-                            href="https://vm.tiktok.com/ZSJggxQqj/"
+                            href={process.env.REACT_APP_SOCIALS_TIKTOK}
                             className="header-modal-menu-social__link"
                         >
                             <svg
@@ -236,7 +236,7 @@ const HeaderModalMenu = React.memo(
                         </a>
 
                         <a
-                            href="https://t.me/hobjob"
+                            href={process.env.REACT_APP_SOCIALS_TELEGRAM}
                             className="header-modal-menu-social__link"
                         >
                             <svg

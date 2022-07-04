@@ -28,6 +28,7 @@
 	&-card-user-info
 		display: flex
 		align-items: center
+
 		padding-bottom: 25px
 		border-bottom: 1px solid $borderGray
 
@@ -35,8 +36,8 @@
 			position: relative
 			overflow: hidden
 
-			width: 200px
-			height: 200px
+			width: 250px
+			height: 250px
 			border-radius: 50%
 
 			&:hover &-placeholder
@@ -56,6 +57,8 @@
 				+transition
 
 			&-icon
+				cursor: pointer
+
 				position: absolute
 				left: 50%
 				top: 50%
@@ -72,22 +75,32 @@
 		&-text
 			margin-left: 50px
 
-			&__subtitle
-				display: inline-block
-				margin-bottom: 15px
-				font-size: 16px
-				padding: 5px 10px
-				border-radius: 100px
-				background-color: $mainColor
-				color: $white
-
 			&__name
-				font-size: 42px
+				font-size: 48px
 				margin-bottom: 15px
 
 			&__email
-				font-size: 21px
+				font-size: 24px
 				color: $gray
+
+			&-socials
+				display: flex
+				align-items: center
+
+				margin-top: 25px
+
+				&__link
+					margin-right: 25px
+					+transition
+
+					& > svg
+						width: 60px
+
+					&:active
+						+transformScale
+
+					&:last-child
+						margin-right: 0
 
 	&-block-wrapper
 		margin-top: 25px
@@ -104,7 +117,7 @@
 			border: none
 			padding-bottom: 0
 			margin: 50px 0 0 0
-			
+
 		&-text
 			width: 35%
 

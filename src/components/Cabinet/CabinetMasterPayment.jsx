@@ -79,7 +79,7 @@ let CabinetMasterPayment = ({
                             : "disabled"
                     } cabinet-block-form-btn`}
                 >
-                    Обновить
+                    Сохранить
                 </button>
             )}
         </form>

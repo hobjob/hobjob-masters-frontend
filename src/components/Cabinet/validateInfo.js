@@ -28,5 +28,42 @@ export const validateInfo = (values) => {
 		errors.masterDescription = `Не менее ${defaultMin} символов`;
 	}
 
+	if (values.socials) {
+		errors.socials = {}
+
+		if (values.socials.inst) {
+			if (values.socials.inst.length > defaultMax) {
+				errors.socials.inst = `Не более ${defaultMax} символов`;
+			} else if (values.socials.inst.length < defaultMin) {
+				errors.socials.inst = `Не менее ${defaultMin} символов`;
+			}
+		}
+
+		if (values.socials.vk) {
+			if (values.socials.vk.length > defaultMax) {
+				errors.socials.vk = `Не более ${defaultMax} символов`;
+			} else if (values.socials.vk.length < defaultMin) {
+				errors.socials.vk = `Не менее ${defaultMin} символов`;
+			}
+		}
+
+		if (values.socials.tiktok) {
+			if (values.socials.tiktok.length > defaultMax) {
+				errors.socials.tiktok = `Не более ${defaultMax} символов`;
+			} else if (values.socials.tiktok.length < defaultMin) {
+				errors.socials.tiktok = `Не менее ${defaultMin} символов`;
+			}
+		}
+
+		if (values.socials.telegram) {
+			if (values.socials.telegram.length > defaultMax) {
+				errors.socials.telegram = `Не более ${defaultMax} символов`;
+			} else if (values.socials.telegram.length < defaultMin) {
+				errors.socials.telegram = `Не менее ${defaultMin} символов`;
+			}
+		}
+
+	}
+
 	return errors;
 };

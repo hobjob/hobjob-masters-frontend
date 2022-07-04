@@ -4,7 +4,6 @@ import {Field} from "redux-form";
 
 import {
     RenderInput,
-    RenderInputAutoSize,
     RenderSelect,
     RenderImageInput,
 } from "../";
@@ -42,10 +41,11 @@ const AddCourseInfoForm = () => {
 
                     <div className="potencial-courses-block-form-input">
                         <Field
-                            component={RenderInputAutoSize}
+                            component={RenderInput}
                             type="text"
                             name="description"
                             label="Описание"
+                            autoSize
                         />
                     </div>
 

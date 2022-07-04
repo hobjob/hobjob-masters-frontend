@@ -2,12 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 import {Field} from "redux-form";
 
-import {
-    RenderInput,
-    RenderInputAutoSize,
-    RenderSelect,
-    RenderImageInput,
-} from "../";
+import {RenderInput, RenderSelect, RenderImageInput} from "../";
 
 const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
     const categories = useSelector(({categories}) => categories.itemsArray);
@@ -44,11 +39,12 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
 
                     <div className="potencial-courses-block-form-input">
                         <Field
-                            component={RenderInputAutoSize}
+                            component={RenderInput}
                             type="text"
                             name="description"
                             label="Описание"
                             onBlur={sendUpdateDraftOnDirty}
+                            autoSize
                         />
                     </div>
 

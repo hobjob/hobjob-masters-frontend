@@ -383,7 +383,16 @@
 			text-align: center
 
 			&-text
-				margin: 50px 0 0 0
+				margin: 25px 0 0 0
+
+				&-socials
+					justify-content: center
+
+					&__link
+						margin: 0 12.5px
+
+						&:last-child
+							margin: 0 12.5px
 
 		&-block
 			margin: 25px 0
@@ -659,8 +668,10 @@
 				&__name
 					font-size: 28px
 
-					& span
-						font-size: 28px
+				&-socials
+					&__link
+						& > svg
+							width: 50px
 
 		&-block
 			padding-bottom: 25px
@@ -914,3 +925,14 @@
 		&-modal-menu
 			&-content
 				padding: 25px
+
+	// footer
+	.footer
+		&-block
+			&-contact
+				&-social
+					&__link
+						margin-right: 15px
+
+						& > svg
+							width: 40px

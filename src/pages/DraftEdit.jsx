@@ -46,6 +46,10 @@ const DraftEdit = ({
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
+
+        return () => {
+            window.onbeforeunload = undefined;
+        };
     }, []);
 
     React.useEffect(() => {

@@ -71,7 +71,7 @@ let CabinetMasterPassword = ({handleSubmit, invalid, submitting, pristine}) => {
                     } cabinet-block-form-btn`}
                     disabled={invalid || submitting || pristine}
                 >
-                    Обновить
+                    Сохранить
                 </button>
             )}
         </form>

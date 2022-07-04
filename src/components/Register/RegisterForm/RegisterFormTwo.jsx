@@ -2,13 +2,13 @@ import React from "react";
 
 import {Field} from "redux-form";
 
-import {RenderInputAutoSize, RenderImageInput} from "../../";
+import {RenderInput, RenderImageInput} from "../../";
 
 const RegisterFormTwo = ({plusIndex, valid}) => {
     return (
         <div className="reglog-block">
-			<span className="reglog-block__number">2 / 3</span>
-			
+            <span className="reglog-block__number">2 / 3</span>
+
             <div className="reglog-block-title">
                 <h2 className="reglog-block__title">Расскажите о себе</h2>
             </div>
@@ -23,10 +23,11 @@ const RegisterFormTwo = ({plusIndex, valid}) => {
 
             <div className="reglog-block-input">
                 <Field
-                    component={RenderInputAutoSize}
+                    component={RenderInput}
                     type="text"
                     name="masterDescription"
                     label="Расскажите о себе"
+                    autoSize
                 />
             </div>
 
