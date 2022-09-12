@@ -42,7 +42,7 @@ const RenderVideoInput = ({
                 type === "video/hevc" ||
                 type === "video/quicktime"
             ) {
-                if (size < 2500000000) {
+                if (size < 25000000000) {
                     setFile(e.target.files[0]);
                     setProgress(1);
                     setFileId(uuid.v4());

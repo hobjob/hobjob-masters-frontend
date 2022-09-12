@@ -106,7 +106,6 @@ const validate = (values) => {
 					lessonErrors.materials = materialsArrayErrors
 					lessonsArrayErrors[index] = lessonErrors
 				}
-
 			}
 
 			if (!lesson.video) {
