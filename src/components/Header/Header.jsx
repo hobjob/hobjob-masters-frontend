@@ -171,14 +171,14 @@ const Header = React.memo(() => {
                                                 headerUserMenu ? "active" : ""
                                             }`}
                                             style={{
-                                                backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar}")`,
+                                                backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar.size_512}")`,
                                             }}
                                         ></div>
                                     ) : (
                                         <div
                                             className="header-user-avatar"
                                             style={{
-                                                backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar}")`,
+                                                backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar.size_512}")`,
                                             }}
                                             onClick={openModalMenu}
                                         ></div>

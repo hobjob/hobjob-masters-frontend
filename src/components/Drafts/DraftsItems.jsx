@@ -14,11 +14,11 @@ const DraftsItems = ({
             <Link to={`/go/drafts/${_id}`} className="drafts-item-text">
                 <span className="drafts-item-text__subtitle">{createDate}</span>
                 <div className="drafts-item-text-bottom">
-                    {image ? (
+                    {image.size_512 !== "" ? (
                         <div
                             className="drafts-item-text-bottom-image"
                             style={{
-                                backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${image}")`,
+                                backgroundImage: `url("${process.env.REACT_APP_IMAGE_DOMEN}/${image.size_512}")`,
                             }}
                         ></div>
                     ) : null}
