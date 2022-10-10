@@ -20,7 +20,7 @@ const StatisticsCoursesBlock = ({
                 <div
                     className="statistics-courses-block-content-cover"
                     style={{
-                        backgroundImage: `url('${`${process.env.REACT_APP_IMAGE_DOMEN}/${image}`}')`,
+                        backgroundImage: `url('${`${process.env.REACT_APP_IMAGE_DOMEN}/${image.size_768}`}')`,
                     }}
                 ></div>
                 <div className="statistics-courses-block-content-text">

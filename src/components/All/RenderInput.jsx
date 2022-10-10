@@ -11,6 +11,7 @@ const RenderInput = ({
     setStatePasswordFunc,
     passwordState,
     autoSize,
+    onBlurFunc,
 }) => {
     const [valueInput, setValueInput] = React.useState("");
     const [focusInput, setFocusInput] = React.useState(false);
@@ -28,6 +29,10 @@ const RenderInput = ({
     const onBlurInput = () => () => {
         setFocusInput(false);
         setTouchedInput(true);
+
+        if (onBlurFunc) {
+            onBlurFunc();
+        }
     };
 
     const onFocusInput = () => () => {

@@ -33,7 +33,7 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                             type="text"
                             name="title"
                             label="Название"
-                            onBlur={sendUpdateDraftOnDirty}
+                            onBlurFunc={sendUpdateDraftOnDirty}
                         />
                     </div>
 
@@ -43,7 +43,7 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                             type="text"
                             name="description"
                             label="Описание"
-                            onBlur={sendUpdateDraftOnDirty}
+                            onBlurFunc={sendUpdateDraftOnDirty}
                             autoSize
                         />
                     </div>
@@ -63,7 +63,7 @@ const DraftEditInfoForm = ({sendUpdateDraftOnDirty, sendUpdateDraftOn}) => {
                             component={RenderImageInput}
                             name="image"
                             label="Фото курса"
-                            defaultValue={itemById.image}
+                            defaultValue={itemById.image.size_512}
                             onFunc={sendUpdateDraftOn}
                         />
                     </div>

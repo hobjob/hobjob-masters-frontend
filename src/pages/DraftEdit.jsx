@@ -132,17 +132,20 @@ const DraftEdit = ({
         const formData = new FormData();
 
         Object.keys(values).map((key) => {
-            if (key === "lessons") {
+            if (key === "image" && values[key]?.size_512) {
+                delete values[key];
+            } else if (key === "lessons") {
                 const newLessons = [];
 
                 values[key].map((lesson, index_lesson) => {
                     if (ignoreLessonIndex !== index_lesson) {
-                        if (lesson.image) {
+                        if (lesson.image?.name) {
                             formData.append(
                                 `lessons-${index_lesson + 1}-image`,
                                 lesson.image
                             );
                         }
+
                         if (lesson.materials) {
                             const newLessonsMaterials = [];
 
@@ -180,7 +183,7 @@ const DraftEdit = ({
         dispatch(sendUpdateDraft(formData, true));
     };
 
-	React.useEffect(() => {
+    React.useEffect(() => {
         if (values && update) {
             sendUpdateDraftOn();
 

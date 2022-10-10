@@ -30,7 +30,7 @@ let DraftEditForm = ({
         valuesFile,
         ignoreLessonIndex,
         ignoreLessonMaterialsIndex
-    ) => {
+	) => {
         if (dirty) {
             sendUpdateDraftOn(
                 valuesFile,

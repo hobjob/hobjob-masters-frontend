@@ -55,7 +55,7 @@ const DraftEditLessonsFormItemsMaterials = ({
                             type="text"
                             name={`${material}.title`}
                             label="Название"
-                            onBlur={sendUpdateDraftOnDirty}
+                            onBlurFunc={sendUpdateDraftOnDirty}
                         />
                     </div>
 

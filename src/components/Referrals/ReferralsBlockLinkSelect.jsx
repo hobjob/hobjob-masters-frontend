@@ -24,7 +24,7 @@ const ReferralsBlockLinkSelect = ({
             },
             {
                 title: `${masterInfo.name} ${masterInfo.surname} (страница мастера)`,
-                image: `/${masterInfo.avatar}`,
+                image: `/${masterInfo.avatar.size_512}`,
             },
             ...masterInfo.courses,
         ]);

@@ -69,7 +69,7 @@ const DraftEditLessonsFormItems = ({
                                 type="text"
                                 name={`${lesson}.title`}
                                 label="Название"
-                                onBlur={sendUpdateDraftOnDirty}
+                                onBlurFunc={sendUpdateDraftOnDirty}
                             />
                         </div>
                         <div className="potencial-courses-block-form-block-input">
@@ -78,7 +78,7 @@ const DraftEditLessonsFormItems = ({
                                 type="text"
                                 name={`${lesson}.description`}
                                 label="Описание"
-                                onBlur={sendUpdateDraftOnDirty}
+                                onBlurFunc={sendUpdateDraftOnDirty}
                                 autoSize
                             />
                         </div>
@@ -89,7 +89,7 @@ const DraftEditLessonsFormItems = ({
                                 label="Фотография урока"
                                 defaultValue={
                                     itemById.lessons[index] &&
-                                    itemById.lessons[index].image
+                                    itemById.lessons[index].image.size_512
                                 }
                                 onFunc={sendUpdateDraftOn}
                             />
