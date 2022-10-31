@@ -25,7 +25,6 @@ const Header = React.memo(() => {
     const [modalMenuState, setModalMenuState] = React.useState(false);
     const [modalMenuAnimationState, setModalMenuAnimationState] =
         React.useState(false);
-    const [stateCookies, setStateCookies] = React.useState(false);
     const [headerUserMenu, setHeaderUserMenu] = React.useState(false);
     const [headerUserMenuAnimateClose, setHeaderUserMenuAnimateClose] =
         React.useState(false);
@@ -97,11 +96,6 @@ const Header = React.memo(() => {
         }
     };
 
-    const setCookiesClick = () => {
-        localStorage.setItem("cookie", true);
-        setStateCookies(true);
-    };
-
     return (
         <>
             {modalMenuState ? (
@@ -112,20 +106,6 @@ const Header = React.memo(() => {
                     clickLogout={clickLogout}
                 />
             ) : null}
-
-            {localStorage.getItem("cookie") || stateCookies ? null : (
-                <div className="cookie">
-                    <h4 className="cookie__title">
-                        Мы используем файлы cookie
-                    </h4>
-                    <button
-                        className="btn-small-round"
-                        onClick={setCookiesClick}
-                    >
-                        Принять
-                    </button>
-                </div>
-            )}
 
             <header className="header">
                 <div className="container">

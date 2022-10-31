@@ -7,7 +7,7 @@ const ModerationCoursesBlock = ({image, number, title, category}) => {
                 <div
                     className="moderations-courses-section-block-content-cover"
                     style={{
-                        backgroundImage: `url('${`${process.env.REACT_APP_IMAGE_DOMEN}/${image}`}')`,
+                        backgroundImage: `url('${`${process.env.REACT_APP_IMAGE_DOMEN}/${image.size_768}`}')`,
                     }}
                 ></div>
                 <div className="moderations-courses-section-block-content-text">

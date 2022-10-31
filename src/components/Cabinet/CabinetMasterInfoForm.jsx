@@ -86,7 +86,7 @@ let CabinetMasterInfoForm = ({
                     component={RenderInput}
                     type="text"
                     name="socials[inst]"
-                    label="Instagram"
+                    label="Ссылка на ваш Instagram"
                     disabled={!edit}
                 />
             </div>
@@ -96,7 +96,7 @@ let CabinetMasterInfoForm = ({
                     component={RenderInput}
                     type="text"
                     name="socials[vk]"
-                    label="Вконтакте"
+                    label="Ссылка на ваш Вконтакте"
                     disabled={!edit}
                 />
             </div>
@@ -106,7 +106,7 @@ let CabinetMasterInfoForm = ({
                     component={RenderInput}
                     type="text"
                     name="socials[tiktok]"
-                    label="TikTok"
+                    label="Ссылка на ваш TikTok"
                     disabled={!edit}
                 />
             </div>
@@ -116,7 +116,7 @@ let CabinetMasterInfoForm = ({
                     component={RenderInput}
                     type="text"
                     name="socials[telegram]"
-                    label="Telegram"
+                    label="Ссылка на ваш Telegram"
                     disabled={!edit}
                 />
             </div>

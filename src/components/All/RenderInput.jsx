@@ -21,11 +21,6 @@ const RenderInput = ({
         setValueInput(input.value);
     }, [input.value]);
 
-    const onChangeInput = (delegate) => (e) => {
-        setValueInput(e.target.value);
-        delegate(e.target.value);
-    };
-
     const onBlurInput = () => () => {
         setFocusInput(false);
         setTouchedInput(true);
@@ -50,7 +45,6 @@ const RenderInput = ({
                             touchedInput && error ? "error" : ""
                         } ${valueInput !== "" || focusInput ? "focus" : ""}`}
                         disabled={disabled ? true : false}
-                        onChange={onChangeInput(input.onChange)}
                         onBlur={onBlurInput(input.onBlur)}
                         onFocus={onFocusInput(input.onFocus)}
                     />
@@ -62,7 +56,6 @@ const RenderInput = ({
                             touchedInput && error ? "error" : ""
                         } ${valueInput !== "" || focusInput ? "focus" : ""}`}
                         disabled={disabled ? true : false}
-                        onChange={onChangeInput(input.onChange)}
                         onBlur={onBlurInput(input.onBlur)}
                         onFocus={onFocusInput(input.onFocus)}
                     />

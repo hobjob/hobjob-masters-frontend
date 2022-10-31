@@ -22,9 +22,9 @@ const validate = (values) => {
 
 	if (!values.image) {
 		errors.image = 'Поле не может быть пустым';
-	} else if (values.image.type !== "image/jpeg" && values.image.type !== "image/png" && typeof values.image !== "string") {
+	} else if (values.image.type !== "image/jpeg" && values.image.type !== "image/png" && !values.image.size_512) {
 		errors.image = 'Ваше изображение неверного расширения. Доступные расширения: .jpg, .jpeg, .png';
-	} else if (values.image.size > 5500000 && typeof values.image !== "string") {
+	} else if (values.image.size > 5500000 && typeof values.image !== "string" && !values.image.size_512) {
 		errors.image = `Ваше изображение слишком большое. Максимальный вес 5мб`;
 	}
 
@@ -64,11 +64,11 @@ const validate = (values) => {
 			if (!lesson.image) {
 				lessonErrors.image = 'Для модерации поле не может быть пустым';
 				lessonsArrayErrors[index] = lessonErrors
-			} else if (lesson.image.type !== "image/jpeg" && lesson.image.type !== "image/png" && typeof lesson.image !== "string") {
+			} else if (lesson.image.type !== "image/jpeg" && lesson.image.type !== "image/png" && !lesson.image.size_512) {
 				lessonErrors.image = 'Ваше изображение неверного расширения. Доступные расширения: .jpg, .jpeg, .png';
 				lessonsArrayErrors[index] = lessonErrors
 
-			} else if (lesson.image.size > 5500000 && typeof lesson.image !== "string") {
+			} else if (lesson.image.size > 5500000 && !lesson.image.size_512) {
 				lessonErrors.image = `Ваше изображение слишком большое. Максимальный вес 5мб`;
 				lessonsArrayErrors[index] = lessonErrors
 			}
