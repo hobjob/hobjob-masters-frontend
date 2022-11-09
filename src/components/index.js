@@ -15,6 +15,13 @@ export { default as TikTok } from "./All/Icons/TikTok"
 export { default as Vk } from "./All/Icons/Vk"
 export { default as Youtube } from "./All/Icons/Youtube"
 
+// Home
+export { default as HomeOffer } from "./Home/HomeOffer"
+export { default as HomeGoal } from "./Home/HomeGoal"
+export { default as HomeServices } from "./Home/HomeServices"
+export { default as HomeMaster } from "./Home/HomeMaster"
+export { default as HomeSecurityCourses } from "./Home/HomeSecurityCourses"
+
 // Login
 export { default as LoginForm } from "./Login/LoginForm"
 

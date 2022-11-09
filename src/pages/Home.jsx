@@ -1,19 +1,15 @@
 import React from "react";
 import {Helmet} from "react-helmet";
-import {Link} from "react-router-dom";
-import {useSelector} from "react-redux";
 
-import {CategoriesSection} from "../components/";
-
-import MainImage1 from "../assets/images/main-image1.jpg";
-import MainImage2 from "../assets/images/main-image2.jpg";
-import MainImage3 from "../assets/images/main-image3.jpg";
-
-import PaymentImage from "../assets/images/payment-image.svg";
+import {
+    HomeOffer,
+    HomeGoal,
+    HomeServices,
+    HomeMaster,
+    HomeSecurityCourses,
+} from "../components/";
 
 const Home = () => {
-    const {isLoadedMasterInfo} = useSelector(({master}) => master);
-
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -22,99 +18,19 @@ const Home = () => {
         <>
             <Helmet>
                 <title>Главная - HobJob для мастеров</title>
-            </Helmet>
+			</Helmet>
 
-            <section className="main-offer">
-                <div className="container">
-                    <div className="main-offer-wrapper">
-                        <h1 className="main-offer__title">
-                            Рынок онлайн образования растёт на 20% каждый год.
-                            Монетизируйте то, что умеете делать лучше всего -
-                            один раз запишите курс и зарабатывайте на нём, не
-                            тратя деньги на рекламу.{" "}
-                            {isLoadedMasterInfo ? (
-                                <Link to="/go/add/course">Добавить курс</Link>
-                            ) : (
-                                <a href="/go/register">Стать мастером</a>
-                            )}
-                        </h1>
+			<HomeOffer />
+			
+			<HomeGoal />
 
-                        <div className="main-offer-img-wrapper">
-                            <div
-                                style={{
-                                    backgroundImage: `url('${MainImage1}')`,
-                                }}
-                                className="main-offer-img"
-                            ></div>
-                            <div
-                                style={{
-                                    backgroundImage: `url('${MainImage2}')`,
-                                }}
-                                className="main-offer-img"
-                            ></div>
-                            <div
-                                style={{
-                                    backgroundImage: `url('${MainImage3}')`,
-                                }}
-                                className="main-offer-img"
-                            ></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+			<HomeServices />
+			
+			<HomeMaster />
 
-            <section className="main-services">
-                <div className="container">
-                    <div className="main-services-wrapper">
-                        <h2 className="main-services__title">
-                            Плюсы создания курса и работы с HobJob
-                        </h2>
-                        <div className="main-services-items-wrapper">
-                            <div className="main-services-item">
-                                <h3 className="main-services-item__title">
-                                    Новая аудитория
-                                </h3>
-                                <p className="main-services-item__description">
-                                    За счёт просмотров вашего курса, придут
-                                    новые подписчики и клиенты, с которыми вы
-                                    сможете общаться и продавать свой продукт.
-                                </p>
-                            </div>
-
-                            <div className="main-services-item">
-                                <h3 className="main-services-item__title">
-                                    Поддержка от HobJob
-                                </h3>
-                                <p className="main-services-item__description">
-                                    Чтобы вам было проще, мы подготовили
-                                    подробную инструкцию по созданию курса.
-                                    Ребята из нашей команды рассказали, как
-                                    снимать, где снимать, что снимать, чем
-                                    снимать и как монтировать.
-                                    <br />
-                                    <Link to="/course-regulations">
-                                        Рекомендации для мастеров
-                                    </Link>
-                                </p>
-                            </div>
-
-                            <div className="main-services-item">
-                                <h3 className="main-services-item__title">
-                                    Помощь в продвижении
-                                </h3>
-                                <p className="main-services-item__description">
-                                    Команда HobJob занимается рекламой всех
-                                    курсов на платформе. Вам не нужно за неё
-                                    платить. Также ваш курс будет продвигаться
-                                    внутри платформы среди её пользователей.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="main-payment">
+			<HomeSecurityCourses />
+			
+            {/* <section className="main-payment">
                 <div className="container">
                     <div className="main-payment-wrapper">
                         <h2 className="main-payment__title">
@@ -146,9 +62,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
             <CategoriesSection />
-
             <section className="main-faq">
                 <div className="container">
                     <div className="main-faq-wrapper">
@@ -199,7 +113,6 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
             <section className="main-footer">
                 <div className="container">
                     <div className="main-footer-wrapper">
@@ -229,7 +142,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
     );
 };

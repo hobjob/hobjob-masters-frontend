@@ -20,11 +20,11 @@ const ReferralsBlockLinkSelect = ({
         setChoise([
             {
                 title: "Главная страница HobJob",
-                image: "/all/referral-main-select.png",
+                image: {size_512: "/all/referral-main-select.png"},
             },
             {
                 title: `${masterInfo.name} ${masterInfo.surname} (страница мастера)`,
-                image: `/${masterInfo.avatar.size_512}`,
+                image: {size_512: `/${masterInfo.avatar.size_512}`},
             },
             ...masterInfo.courses,
         ]);
@@ -101,7 +101,7 @@ const ReferralsBlockLinkSelect = ({
                         <div
                             className="referrals-info-block-link-select-image"
                             style={{
-                                backgroundImage: `url('${`${process.env.REACT_APP_IMAGE_DOMEN}/${choise[stateListItemIndex].image}`}')`,
+                                backgroundImage: `url('${`${process.env.REACT_APP_IMAGE_DOMEN}/${choise[stateListItemIndex].image.size_512}`}')`,
                             }}
                         ></div>
                     ) : null}
@@ -143,7 +143,7 @@ const ReferralsBlockLinkSelect = ({
                                         <div
                                             className="referrals-info-block-link-select-list-item-image"
                                             style={{
-                                                backgroundImage: `url('${`${process.env.REACT_APP_IMAGE_DOMEN}/${item.image}`}')`,
+                                                backgroundImage: `url('${`${process.env.REACT_APP_IMAGE_DOMEN}/${item.image.size_512}`}')`,
                                             }}
                                         ></div>
 
