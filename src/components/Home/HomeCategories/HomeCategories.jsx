@@ -1,37 +1,33 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
-import {checkDeclension} from "../../Functions/checkDeclension";
+import {Loader, HomeCategoriesItem} from "../../";
 
-import {Loader, CategoriesItem} from "../";
-
-const CategoriesSection = () => {
-    const dispatch = useDispatch();
-
+const HomeCategories = () => {
     const {items, isLoadedAllCategories} = useSelector(
         ({categories}) => categories
     );
 
     return (
-        <section className="categories">
+        <section className="main-categories">
             <div className="container">
-                <div className="categories-wrapper">
-                    <div className="categories-text">
-                        <h2 className=" categories-text__title">
+                <div className="main-categories-wrapper">
+                    <div className="main-categories-text">
+                        <h2 className="main-categories-text__title">
                             Какие курсы можно предложить?
                         </h2>
-                        <p className="categories-text__description">
+                        <p className="main-categories-text__description">
                             Курсы должны быть нацелены на создание проекта в
                             любом из направлений HobJob
                         </p>
                     </div>
 
-                    <div className="categories-items-wrapper">
+                    <div className="main-categories-items-wrapper">
                         {isLoadedAllCategories ? (
                             Object.keys(items).map((key, index) => (
-                                <CategoriesItem
+                                <HomeCategoriesItem
                                     {...items[key]}
-                                    key={`categories-items-${index}`}
+                                    key={`main-categories-items-${index}`}
                                 />
                             ))
                         ) : (
@@ -44,4 +40,4 @@ const CategoriesSection = () => {
     );
 };
 
-export default CategoriesSection;
+export default HomeCategories;

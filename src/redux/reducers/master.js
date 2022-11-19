@@ -1,5 +1,9 @@
 const initialState = {
-	masterInfo: {},
+	masterInfo: {
+		avatar: {
+			size_512: ""
+		}
+	},
 	statistics: {},
 	referrals: [],
 

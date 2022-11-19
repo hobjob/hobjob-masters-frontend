@@ -9,10 +9,11 @@
 
 		margin-bottom: 25px
 
-		& a
+		& > a
 			color: $mainColor
-			text-decoration: underline
 			white-space: nowrap
+
+			border-bottom: 3px solid $mainColor
 
 			+SfRegular
 
@@ -36,11 +37,13 @@
 		align-items: center
 		flex-direction: column
 
-	&__image
+	&-picture
 		width: 90%
 
-		user-select: none
-		pointer-events: none
+		&__image
+			width: 100%
+			user-select: none
+			pointer-events: none
 
 // main-services
 .main-services
@@ -68,8 +71,11 @@
 			background-color: $mainColor
 			color: $white
 
+			+transformScale
+
 		&:hover a
 			color: $white
+			border-bottom: 2px solid $white
 
 		&__title
 			font-size: 32px
@@ -78,9 +84,10 @@
 		&__description
 			font-size: 24px
 
-			& a
+			& > a
 				color: $mainColor
-				text-decoration: underline
+				border-bottom: 2px solid $mainColor
+
 				+transition
 
 // main-master
@@ -97,7 +104,6 @@
 	&-wrapper
 		display: flex
 		justify-content: space-between
-		align-items: center
 
 	&-text
 		width: 50%
@@ -141,7 +147,7 @@
 
 			& > a
 				color: $mainColor
-				text-decoration: underline
+				border-bottom: 2px solid $mainColor
 
 		&-image
 			width: 100%
@@ -173,13 +179,19 @@
 				&:last-child
 					margin-bottom: 0
 
-	&__image
+	&-images
+		display: flex
+		align-items: flex-end
+		justify-content: space-between
+
 		margin-top: 75px
 
-		user-select: none
-		pointer-events: none
+		&__image
 
-		width: 100%
+			user-select: none
+			pointer-events: none
+
+			width: 49%
 
 	&-moderation__description
 		margin-top: 75px
@@ -233,14 +245,60 @@
 
 			width: 100%
 
-		&-bottom__description
-			margin-top: 50px
+		&-bottom
+			&__description
+				margin-top: 50px
+				font-size: 24px
 
+			&__link
+				margin-top: 50px
+				width: 300px
+
+// main-categories
+.main-categories
+	margin: 75px 0
+
+	&-text
+		width: 75%
+
+		&__title
+			margin-bottom: 25px
+			font-size: 46px
+
+		&__description
 			font-size: 24px
 
-		&-bottom__link
-			margin-top: 50px
-			width: 300px
+	&-items-wrapper
+		margin-top: 50px
+		display: flex
+		flex-wrap: wrap
+
+	&-item
+		text-align: center
+
+		width: calc( 50% - 15px )
+
+		margin-right: 15px
+		margin-bottom: 15px
+
+		padding: 20px 25px
+
+		border: 1px solid $mainColor
+		border-radius: 100px
+
+		color: $mainColor
+
+		+transition
+
+		&:nth-of-type(2n)
+			margin-right: 0
+
+		&:hover
+			background-color: $mainColor
+			color: $white
+
+		&__title
+			font-size: 36px
 
 // main-security-courses
 .main-security-courses
@@ -250,7 +308,7 @@
 		display: flex
 		justify-content: space-between
 		align-items: center
-	
+
 	&-text
 		width: 50%
 
@@ -274,63 +332,57 @@
 			user-select: none
 			pointer-events: none
 
-// // main-payment
-// .main-payment
-// 	margin: 75px 0
-
-// 	&-wrapper
-// 		display: flex
-// 		justify-content: space-between
-
-// 	&__title
-// 		font-size: 46px
-// 		width: 35%
-
-// 	&-description
-// 		width: 60%
-
-// 		&__description
-// 			font-size: 26px
-// 			margin-bottom: 25px
-
-// 		&-img
-// 			margin-top: 75px
-// 			display: flex
-// 			justify-content: center
-
-// 			&__img
-// 				width: 100%
-
-// 				user-select: none
-// 				pointer-events: none
-
 // main-faq
 .main-faq
 	margin: 75px 0
 
-	&__title
-		font-size: 46px
-		margin-bottom: 75px
-
-	&-item
+	&-wrapper
 		display: flex
 		justify-content: space-between
 
-		padding-top: 25px
-		margin-bottom: 75px
+	&__title
+		font-size: 48px
+		width: 45%
 
-		border-top: 1px solid $borderGray
+	&-items-wrapper
+		width: 50%
+
+	&-item
+		padding: 35px
+
+		background-color: $backgroundGray
+
+		margin-bottom: 10px
+
+		+borderRadiusBlock
+
+		+transition
+
+		&:hover
+			color: $white
+			background-color: $mainColor
+
+			+transformScale
+
+		&:hover &__description > a
+			color: $white
+			border-bottom: 2px solid $white
 
 		&:last-child
 			margin-bottom: 0
 
 		&__title
-			font-size: 36px
-			width: 35%
+			font-size: 28px
+			margin-bottom: 15px
 
 		&__description
-			font-size: 26px
-			width: 55%
+			font-size: 21px
+
+			& > a
+				color: $mainColor
+				border-bottom: 2px solid $mainColor
+
+				+transition
 
 // main-footer
 .main-footer

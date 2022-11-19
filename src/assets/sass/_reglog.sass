@@ -19,7 +19,7 @@
 		margin-bottom: 50px
 
 		+transition
-		
+
 		&:active
 			+transformScale
 
@@ -50,13 +50,15 @@
 
 			font-size: 21px
 			color: $mainColor
+			border-bottom: 1px solid $mainColor
 
 		&__description
 			display: block
 			font-size: 21px
 
-			& a
+			& > a
 				color: $mainColor
+				border-bottom: 1px solid $mainColor
 
 		&-input
 			margin-bottom: 50px
@@ -78,7 +80,7 @@
 
 			& > a
 				color: $gray
-				text-decoration: underline
+				border-bottom: 1px solid $gray
 
 		&__number
 			display: block
@@ -86,9 +88,15 @@
 			font-size: 21px
 			margin-bottom: 25px
 
-	&-bottom
-		margin-top: 50px
+		&-recovery
+			margin-top: 50px
 
-		&__link
-			font-size: 18px
-			color: $gray
+			display: flex
+			justify-content: center
+
+			&__link
+				display: inline-block
+
+				font-size: 18px
+				color: $gray
+				border-bottom: 1px solid $gray

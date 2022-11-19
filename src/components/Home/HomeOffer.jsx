@@ -21,7 +21,7 @@ const HomeOffer = () => {
                       {isLoadedMasterInfo ? (
                           <Link to="/go/add/course">Добавить курс</Link>
                       ) : (
-                          <a href="/go/register">Стать мастером</a>
+                          <Link to="/go/register">Стать мастером</Link>
                       )}
                   </h1>
 

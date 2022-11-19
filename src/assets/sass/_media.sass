@@ -39,6 +39,24 @@
 				width: 100%
 
 @media screen and ( max-width: 1200px )
+	// hobjob-good
+	.hobjob-good
+		&-wrapper
+			flex-direction: column
+
+		&-text
+			width: 100%
+			margin-bottom: 50px
+
+			&__logo
+				width: 200px
+
+			&__btn
+				width: 100%
+
+		&__image
+			width: 60%
+
 	// reglog
 	.reglog
 		&-block-wrapper
@@ -133,6 +151,13 @@
 		&-img
 			height: 300px
 
+	// main-goal
+	.main-goal
+		margin: 50px 0
+
+		&-picture
+			width: 100%
+
 	// main-services
 	.main-services
 		margin: 50px 0
@@ -148,28 +173,123 @@
 		&-items-wrapper
 			width: 100%
 
-	// main-payment
-	.main-payment
-		margin: 50px 0
-
+	// main-master-about
+	.main-master-about
 		&-wrapper
 			flex-direction: column
+			align-items: center
 
-		&__title
-			font-size: 42px
+		&-text
 			width: 100%
 			margin-bottom: 50px
 
-		&-description
+			&__title
+				font-size: 36px
+
+			&__description
+				font-size: 21px
+
+		&-image
+			width: 70%
+
+	// main-master-filmed-course
+	.main-master-filmed-course
+		&-wrapper
+			flex-direction: column
+
+		&-title, &-content
 			width: 100%
 
-	// categories
-	.categories
+		&-title
+			margin-bottom: 50px
+
+			&__title
+				font-size: 36px
+
+		&-content
+			&__description
+				font-size: 21px
+				margin-bottom: 35px
+
+	// main-master-upload-course
+	.main-master-upload-course
+		&-text
+			flex-direction: column
+
+			&__title
+				font-size: 36px
+				width: 100%
+
+			&-descriptions
+				margin-top: 50px
+				width: 100%
+
+				&__description
+					font-size: 21px
+					margin-bottom: 25px
+
+		&-images
+			margin-top: 50px
+			flex-direction: column
+
+			&__image
+				width: 100%
+
+				&:first-child
+					margin-bottom: 25px
+
+		&-moderation__description, &-statistics__image
+			margin-top: 50px
+			width: 100%
+
+		&-moderation__description
+			font-size: 21px
+
+	// main-master-payment
+	.main-master-payment
+		&-wrapper
+			flex-direction: column
+
+		&-title, &-content
+			width: 100%
+
+		&-title
+			&__title
+				font-size: 36px
+
+		&-content
+			margin-top: 50px
+
+			&-descriptions
+				&__description
+					font-size: 21px
+					margin-bottom: 35px
+
+			&__image
+				margin-top: 50px
+
+			&-bottom
+				&__description
+					margin-top: 35px
+					font-size: 21px
+
+				&__link
+					margin-top: 35px
+					width: 100%
+
+	// main-categories
+	.main-categories
 		margin: 50px 0
 
 		&-text
 			&__title
-				font-size: 38px
+				font-size: 36px
+
+			&__description
+				font-size: 21px
+
+		&-items-wrapper
+			margin-top: 35px
 
 		&-item
 			padding: 15px 25px
@@ -177,25 +297,36 @@
 			&__title
 				font-size: 28px
 
-	// main-faq
-	.main-faq
-		margin: 50px 0
-
-		&__title
-			font-size: 42px
-			margin-bottom: 50px
-
-		&-item
+	// main-security-courses
+	.main-security-courses
+		&-wrapper
 			flex-direction: column
+			align-items: flex-start
+
+		&-text
+			width: 100%
 
 			&__title
 				font-size: 36px
-				width: 100%
-				margin-bottom: 25px
 
 			&__description
-				font-size: 24px
-				width: 100%
+				font-size: 21px
+
+		&-image
+			margin-top: 50px
+			width: 100%
+
+	// main-faq
+	.main-faq
+		&-wrapper
+			flex-direction: column
+
+		&__title, &-items-wrapper
+			width: 100%
+
+		&__title
+			font-size: 36px
+			margin-bottom: 50px
 
 	// referrals
 	.referrals
@@ -217,15 +348,6 @@
 			&-form
 				margin-top: 75px
 				width: 100%
-
-	// footer
-	.footer
-		&-block
-			&-nav
-				display: none
-
-			&-contact
-				margin: 0
 
 	// moderations-courses
 	.moderations-courses
@@ -259,14 +381,36 @@
 					margin-bottom: 15px
 					order: 1
 
+	// footer
+	.footer
+		&-block
+			&-nav
+				display: none
+
+			&-contact
+				margin: 0
+
 @media screen and ( max-width: 900px )
-	// cookie
-	.cookie
-		width: 95%
+	// header
+	.header
+		&-modal-menu
+			&-content
+				padding: 15px
 
-		&__title
-			font-size: 18px
+			&-nav
+				&-block
+					&-main
+						&__link
+							font-size: 36px
 
+					&-user
+						&__link
+							font-size: 28px
+
+							&-image
+								min-width: 40px
+								height: 40px
+		
 	// main-footer
 	.main-footer
 		&-block
@@ -276,8 +420,8 @@
 			&__btn
 				width: 100%
 
-	// categories
-	.categories
+	// main-categories
+	.main-categories
 		&-text
 			width: 100%
 
@@ -427,7 +571,7 @@
 				&-block
 					&__link
 						display: block
-						margin: 10px 0 0
+						margin: 10px 0 0 0
 
 @media screen and ( max-width: 800px )
 	// interface
@@ -442,10 +586,6 @@
 		&-user
 			&-nav
 				display: none
-
-		&-modal-menu
-			&-content
-				width: 75%
 
 	// referrals
 	.referrals
@@ -476,6 +616,7 @@
 			&-image-adaptive
 				&__image
 					width: 100%
+
 	// footer
 	.footer
 		&-block
@@ -497,6 +638,27 @@
 		margin-left: 50px
 
 @media screen and ( max-width: 700px )
+	// header
+	.header
+		&-modal-menu
+			&-content
+				width: 100%
+				height: 100%
+
+			&-nav
+				flex-direction: column
+
+				&-block
+					&-main, &-user
+						width: 100%
+
+					&-main
+						order: 2
+						margin-top: 15px
+
+					&-user
+						order: 1
+
 	// reglog
 	.reglog
 		&-block-wrapper
@@ -832,23 +994,105 @@
 			&__description
 				font-size: 21px
 
-	// main-payment
-	.main-payment
-		margin: 25px 0
+	// main-master
+	.main-master
+		margin: 25px 0 
 
-		&__title
-			font-size: 28px
+		&-wrapper
+			padding: 20px 15px
+
+	// main-master-about
+	.main-master-about
+		&-image
+			width: 100%
+
+		&-text
+			&__title
+				font-size: 24px
+
+			&__description
+				font-size: 18px
+
+	// main-master-filmed-course
+	.main-master-filmed-course
+		margin-top: 50px
+
+		&-title
 			margin-bottom: 25px
 
-		&-description
-			&__description
-				font-size: 21px
+			&__title
+				font-size: 24px
 
-			&-img
+		&-content
+			&__description
+				font-size: 18px
+				margin-bottom: 25px
+
+			&-image
+				height: 250px
+
+	// main-master-upload-course
+	.main-master-upload-course
+		margin-top: 50px
+
+		&-text
+			&__title
+				font-size: 24px
+
+			&-descriptions
 				margin-top: 25px
 
-	// categories
-	.categories
+				&__description
+					font-size: 18px
+					margin-bottom: 25px
+
+		&-images
+			margin-top: 25px
+
+		&-moderation__description
+			margin-top: 25px
+			font-size: 18px
+
+		&-statistics__image
+			margin-top: 25px
+
+	// main-master-payment
+	.main-master-payment
+		margin-top: 50px
+
+		&-title
+			&__title
+				font-size: 24px
+
+		&-content
+			margin-top: 25px
+
+			&-descriptions
+				&__description
+					font-size: 18px
+					margin-bottom: 25px
+
+			&-bottom
+				&__description
+					font-size: 18px
+
+	// main-security-courses
+	.main-security-courses
+		margin: 25px 0 
+		
+		&-text
+			&__link
+				width: 100%
+
+	// hobjob-good
+	.hobjob-good
+		margin: 35px 0
+
+		&__image
+			width: 100%
+
+	// main-categories
+	.main-categories
 		margin: 25px 0
 
 		&-text
@@ -865,29 +1109,22 @@
 			&__title
 				font-size: 24px
 
-			&-img
-				min-width: 100px
-				min-height: 100px
-
-			&__img
-				width: 50px
-
 	// main-faq
 	.main-faq
 		margin: 25px 0
 
 		&__title
-			font-size: 28px
+			font-size: 32px
 			margin-bottom: 25px
 
 		&-item
-			margin-bottom: 25px
+			padding: 20px 15px
 
 			&__title
 				font-size: 24px
 
 			&__description
-				font-size: 21px
+				font-size: 18px
 
 	// main-footer
 	.main-footer
@@ -906,8 +1143,20 @@
 	.footer
 		&-block
 			&-logos
-				align-items: flex-start
 				flex-direction: column
+
+			&-contact
+				margin-top: 35px
+
+				&-email-wrapper
+					text-align: center
+
+				&-social
+					margin-top: 35px
+					justify-content: center
+
+			&-subinfo
+				margin-top: 35px
 
 	// nagibinstudio
 	.nagibinstudio

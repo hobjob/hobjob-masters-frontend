@@ -21,6 +21,14 @@ export { default as HomeGoal } from "./Home/HomeGoal"
 export { default as HomeServices } from "./Home/HomeServices"
 export { default as HomeMaster } from "./Home/HomeMaster"
 export { default as HomeSecurityCourses } from "./Home/HomeSecurityCourses"
+export { default as HomeFaq } from "./Home/HomeFaq"
+export { default as HomeFooter } from "./Home/HomeFooter"
+// HomeCategories
+export { default as HomeCategories } from "./Home/HomeCategories/HomeCategories"
+export { default as HomeCategoriesItem } from "./Home/HomeCategories/HomeCategoriesItem"
+
+// HobJobGood
+export { default as HobJobGood } from "./HobJobGood/HobJobGood"
 
 // Login
 export { default as LoginForm } from "./Login/LoginForm"
@@ -41,10 +49,6 @@ export { default as PasswordRecoveryNewPasswordError } from "./PasswordRecovery/
 export { default as Header } from "./Header/Header"
 export { default as HeaderMenu } from "./Header/HeaderMenu"
 export { default as HeaderModalMenu } from "./Header/HeaderModalMenu"
-
-// Categories
-export { default as CategoriesSection } from "./Categories/CategoriesSection"
-export { default as CategoriesItem } from "./Categories/CategoriesItem"
 
 // Referrals
 export { default as ReferralsBlockLink } from "./Referrals/ReferralsBlockLink"

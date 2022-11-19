@@ -36,10 +36,7 @@ const Header = React.memo(() => {
         document.body.addEventListener("click", handHeaderModalMenu);
         document.body.addEventListener("click", handHeaderUserMenu);
 
-        if (
-            !Object.keys(masterInfo).length &&
-            localStorage.getItem("accessToken")
-        ) {
+        if (!isLoadedMasterInfo && localStorage.getItem("accessToken")) {
             dispatch(fetchMasterInfo());
         }
 
@@ -104,6 +101,9 @@ const Header = React.memo(() => {
                     closeModalMenu={closeModalMenu}
                     modalMenuAnimationState={modalMenuAnimationState}
                     clickLogout={clickLogout}
+                    isLogin={isLoadedMasterInfo}
+                    userAvatar={`${process.env.REACT_APP_IMAGE_DOMEN}/${masterInfo.avatar.size_512}`}
+                    draftsCount={masterInfo.draftsCount}
                 />
             ) : null}
 
@@ -215,8 +215,8 @@ const Header = React.memo(() => {
                                     ) : null}
                                 </div>
                             ) : (
-                                <a
-                                    href="/go/login"
+                                <Link
+                                    to="/go/login"
                                     className="header-login__link"
                                 >
                                     Войти в личный кабинет
@@ -232,7 +232,7 @@ const Header = React.memo(() => {
                                             fill="#D89350"
                                         />
                                     </svg>
-                                </a>
+                                </Link>
                             )}
 
                             <div

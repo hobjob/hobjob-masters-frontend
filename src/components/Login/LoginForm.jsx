@@ -54,6 +54,15 @@ let LoginForm = ({handleSubmit, registerLink}) => {
             ) : (
                 <button className="btn reglog-block__btn">Войти</button>
             )}
+
+            <div className="reglog-block-recovery">
+                <Link
+                    to="/go/password-recovery"
+                    className="reglog-block-recovery__link"
+                >
+                    Забыли пароль?
+                </Link>
+            </div>
         </form>
     );
 };

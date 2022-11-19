@@ -29,25 +29,16 @@ const Login = () => {
                 <section className="reglog">
                     <div className="container">
                         <div className="reglog-wrapper">
-                            <a href="/" className="reglog-logo">
+                            <Link to="/" className="reglog-logo">
                                 <img
                                     src={Logo}
                                     alt="HobJob"
                                     className="reglog-logo__img"
                                 />
-                            </a>
+                            </Link>
 
                             <div className="reglog-block-wrapper">
                                 <LoginForm onSubmit={onSubmit} />
-                            </div>
-
-                            <div className="reglog-bottom">
-                                <Link
-                                    to="/go/password-recovery"
-                                    className="reglog-bottom__link"
-                                >
-                                    Забыли пароль?
-                                </Link>
                             </div>
                         </div>
                     </div>

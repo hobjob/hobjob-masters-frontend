@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 import {Helmet} from "react-helmet";
 
@@ -35,24 +36,24 @@ const Login = () => {
     return (
         <>
             <Helmet>
-                <title>Анкета мастера - HobJob для мастеров</title>
+                <title>Регистрация - HobJob для мастеров</title>
             </Helmet>
             {!localStorage.getItem("accessToken") ? (
                 <section className="reglog">
                     <div className="container">
-                            <div className="reglog-wrapper">
-                                <a href="/" className="reglog-logo">
-                                    <img
-                                        src={Logo}
-                                        alt="HobJob"
-                                        className="reglog-logo__img"
-                                    />
-                                </a>
+                        <div className="reglog-wrapper">
+                            <Link to="/" className="reglog-logo">
+                                <img
+                                    src={Logo}
+                                    alt="HobJob"
+                                    className="reglog-logo__img"
+                                />
+                            </Link>
 
-                                <div className="reglog-block-wrapper">
-                                    <RegisterForm onSubmit={onSubmit} />
-                                </div>
+                            <div className="reglog-block-wrapper">
+                                <RegisterForm onSubmit={onSubmit} />
                             </div>
+                        </div>
                     </div>
                 </section>
             ) : (

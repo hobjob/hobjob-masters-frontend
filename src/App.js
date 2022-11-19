@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import React, { Suspense } from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 
 import { Header, Footer } from './components/';
 
@@ -9,10 +9,12 @@ import { Home, Login, Register, PasswordRecoveryEmail, PasswordRecoveryNewPasswo
 dotenv.config()
 
 const App = () => {
+	const { pathname } = useLocation();
+
 	return (
 		<>
 			{false ? <EngineeringWorks /> : <div className="wrapper">
-				{window.location.pathname.indexOf("/payment") !== -1 || window.location.pathname.indexOf("/login") !== -1 || window.location.pathname.indexOf("/register") !== -1 || window.location.pathname === "/go/password-recovery" || window.location.pathname.indexOf("/go/password-recovery") !== -1 ? null : <Header />}
+				{pathname.indexOf("/payment") !== -1 || pathname.indexOf("/login") !== -1 || pathname.indexOf("/register") !== -1 || pathname === "/go/password-recovery" || pathname.indexOf("/go/password-recovery") !== -1 ? null : <Header />}
 
 				<Suspense fallback={() => <></>}>
 					<Switch>
@@ -55,7 +57,7 @@ const App = () => {
 					</Switch>
 				</Suspense>
 
-				{window.location.pathname.indexOf("/payment") !== -1 || window.location.pathname.indexOf("/login") !== -1 || window.location.pathname.indexOf("/register") !== -1 || window.location.pathname === "/go/password-recovery" || window.location.pathname.indexOf("/go/password-recovery") !== -1 ? null : <Footer />}
+				{pathname.indexOf("/payment") !== -1 || pathname.indexOf("/login") !== -1 || pathname.indexOf("/register") !== -1 || pathname === "/go/password-recovery" || pathname.indexOf("/go/password-recovery") !== -1 ? null : <Footer />}
 			</div>}
 		</>
 	)
