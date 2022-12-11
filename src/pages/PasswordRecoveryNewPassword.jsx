@@ -1,6 +1,7 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
+import {useParams} from "react-router-dom";
 
 import {sendPasswordRecoveryNewPassword} from "../redux/actions/password_recovery";
 
@@ -11,12 +12,9 @@ import {
 
 import Logo from "../assets/images/logo.svg";
 
-const PasswordRecoveryNewPassword = ({
-    match: {
-        params: {hash},
-    },
-}) => {
+const PasswordRecoveryNewPassword = () => {
     const dispatch = useDispatch();
+	const {hash} = useParams();
 
     const {newPasswordStatus} = useSelector(
         ({password_recovery}) => password_recovery

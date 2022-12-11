@@ -1,7 +1,7 @@
 import React from "react";
-import {Prompt} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
+import {useParams} from "react-router-dom";
 
 import {
     EditRejectModerationCoursesErrorMessage,
@@ -14,12 +14,9 @@ import {
     sendUpdatePotencialCourse,
 } from "../redux/actions/potencial_courses";
 
-const EditRejectModerationCourses = ({
-    match: {
-        params: {id},
-    },
-}) => {
+const EditRejectModerationCourses = () => {
     const dispatch = useDispatch();
+	const {id} = useParams();
 
     const {
         isSendSubmitModerationCourse,
@@ -89,12 +86,12 @@ const EditRejectModerationCourses = ({
         <>
             {localStorage.getItem("accessToken") ? (
                 <>
-                    <Prompt
+                    {/* <Prompt
                         when={!isSendSubmitModerationCourse}
                         message={() =>
                             "У вас есть не сохраненные данные курса. Если вы перейдете на другую страницу данные не сохранятся."
                         }
-                    />
+                    /> */}
 
                     <Helmet>
                         <title>Изменить курс - HobJob для мастеров</title>

@@ -11,7 +11,7 @@ import draft from './draft';
 import confirmed_email from './confirmed_email';
 import video from './video';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
 	categories,
 	register,
 	login,
@@ -24,4 +24,4 @@ const rootReducer = combineReducers({
 	form: formReducer
 });
 
-export default rootReducer;
+export type RootState = ReturnType<typeof rootReducer>

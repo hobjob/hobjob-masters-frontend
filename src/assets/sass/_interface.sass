@@ -17,27 +17,22 @@ a
 	color: $black
 
 // title
-h1
+h1, h2, h3, h4, h5, h6
 	line-height: 1.2em
 	font-weight: 400
 	+PtSerif
 
-h2, h3, h4, h5, h6
-	line-height: 1.3em
-	font-weight: 400
-	+PtSerif
-
 .title
-	font-size: 58px
-	
+	font-size: 52px
+
 	& span
 		white-space: nowrap
-		padding-left: 15px
+		margin-left: 15px
 		font-size: 32px
 		color: $gray
 
 .title__mb
-	font-size: 58px
+	font-size: 52px
 	margin-bottom: 50px
 
 	& span
@@ -109,6 +104,9 @@ li
 	user-select: none
 	text-align: center
 	font-size: 17px
+
+	will-change: transform
+
 	+borderRadius
 	+SfRegular
 	+transition
@@ -139,6 +137,9 @@ li
 		user-select: none
 		text-align: center
 		font-size: 17px
+
+		will-change: transform
+
 		+borderRadius
 		+SfRegular
 		+transition
@@ -169,6 +170,9 @@ li
 	user-select: none
 	text-align: center
 	font-size: 17px
+
+	will-change: transform
+
 	+borderRadius
 	+SfRegular
 	+transition
@@ -214,6 +218,9 @@ li
 	user-select: none
 	text-align: center
 	font-size: 17px
+
+	will-change: transform
+
 	+borderRadius
 	+SfRegular
 	+transition
@@ -236,6 +243,8 @@ li
 
 	cursor: pointer
 	line-height: 1.4em
+
+	will-change: transform
 
 	+borderRadius
 	+SfRegular
@@ -260,6 +269,8 @@ li
 
 	cursor: pointer
 	line-height: 1.4em
+
+	will-change: transform
 
 	+borderRadius
 	+SfRegular
@@ -309,6 +320,8 @@ li
 	cursor: pointer
 	line-height: 1.4em
 
+	will-change: transform
+
 	+SfRegular
 	+transition
 
@@ -323,6 +336,38 @@ li
 		border: 1px solid $borderGray
 		background-color: $borderGray
 		color: $gray
+
+.btn-small-round-gray
+	display: inline-flex
+	justify-content: center
+	align-items: center
+
+	border: none
+	text-align: center
+	border-radius: 100px
+	user-select: none
+
+	padding: 13px 23px
+	font-size: 17px
+
+	background-color: $borderGray
+	border: 1px solid $borderGray
+	color: $black
+
+	cursor: pointer
+	line-height: 1.4em
+
+	will-change: transform
+
+	+SfRegular
+	+transition
+
+	&:active
+		+transformScale
+
+	&:hover
+		background-color: #e3e3e3
+		border: 1px solid #e3e3e3
 
 .btn-small-round-delete
 	display: inline-flex
@@ -342,6 +387,8 @@ li
 
 	cursor: pointer
 	line-height: 1.4em
+
+	will-change: transform
 
 	+SfRegular
 	+transition
@@ -367,6 +414,8 @@ li
 
 	cursor: pointer
 	line-height: 1.4em
+
+	will-change: transform
 
 	+SfRegular
 	+transition
@@ -405,7 +454,8 @@ input:-webkit-autofill:active
 		+transition
 		+SfRegular
 
-		&.focus ~ label,
+		&:focus ~ label,
+		&:valid ~ label
 			top: -15px
 			font-size: 16px
 
@@ -646,15 +696,15 @@ input[type="file"]
 // nagibinstudio
 .nagibinstudio
 	margin-top: 50px
+
+	will-change: transform
+
 	+transition
 
 	&:active
 		+transformScale
 
 // loader
-.loader-small-wrapper
-	+openAnimation
-
 .ball-pulse
 	display: flex
 	justify-content: center
@@ -691,3 +741,210 @@ input[type="file"]
 
 		&__description
 			margin-bottom: 100px
+
+// video-player
+.video-player
+	position: relative
+	width: 100%
+
+	&:hover &-content-quality
+		opacity: 1
+		z-index: 2
+
+	&:hover &-content-quality-select
+		opacity: 1
+		z-index: 2
+
+	&-content
+		& video
+			overflow: hidden
+
+			+borderRadiusBlock
+			+transition
+
+		&-quality
+			opacity: 0
+
+			cursor: pointer
+
+			background-color: $backgroundGray
+			padding: 5px 10px
+
+			z-index: -1
+
+			position: absolute
+
+			top: 10px
+			left: 10px
+
+			+borderRadiusBlock
+			+transition
+
+			&:active
+				transform: scale(0.90)
+
+			&__title
+				display: flex
+				align-items: center
+
+				user-select: none
+
+				& span
+					font-size: 13px
+					margin-left: 5px
+
+					background-color: $mainColor
+					color: $white
+					padding: 0 5px
+
+					border-radius: 100px
+
+		&-quality-select
+			opacity: 0
+
+			cursor: pointer
+
+			background-color: $backgroundGray
+			padding: 5px 15px
+
+			z-index: -1
+
+			position: absolute
+
+			top: 50px
+			left: 10px
+
+			width: 150px
+
+			+openPopup
+			+borderRadiusBlock
+			+transition
+
+			&.close
+				+closePopup
+
+			&-item
+				cursor: pointer
+				padding: 5px 0
+
+				&:hover &__title
+					color: $gray
+
+				&__title
+					user-select: none
+					+transition
+
+					& span
+						font-size: 13px
+						margin-left: 5px
+
+						background-color: $mainColor
+						color: $white
+						padding: 0 5px
+
+						border-radius: 100px
+
+// category
+.category
+	cursor: pointer
+	display: inline-block
+	border: 1px solid $mainColor
+	padding: 8px 16px
+	color: $mainColor
+	border-radius: 100px
+	font-size: 18px
+
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+	will-change: transform
+
+	+transition
+	+SfRegular
+
+	&:hover
+		+transformScale
+
+.category-small
+	cursor: pointer
+	display: inline-block
+	border: 1px solid $mainColor
+	padding: 8px 12px
+	color: $mainColor
+	border-radius: 100px
+	font-size: 14px
+
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+	will-change: transform
+
+	+transition
+
+	&:hover
+		+transformScale
+
+.category-btn
+	white-space: nowrap
+	display: inline-block
+	border: none
+	border: 1px solid $mainColor
+	background-color: transparent
+	padding: 12px 20px
+	color: $mainColor
+	cursor: pointer
+	user-select: none
+	font-size: 18px
+	border-radius: 100px
+
+	will-change: transform
+
+	+SfRegular
+	+transition
+	+openAnimation
+
+	&:active
+		+transformScale
+
+	&:hover
+		background-color: $mainColor
+		color: $white
+
+	&.active
+		background-color: $mainColor
+		color: $white
+
+// socials
+.socials-read
+	&-item
+		margin-right: 15px
+
+		padding: 8px 12px
+
+		background-color: $backgroundGray
+
+		display: inline-flex
+		align-items: center
+
+		font-size: 18px
+
+		border-radius: 15px
+
+		will-change: transform
+
+		+transition
+
+		&:last-child
+			margin-right: 0
+
+		&:active
+			+transformScale
+
+		& > img
+			width: 120px
+			margin-left: 10px
+
+			user-select: none
+			pointer-events: none

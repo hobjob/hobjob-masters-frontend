@@ -1,16 +1,15 @@
 import React from "react";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
+import {useParams} from "react-router-dom";
 
 import {
     CourseRegulationsMenu,
     CourseRegulationsContentItem,
 } from "../components/";
 
-const CourseRegulations = ({
-    match: {
-        params: {blockId},
-    },
-}) => {
+const CourseRegulations = () => {
+	const {blockId} = useParams();
+
     React.useEffect(() => {
         if (blockId) {
             const element = document.getElementById(blockId);

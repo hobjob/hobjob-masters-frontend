@@ -1,16 +1,4 @@
 // media
-@media screen and ( max-width: 1400px )
-	// header
-	.header
-		&-nav
-			display: none
-
-		&-menu-button
-			display: block
-
-		&-user-menu
-			display: none
-
 @media screen and ( max-width: 1300px )
 	// moderations-courses
 	.moderations-courses
@@ -39,6 +27,17 @@
 				width: 100%
 
 @media screen and ( max-width: 1200px )
+	// header
+	.header
+		&-nav
+			display: none
+
+		&-menu-button
+			display: block
+
+		&-user-menu
+			display: none
+
 	// hobjob-good
 	.hobjob-good
 		&-wrapper
@@ -410,7 +409,7 @@
 							&-image
 								min-width: 40px
 								height: 40px
-		
+
 	// main-footer
 	.main-footer
 		&-block
@@ -560,6 +559,21 @@
 	// footer
 	.footer
 		&-block
+			flex-direction: column
+			align-items: center
+
+			&-logos
+				display: flex
+				flex-direction: column
+				align-items: center
+
+				margin-bottom: 50px
+
+			&-contact
+				display: flex
+				flex-direction: column
+				align-items: center
+
 			&-subinfo
 				flex-direction: column
 				align-items: center
@@ -617,27 +631,18 @@
 				&__image
 					width: 100%
 
-	// footer
-	.footer
-		&-block
-			flex-direction: column
-
-			&-logos
-				display: flex
-				align-items: center
-
-			&-contact
-				margin-top: 75px
-
-			&-social
-				margin-top: 25px
-
-	// nagibinstudio
-	.nagibinstudio
-		margin-top: 0
-		margin-left: 50px
-
 @media screen and ( max-width: 700px )
+	// interface
+	.socials-read
+		&-item
+			justify-content: center
+
+			margin-right: 0
+			margin-bottom: 15px
+
+			&:last-child
+				margin-bottom: 0
+
 	// header
 	.header
 		&-modal-menu
@@ -659,10 +664,50 @@
 					&-user
 						order: 1
 
+			&-socials
+				&-read
+					width: 100%
+
+					display: flex
+					flex-direction: column
+					align-items: flex-start
+
 	// reglog
 	.reglog
 		&-block-wrapper
 			width: 100%
+
+	// footer
+	.footer
+		&-block
+			&-contact
+				width: 100%
+
+				&-email-wrapper
+					flex-direction: column
+					align-items: center
+
+					width: 100%
+
+				&-email
+					display: block
+
+					text-align: center
+
+					min-width: 300px
+
+					margin-bottom: 15px
+					margin-right: 0
+
+					&:last-child
+						margin-bottom: 0
+
+				&-socials-read
+					width: 100%
+
+					display: flex
+					flex-direction: column
+					align-items: center
 
 @media screen and ( max-width: 650px )
 	// main-offer
@@ -756,10 +801,6 @@
 
 	// header
 	.header
-		&-modal-menu
-			&-content
-				width: 100%
-
 		&-login
 			&__link
 				font-size: 16px
@@ -768,6 +809,15 @@
 
 		&-menu-button
 			margin-left: 15px
+
+		&-modal
+			&-menu
+				&-social
+					&__link
+						margin-right: 15px
+
+						& > svg
+							width: 50px
 
 	// reglog
 	.reglog
@@ -996,7 +1046,7 @@
 
 	// main-master
 	.main-master
-		margin: 25px 0 
+		margin: 25px 0
 
 		&-wrapper
 			padding: 20px 15px
@@ -1078,8 +1128,8 @@
 
 	// main-security-courses
 	.main-security-courses
-		margin: 25px 0 
-		
+		margin: 25px 0
+
 		&-text
 			&__link
 				width: 100%
@@ -1139,25 +1189,6 @@
 			&__description
 				font-size: 21px
 
-	// footer
-	.footer
-		&-block
-			&-logos
-				flex-direction: column
-
-			&-contact
-				margin-top: 35px
-
-				&-email-wrapper
-					text-align: center
-
-				&-social
-					margin-top: 35px
-					justify-content: center
-
-			&-subinfo
-				margin-top: 35px
-
 	// nagibinstudio
 	.nagibinstudio
 		margin-left: 0
@@ -1173,19 +1204,8 @@
 				font-size: 12px
 
 @media screen and ( max-width: 400px )
-	// header
-	.header
-		&-modal-menu
-			&-content
-				padding: 25px
-
-	// footer
-	.footer
-		&-block
-			&-contact
-				&-social
-					&__link
-						margin-right: 15px
-
-						& > svg
-							width: 40px
+	// hobjob-good
+	.hobjob-good
+		&-text
+			&__title
+				font-size: 30px !important

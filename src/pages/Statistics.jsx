@@ -1,5 +1,5 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -48,7 +48,7 @@ const Statistics = () => {
                                             <StatisticsCourses />
                                         </>
                                     ) : (
-                                        <Redirect to="/go/moderations-courses" />
+                                        <Navigate to="/go/moderations-courses" />
                                     )
                                 ) : (
                                     <Loader />

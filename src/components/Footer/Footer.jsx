@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
 
-import {Instagram, Vk, TikTok, Telegram, Youtube} from "../";
+import {Instagram, TikTok, Telegram, Youtube, ReadDzen, ReadVk} from "../";
 
 import Logo from "../../assets/images/logo.svg";
 import LogoNagibin from "../../assets/images/nagibin-develompent.svg";
@@ -47,53 +47,46 @@ const Footer = () => {
 
                         <div className="footer-block-contact">
                             <div className="footer-block-contact-email-wrapper">
-                                <div className="footer-block-contact-email">
+                                <a
+                                    href="mailto:support@hobjob.ru"
+                                    className="footer-block-contact-email"
+                                >
                                     <span className="subtitle footer-block-contact-email__subtitle">
                                         Служба поддержки
                                     </span>
-                                    <a
-                                        href="mailto:support@hobjob.ru"
-                                        className="footer-block-contact-email__email"
-                                    >
+                                    <span className="footer-block-contact-email__email">
                                         support@hobjob.ru
-                                    </a>
-                                </div>
-                                <div className="footer-block-contact-email">
+                                    </span>
+                                </a>
+                                <a
+                                    href="mailto:hello@hobjob.ru"
+                                    className="footer-block-contact-email"
+                                >
                                     <span className="subtitle footer-block-contact-email__subtitle">
                                         Для вопросов и предложений
                                     </span>
-                                    <a
-                                        href="mailto:hello@hobjob.ru"
-                                        className="footer-block-contact-email__email"
-                                    >
+                                    <span className="footer-block-contact-email__email">
                                         hello@hobjob.ru
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="footer-block-contact-social">
-                                <a
-                                    href={process.env.REACT_APP_SOCIALS_VK}
-                                    className="footer-block-contact-social__link"
-                                >
-                                    <Vk />
+                                    </span>
                                 </a>
-
+                            </div>
+                            <div className="footer-block-contact-socials">
                                 <a
                                     href={process.env.REACT_APP_SOCIALS_INST}
-                                    className="footer-block-contact-social__link"
+                                    className="footer-block-contact-socials__link"
                                 >
                                     <Instagram />
                                 </a>
 
                                 <a
                                     href={process.env.REACT_APP_SOCIALS_YOUTUBE}
-                                    className="footer-block-contact-social__link"
+                                    className="footer-block-contact-socials__link"
                                 >
                                     <Youtube />
                                 </a>
                                 <a
                                     href={process.env.REACT_APP_SOCIALS_TIKTOK}
-                                    className="footer-block-contact-social__link"
+                                    className="footer-block-contact-socials__link"
                                 >
                                     <TikTok />
                                 </a>
@@ -102,10 +95,15 @@ const Footer = () => {
                                     href={
                                         process.env.REACT_APP_SOCIALS_TELEGRAM
                                     }
-                                    className="footer-block-contact-social__link"
+                                    className="footer-block-contact-socials__link"
                                 >
                                     <Telegram />
                                 </a>
+                            </div>
+
+                            <div className="footer-block-contact-socials-read">
+                                <ReadDzen />
+                                <ReadVk />
                             </div>
                         </div>
 

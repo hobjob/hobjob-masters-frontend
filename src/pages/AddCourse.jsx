@@ -1,5 +1,4 @@
 import React from "react";
-import {Prompt} from "react-router-dom";
 import {useDispatch, useSelector, connect} from "react-redux";
 import {getFormValues} from "redux-form";
 import {Helmet} from "react-helmet";
@@ -126,14 +125,14 @@ const AddCourse = ({values}) => {
         <>
             {localStorage.getItem("accessToken") ? (
                 <>
-                    <Prompt
+                    {/* <Prompt
                         when={
                             !isSendCreateDraft || !isSendSubmitModerationCourse
                         }
                         message={() =>
                             "У вас есть не сохраненные данные курса. Если вы перейдете на другую страницу данные не сохранятся."
                         }
-                    />
+                    /> */}
 
                     <Helmet>
                         <title>Добавить курс - HobJob для мастеров</title>

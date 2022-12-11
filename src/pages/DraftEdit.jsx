@@ -1,7 +1,8 @@
 import React from "react";
-import {Prompt} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import {useDispatch, useSelector, connect} from "react-redux";
 import {getFormValues, getFormMeta} from "redux-form";
+import {useParams} from "react-router-dom";
 
 import {Helmet} from "react-helmet";
 
@@ -15,16 +16,13 @@ import {
 
 import {sendSubmitModerationCourse} from "../redux/actions/potencial_courses";
 import {fetchDraftById, sendUpdateDraft} from "../redux/actions/draft";
-import {Redirect} from "react-router-dom";
 
 const DraftEdit = ({
-    match: {
-        params: {id},
-    },
     values,
     fields,
 }) => {
     const dispatch = useDispatch();
+	const {id} = useParams();
 
     const {isLoadedAllCategories, itemsArray} = useSelector(
         ({categories}) => categories
@@ -201,12 +199,12 @@ const DraftEdit = ({
                         masterInfo.confirmedEmail ? (
                             Object.keys(itemById).length ? (
                                 <>
-                                    <Prompt
+                                    {/* <Prompt
                                         when={isLoadsGlobal}
                                         message={() =>
                                             "У вас есть не сохраненные данные курса. Если вы перейдете на другую страницу данные не сохранятся."
                                         }
-                                    />
+                                    /> */}
 
                                     <Helmet>
                                         <title>
@@ -241,7 +239,7 @@ const DraftEdit = ({
                                     </section>
                                 </>
                             ) : (
-                                <Redirect to="/go/drafts" />
+                                <Navigate to="/go/drafts" />
                             )
                         ) : (
                             <ConfirmedEmail />

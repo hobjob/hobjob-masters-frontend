@@ -2,6 +2,8 @@ import { SubmissionError } from 'redux-form'
 
 import $api from '../../http/';
 
+import { DraftActionTypes, DraftActions } from '../types/draft/IDraft'
+
 export const fetchMasterInfo = () => (dispatch) => {
 	$api.get("/masters/my/info").then(({ data }) => {
 		dispatch(setMasterInfo(data))
@@ -19,7 +21,7 @@ export const fetchMasterDraftsCourses = () => (dispatch) => {
 		dispatch(setMasterDraftsCourses(data))
 
 		dispatch({
-			type: "SET_IS_SEND_DELETE_DRAFT",
+			type: DraftActionTypes.SET_IS_SEND_DELETE_DRAFT,
 			payload: false
 		})
 	})

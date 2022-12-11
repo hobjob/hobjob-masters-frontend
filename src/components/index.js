@@ -8,12 +8,14 @@ export { default as RenderVideoInput } from "./All/RenderVideoInput"
 export { default as RenderSelect } from "./All/RenderSelect"
 export { default as FileInput } from "./All/FileInput"
 export { default as BtnLoader } from "./All/BtnLoader"
-// Icons
-export { default as Instagram } from "./All/Icons/Instagram"
-export { default as Telegram } from "./All/Icons/Telegram"
-export { default as TikTok } from "./All/Icons/TikTok"
-export { default as Vk } from "./All/Icons/Vk"
-export { default as Youtube } from "./All/Icons/Youtube"
+// Socials
+export { default as Instagram } from "./All/Socials/Instagram"
+export { default as Telegram } from "./All/Socials/Telegram"
+export { default as TikTok } from "./All/Socials/TikTok"
+export { default as Vk } from "./All/Socials/Vk"
+export { default as Youtube } from "./All/Socials/Youtube"
+export { default as ReadDzen } from "./All/Socials/ReadDzen"
+export { default as ReadVk } from "./All/Socials/ReadVk"
 
 // Home
 export { default as HomeOffer } from "./Home/HomeOffer"
