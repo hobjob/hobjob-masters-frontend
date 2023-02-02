@@ -58,6 +58,7 @@ const RenderInput = ({
                         disabled={disabled ? true : false}
                         onBlur={onBlurInput(input.onBlur)}
                         onFocus={onFocusInput(input.onFocus)}
+                        required
                     />
                 )}
                 <label
