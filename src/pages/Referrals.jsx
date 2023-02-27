@@ -26,7 +26,7 @@ const Referrals = () => {
     return (
         <>
             <Helmet>
-                <title>Пригласи друга - HobJob для мастеров</title>
+                <title>Реферальная программа - HobJob для мастеров</title>
             </Helmet>
 
             {localStorage.getItem("accessToken") ? (
@@ -70,7 +70,7 @@ const Referrals = () => {
                                     <ReferralsBlockLink {...masterInfo} />
                                 </div>
 
-                                <ReferralsPartners referrals={referrals} />
+                                {/* <ReferralsPartners referrals={referrals} /> */}
                             </div>
                         </div>
                     </section>

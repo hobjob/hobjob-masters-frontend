@@ -36,7 +36,10 @@ const RenderInput = ({
 
     return (
         <>
-            <div style={{position: "relative"}}>
+            <div
+                style={{position: "relative"}}
+                className={`input ${touchedInput && error ? "error" : ""}`}
+            >
                 {autoSize ? (
                     <TextareaAutosize
                         {...input}
@@ -45,6 +48,7 @@ const RenderInput = ({
                             touchedInput && error ? "error" : ""
                         } ${valueInput !== "" || focusInput ? "focus" : ""}`}
                         disabled={disabled ? true : false}
+                        placeholder={label}
                         onBlur={onBlurInput(input.onBlur)}
                         onFocus={onFocusInput(input.onFocus)}
                     />
@@ -52,22 +56,13 @@ const RenderInput = ({
                     <input
                         {...input}
                         type={passwordState ? "text" : type}
-                        className={`input__field ${classNameInput} ${
-                            touchedInput && error ? "error" : ""
-                        } ${valueInput !== "" || focusInput ? "focus" : ""}`}
+                        className={`input__field ${classNameInput}`}
+                        placeholder={label}
                         disabled={disabled ? true : false}
                         onBlur={onBlurInput(input.onBlur)}
                         onFocus={onFocusInput(input.onFocus)}
-                        required
                     />
                 )}
-                <label
-                    className={`input__label ${
-                        touchedInput && error ? "error" : ""
-                    } ${disabled ? "active" : ""}`}
-                >
-                    {label}
-                </label>
 
                 {type === "password" ? (
                     <div className="input-state">

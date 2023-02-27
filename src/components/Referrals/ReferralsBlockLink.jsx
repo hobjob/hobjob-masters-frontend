@@ -39,7 +39,10 @@ const ReferralsBlockLink = ({_id}) => {
 
                 <h3 className="referrals-info-block-link-balance__number">
                     <NumberFormat
-                        value={masterInfo.balance[0].sum.referrals}
+                        value={
+                            masterInfo.balance[0].sum.referrals.buy +
+                            masterInfo.balance[0].sum.referrals.subscribe
+                        }
                         displayType={"text"}
                         thousandSeparator={" "}
                     />{" "}

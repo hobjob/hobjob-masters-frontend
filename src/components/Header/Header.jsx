@@ -219,7 +219,7 @@ const Header = React.memo(() => {
                                     to="/go/login"
                                     className="header-login__link"
                                 >
-                                    Войти в личный кабинет
+                                    Войти
                                     <svg
                                         width="21"
                                         height="10"
