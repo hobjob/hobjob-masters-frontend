@@ -26,6 +26,19 @@
 			&-text
 				width: 100%
 
+@media screen and ( max-width: 1250px )
+	// footer
+	.footer
+		&-block
+			&-menu
+				margin-left: 50px
+
+				&-subblock
+					margin-left: 25px
+
+			&-emails
+				margin-left: 50px
+
 @media screen and ( max-width: 1200px )
 	// header
 	.header
@@ -382,12 +395,15 @@
 
 	// footer
 	.footer
-		&-block
-			&-nav
-				display: none
+		&-block-wrapper
+			flex-direction: column
 
-			&-contact
-				margin: 0
+		&-block-menu-wrapper
+			order: 2
+
+		&-block-socials-wrapper
+			order: 1
+			margin-bottom: 50px
 
 @media screen and ( max-width: 900px )
 	// header
@@ -556,37 +572,6 @@
 		&-wrapper
 			width: 100%
 
-	// footer
-	.footer
-		&-block
-			flex-direction: column
-			align-items: center
-
-			&-logos
-				display: flex
-				flex-direction: column
-				align-items: center
-
-				margin-bottom: 50px
-
-			&-contact
-				display: flex
-				flex-direction: column
-				align-items: center
-
-			&-subinfo
-				flex-direction: column
-				align-items: center
-
-				&-block
-					margin-top: 15px
-					text-align: center
-
-				&-block
-					&__link
-						display: block
-						margin: 10px 0 0 0
-
 @media screen and ( max-width: 800px )
 	// interface
 	.title, .title__mb
@@ -618,6 +603,22 @@
 
 				&:last-child
 					margin-bottom: 0
+
+	// footer
+	.footer
+		&-block
+			flex-direction: column
+
+			&-menu
+				margin-top: 35px
+				margin-left: 0
+
+			&-emails
+				margin-top: 50px
+				margin-left: 0
+
+			&-subinfo
+				margin-top: 25px
 
 @media screen and ( max-width: 750px )
 	// potencial-courses
@@ -676,38 +677,6 @@
 	.reglog
 		&-block-wrapper
 			width: 100%
-
-	// footer
-	.footer
-		&-block
-			&-contact
-				width: 100%
-
-				&-email-wrapper
-					flex-direction: column
-					align-items: center
-
-					width: 100%
-
-				&-email
-					display: block
-
-					text-align: center
-
-					min-width: 300px
-
-					margin-bottom: 15px
-					margin-right: 0
-
-					&:last-child
-						margin-bottom: 0
-
-				&-socials-read
-					width: 100%
-
-					display: flex
-					flex-direction: column
-					align-items: center
 
 @media screen and ( max-width: 650px )
 	// main-offer
@@ -769,6 +738,24 @@
 			&-form
 				&-block
 					padding: 30px 15px
+
+	// footer
+	.footer
+		&-block
+			&-subinfo
+				flex-direction: column
+
+				&-block
+					&:first-child
+						margin-bottom: 15px
+
+					&__link
+						display: block
+						margin-left: 0
+						margin-bottom: 10px
+
+						&:last-child
+							margin-bottom: 0
 
 @media screen and ( max-width: 500px )
 	// interface
@@ -1189,10 +1176,31 @@
 			&__description
 				font-size: 21px
 
-	// nagibinstudio
-	.nagibinstudio
-		margin-left: 0
-		margin-top: 50px
+	// footer
+	.footer
+		&-block-wrapper
+			align-items: stretch
+
+		&-block
+			&-menu
+				width: 100%
+				flex-direction: column
+
+				&-subblock
+					margin-left: 0
+					padding-bottom: 25px
+					margin-bottom: 25px
+
+					border-bottom: 1px solid $borderGray
+
+					&:last-child
+						margin-bottom: 0
+
+			&-emails
+				margin-top: 25px
+
+			&-socials-wrapper
+				margin-bottom: 35px
 
 @media screen and ( max-width: 450px )
 	// reglog

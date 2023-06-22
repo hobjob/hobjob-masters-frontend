@@ -11,11 +11,9 @@ export { default as BtnLoader } from "./All/BtnLoader"
 // Socials
 export { default as Instagram } from "./All/Socials/Instagram"
 export { default as Telegram } from "./All/Socials/Telegram"
-export { default as TikTok } from "./All/Socials/TikTok"
 export { default as Vk } from "./All/Socials/Vk"
 export { default as Youtube } from "./All/Socials/Youtube"
-export { default as ReadDzen } from "./All/Socials/ReadDzen"
-export { default as ReadVk } from "./All/Socials/ReadVk"
+export { default as Dzen } from "./All/Socials/Dzen"
 
 // Home
 export { default as HomeOffer } from "./Home/HomeOffer"

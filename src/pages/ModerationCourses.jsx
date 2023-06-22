@@ -65,13 +65,6 @@ const ModerationCourses = () => {
                                                                 ) => (
                                                                     <ModerationCoursesBlock
                                                                         {...course}
-                                                                        category={
-                                                                            categories[
-                                                                                course
-                                                                                    .category
-                                                                            ]
-                                                                                .title
-                                                                        }
                                                                         key={`moderations-courses-block-${index}`}
                                                                     />
                                                                 )

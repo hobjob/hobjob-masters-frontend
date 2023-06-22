@@ -102,7 +102,7 @@ const AddCourseLessonsFormItems = ({fields}) => {
                             Видео
                         </h3>
 
-                        <div className="potencial-courses-block-form-block-input">
+                        {/* <div className="potencial-courses-block-form-block-input">
                             <Field
                                 component={RenderVideoInput}
                                 name={`${lesson}.video`}
@@ -110,7 +110,7 @@ const AddCourseLessonsFormItems = ({fields}) => {
                                 url={`/potencial-courses/temp/drafts/upload-video`}
                                 lessonIndex={index}
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             ))}

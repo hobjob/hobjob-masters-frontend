@@ -111,14 +111,14 @@ const CabinetCardUserInfo = ({avatar, name, surname, email, socials, edit}) => {
                             </a>
                         ) : null}
 
-                        {socials.tiktok ? (
+                        {/* {socials.tiktok ? (
                             <a
                                 href={socials.tiktok}
                                 className="cabinet-card-user-info-text-socials__link"
                             >
                                 <TikTok />
                             </a>
-                        ) : null}
+                        ) : null} */}
 
                         {socials.telegram ? (
                             <a
